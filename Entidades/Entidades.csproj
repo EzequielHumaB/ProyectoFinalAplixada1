@@ -70,7 +70,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Contratos.cs" />
+    <Compile Include="Departamentos.cs" />
     <Compile Include="Empleados.cs" />
+    <Compile Include="Horarios.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

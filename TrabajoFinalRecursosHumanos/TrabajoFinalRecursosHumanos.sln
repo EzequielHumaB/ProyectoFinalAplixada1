@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrabajoFinalRecursosHumanos
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "..\Entidades\Entidades.csproj", "{2C8DF30E-B584-4377-AA85-483FAC67991A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecursosHumanosContexto", "..\RecursosHumanosDB\RecursosHumanosContexto.csproj", "{47733344-3472-4C4C-9FAB-03D19EECDC1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2C8DF30E-B584-4377-AA85-483FAC67991A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C8DF30E-B584-4377-AA85-483FAC67991A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C8DF30E-B584-4377-AA85-483FAC67991A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47733344-3472-4C4C-9FAB-03D19EECDC1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47733344-3472-4C4C-9FAB-03D19EECDC1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47733344-3472-4C4C-9FAB-03D19EECDC1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47733344-3472-4C4C-9FAB-03D19EECDC1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
