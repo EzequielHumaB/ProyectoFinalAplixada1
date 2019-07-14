@@ -151,22 +151,54 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
+            Empleados empleados
+                ;
+            bool paso = false;
 
+            if (!Validar())
+                return;
+
+            empleados = LlenarClase();
+
+            if (IdnumericUpDown.Value == 0)
+            {
+                paso = EmpleadosBLL.Guardar(empleados);
+                MessageBox.Show("Guardado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                int id = Convert.ToInt32(IdnumericUpDown.Value);
+                empleados = EmpleadosBLL.Buscar(id);
+                if (empleados != null)
+                {
+                    paso = EmpleadosBLL.Modificar(LlenarClase());
+                    MessageBox.Show("Modificado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                    MessageBox.Show("Id no existe", "Falló", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (paso)
+            {
+                Limpiar();
+            }
+            else
+                MessageBox.Show("No se pudo guardar!!", "Fallo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void AgregarenelGridbutton_Click(object sender, EventArgs e)
         {
             if (DetalledataGridView.DataSource != null)
                 this.Horarios = (List<Horarios>)DetalledataGridView.DataSource;
-          
+
             this.Horarios.Add(
                 new Horarios(
-                    IdHorario: 0,
-                    FechasHorario: 
+                    IdHorario:0,
+                    FechasHorario:(DateTime)HorariocomboBox.SelectedValue,
                     IdEmpleado: (int)IdnumericUpDown.Value,
-                    IdContrato: (int)IdContratonumericUpDown.Value,
-                   )
-               );
+                    IdContrato:(int)IdContratonumericUpDown.Value
+                    ));
             CargarGrid();
             IdnumericUpDown.Focus();
         }
@@ -194,6 +226,49 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         {
             var listado = new List<Horarios>();
         }
-     
+
+        private void Eliminarbutton_Click(object sender, EventArgs e)
+        {
+            int id;
+            id = (int)IdnumericUpDown.Value;
+            Limpiar();
+            try
+            {
+                if (EmpleadosBLL.Eliminar(id))
+                {
+                    MessageBox.Show("Eliminado correctamente");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se pudo eliminar");
+            }
+        }
+
+        private void Buscarbutton_Click(object sender, EventArgs e)
+        {
+            int id;
+            Empleados empleados = new Empleados();
+            int.TryParse(IdnumericUpDown.Text, out id);
+            //id = (int)IDnumericUpDown.Value;
+            Limpiar();
+            try
+            {
+                empleados = EmpleadosBLL.Buscar(id);
+                if (empleados != null)
+                {
+                    MessageBox.Show("Inscripcion encontrado");
+                    LlenarCampo(empleados);
+                }
+                else
+                {
+                    MessageBox.Show("Inscripcion no encontrada");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No existe el producto");
+            }
+        }
     }
 }
