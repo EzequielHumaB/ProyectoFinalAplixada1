@@ -12,9 +12,9 @@ using TrabajoFinalRecursosHumanos.BLL;
 
 namespace TrabajoFinalRecursosHumanos.UI.Registros
 {
-    public partial class ContratoFormulario : Form
+    public partial class HorariosFormulario : Form
     {
-        public ContratoFormulario()
+        public HorariosFormulario()
         {
             InitializeComponent();
         }
@@ -22,9 +22,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         private void Limpiar()
         {
             IdnumericUpDown.Value = 0;
-            SegurotextBox.Text = string.Empty;
-            DescripciontextBox.Text = string.Empty;
-            SueldonumericUpDown.Value = 0;
+            HorariodateTimePicker.Value = DateTime.Now;
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)
@@ -32,70 +30,67 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             Limpiar();
         }
 
-        public Contratos LlenarClase()
+        private Horarios LlenarClase()
         {
-            Contratos contratos = new Contratos();
-            contratos.ContratoId = (int)IdnumericUpDown.Value;
-            contratos.DescripcionContrato = DescripciontextBox.Text;
-            contratos.Seguro = SegurotextBox.Text;
-            contratos.Sueldo = SueldonumericUpDown.Value;
-            return contratos;
+            Horarios horarios = new Horarios();
+            horarios.HorarioId = (int)IdnumericUpDown.Value;
+            horarios.HorarioFechas = (DateTime)HorariodateTimePicker.Value;
+            return horarios;
         }
 
-        private void LlenarCampo(Contratos contratos)
+        private void LlenarCampo(Horarios horarios)
         {
-            IdnumericUpDown.Value = contratos.ContratoId;
-            DescripciontextBox.Text = contratos.DescripcionContrato;
-            SegurotextBox.Text = contratos.Seguro;
-            SueldonumericUpDown.Value = contratos.Sueldo;
+            IdnumericUpDown.Value = horarios.HorarioId;
+            HorariodateTimePicker.Value = horarios.HorarioFechas;
         }
 
         private bool Validar()
         {
             bool paso = true;
-            if(string.IsNullOrEmpty(DescripciontextBox.Text))
+            if (HorariodateTimePicker.Value.Day == 7)
             {
-                MyErrorProvider.SetError(DescripciontextBox, "La descripcion no puede estar vacia");
-                DescripciontextBox.Focus();
+                MessageBox.Show("El domingo no se trabaja");
+                HorariodateTimePicker.Focus();
                 paso = false;
             }
-            if(string.IsNullOrEmpty(SegurotextBox.Text))
+            if (HorariodateTimePicker.Value.Hour >= 22)
             {
-                MyErrorProvider.SetError(SegurotextBox,"El seguro no puede estar vacio");
-                SegurotextBox.Focus();
+                MessageBox.Show("A esa hora no se trabaja");
+                HorariodateTimePicker.Focus();
                 paso = false;
             }
-            if(SueldonumericUpDown.Value == 0)
+            if (HorariodateTimePicker.Value.Hour < 7)
             {
-                MyErrorProvider.SetError(SueldonumericUpDown,"El sueldo no puede ser cero");
-                SueldonumericUpDown.Focus();
+                MessageBox.Show("A esa hora no se trabaja");
+                HorariodateTimePicker.Focus();
                 paso = false;
             }
+
             return paso;
         }
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            RepositorioBase<Contratos> repositorioBase = new RepositorioBase<Contratos>();
-
-            Contratos contratos;               
+            RepositorioBase<Horarios> repositorioBase = new RepositorioBase<Horarios>();
+            Horarios horarios;
+            ;
             bool paso = false;
 
             if (!Validar())
                 return;
 
-            contratos = LlenarClase();
+            horarios = LlenarClase();
 
             if (IdnumericUpDown.Value == 0)
             {
-                paso = repositorioBase.Guardar(contratos);
+                paso = repositorioBase.Guardar(horarios);
                 MessageBox.Show("Guardado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 int id = Convert.ToInt32(IdnumericUpDown.Value);
-                contratos = repositorioBase.Buscar(id);
-                if (contratos != null)
+                horarios = repositorioBase.Buscar(id);
+                if (horarios != null)
                 {
                     paso = repositorioBase.Modificar(LlenarClase());
                     MessageBox.Show("Modificado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -116,8 +111,8 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
             int id;
+            RepositorioBase<Horarios> repositorioBase = new RepositorioBase<Horarios>();
             id = (int)IdnumericUpDown.Value;
-            RepositorioBase<Contratos> repositorioBase = new RepositorioBase<Contratos>();
             Limpiar();
             try
             {
@@ -135,27 +130,23 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             int id;
-            RepositorioBase<Contratos> repositorioBase = new RepositorioBase<Contratos>();
-            Contratos contratos = new Contratos();
+            RepositorioBase<Horarios> repositorioBase = new RepositorioBase<Horarios>();
+            Horarios horarios = new Horarios();
             int.TryParse(IdnumericUpDown.Text, out id);
-            //id = (int)IDnumericUpDown.Value;
             Limpiar();
             try
             {
-                contratos = repositorioBase.Buscar(id);
-                if (contratos != null)
+                horarios = repositorioBase.Buscar(id);
+                if (horarios != null)
                 {
-                    MessageBox.Show("Contrado encontrado");
-                    LlenarCampo(contratos);
+                    MessageBox.Show("Dia encontrado");
+                    LlenarCampo(horarios);
                 }
-                else
-                {
-                    MessageBox.Show("Contrato no encontrado");
-                }
+         
             }
             catch (Exception)
             {
-                MessageBox.Show("No existe el contrato");
+                MessageBox.Show("No existe el horario");
             }
         }
     }

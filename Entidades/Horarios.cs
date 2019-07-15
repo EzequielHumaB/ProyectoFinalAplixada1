@@ -12,21 +12,18 @@ namespace Entidades
         public int HorarioId { get; set; }
         public DateTime HorarioFechas { get; set; }
         public int EmpleadoId {get;set;}
-        public int ContratoId { get; set; }
 
         public Horarios()
         {
             HorarioId = 0;
             HorarioFechas = DateTime.Now;
             EmpleadoId = 0;
-            ContratoId = 0;
         }
-        public Horarios(int IdHorario, DateTime FechasHorario, int IdEmpleado, int IdContrato)
+        public Horarios(int IdHorario, DateTime FechasHorario, int IdEmpleado)
         {
             HorarioId = IdHorario;
             HorarioFechas = FechasHorario;
             EmpleadoId = IdEmpleado;
-            ContratoId = IdContrato;
         }
     }
 }

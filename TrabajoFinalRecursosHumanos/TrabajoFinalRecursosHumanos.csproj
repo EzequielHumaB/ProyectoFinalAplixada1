@@ -83,6 +83,12 @@
     <Compile Include="UI\Registros\EmpleadosFormulario.Designer.cs">
       <DependentUpon>EmpleadosFormulario.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Registros\HorariosFormulario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\HorariosFormulario.Designer.cs">
+      <DependentUpon>HorariosFormulario.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,8 +104,14 @@
     <EmbeddedResource Include="UI\Consultas\ConsultaEmpleadoFormulario.resx">
       <DependentUpon>ConsultaEmpleadoFormulario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\ContratoFormulario.resx">
+      <DependentUpon>ContratoFormulario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\EmpleadosFormulario.resx">
       <DependentUpon>EmpleadosFormulario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\HorariosFormulario.resx">
+      <DependentUpon>HorariosFormulario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

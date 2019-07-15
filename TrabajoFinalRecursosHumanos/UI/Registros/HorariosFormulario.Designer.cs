@@ -1,6 +1,6 @@
 ﻿namespace TrabajoFinalRecursosHumanos.UI.Registros
 {
-    partial class ContratoFormulario
+    partial class HorariosFormulario
     {
         /// <summary>
         /// Required designer variable.
@@ -29,94 +29,50 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContratoFormulario));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HorariosFormulario));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.IdnumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.DescripciontextBox = new System.Windows.Forms.TextBox();
-            this.SegurotextBox = new System.Windows.Forms.TextBox();
-            this.SueldonumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.HorariodateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.Eliminarbutton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
-            this.MyErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.IdnumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.MyerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SueldonumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MyerrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 24);
+            this.label1.Location = new System.Drawing.Point(22, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 13);
+            this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Contrado Id";
+            this.label1.Text = "Horario Id";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 60);
+            this.label2.Location = new System.Drawing.Point(22, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 13);
+            this.label2.Size = new System.Drawing.Size(84, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Descripcion del contrato";
+            this.label2.Text = "Fechas Horarios";
             // 
-            // label3
+            // HorariodateTimePicker
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 90);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Seguro medico";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 126);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Sueldo";
-            // 
-            // IdnumericUpDown
-            // 
-            this.IdnumericUpDown.Location = new System.Drawing.Point(173, 24);
-            this.IdnumericUpDown.Name = "IdnumericUpDown";
-            this.IdnumericUpDown.Size = new System.Drawing.Size(70, 20);
-            this.IdnumericUpDown.TabIndex = 4;
-            // 
-            // DescripciontextBox
-            // 
-            this.DescripciontextBox.Location = new System.Drawing.Point(173, 60);
-            this.DescripciontextBox.Name = "DescripciontextBox";
-            this.DescripciontextBox.Size = new System.Drawing.Size(160, 20);
-            this.DescripciontextBox.TabIndex = 5;
-            // 
-            // SegurotextBox
-            // 
-            this.SegurotextBox.Location = new System.Drawing.Point(173, 90);
-            this.SegurotextBox.Name = "SegurotextBox";
-            this.SegurotextBox.Size = new System.Drawing.Size(160, 20);
-            this.SegurotextBox.TabIndex = 6;
-            // 
-            // SueldonumericUpDown
-            // 
-            this.SueldonumericUpDown.Location = new System.Drawing.Point(173, 126);
-            this.SueldonumericUpDown.Name = "SueldonumericUpDown";
-            this.SueldonumericUpDown.Size = new System.Drawing.Size(70, 20);
-            this.SueldonumericUpDown.TabIndex = 7;
+            this.HorariodateTimePicker.Location = new System.Drawing.Point(129, 65);
+            this.HorariodateTimePicker.Name = "HorariodateTimePicker";
+            this.HorariodateTimePicker.Size = new System.Drawing.Size(197, 20);
+            this.HorariodateTimePicker.TabIndex = 3;
             // 
             // Eliminarbutton
             // 
             this.Eliminarbutton.Image = ((System.Drawing.Image)(resources.GetObject("Eliminarbutton.Image")));
             this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Eliminarbutton.Location = new System.Drawing.Point(261, 175);
+            this.Eliminarbutton.Location = new System.Drawing.Point(254, 113);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(75, 57);
             this.Eliminarbutton.TabIndex = 50;
@@ -129,7 +85,7 @@
             // 
             this.GuardarButton.Image = ((System.Drawing.Image)(resources.GetObject("GuardarButton.Image")));
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.GuardarButton.Location = new System.Drawing.Point(150, 175);
+            this.GuardarButton.Location = new System.Drawing.Point(147, 113);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(75, 57);
             this.GuardarButton.TabIndex = 49;
@@ -142,7 +98,7 @@
             // 
             this.Nuevobutton.Image = ((System.Drawing.Image)(resources.GetObject("Nuevobutton.Image")));
             this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Nuevobutton.Location = new System.Drawing.Point(39, 175);
+            this.Nuevobutton.Location = new System.Drawing.Point(32, 113);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(75, 57);
             this.Nuevobutton.TabIndex = 48;
@@ -155,7 +111,7 @@
             // 
             this.Buscarbutton.Image = ((System.Drawing.Image)(resources.GetObject("Buscarbutton.Image")));
             this.Buscarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Buscarbutton.Location = new System.Drawing.Point(282, 13);
+            this.Buscarbutton.Location = new System.Drawing.Point(302, 14);
             this.Buscarbutton.Name = "Buscarbutton";
             this.Buscarbutton.Size = new System.Drawing.Size(90, 34);
             this.Buscarbutton.TabIndex = 51;
@@ -164,32 +120,34 @@
             this.Buscarbutton.UseVisualStyleBackColor = true;
             this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
-            // MyErrorProvider
+            // IdnumericUpDown
             // 
-            this.MyErrorProvider.ContainerControl = this;
+            this.IdnumericUpDown.Location = new System.Drawing.Point(129, 25);
+            this.IdnumericUpDown.Name = "IdnumericUpDown";
+            this.IdnumericUpDown.Size = new System.Drawing.Size(54, 20);
+            this.IdnumericUpDown.TabIndex = 52;
             // 
-            // ContratoFormulario
+            // MyerrorProvider
+            // 
+            this.MyerrorProvider.ContainerControl = this;
+            // 
+            // HorariosFormulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 240);
+            this.ClientSize = new System.Drawing.Size(427, 184);
+            this.Controls.Add(this.IdnumericUpDown);
             this.Controls.Add(this.Buscarbutton);
             this.Controls.Add(this.Eliminarbutton);
             this.Controls.Add(this.GuardarButton);
             this.Controls.Add(this.Nuevobutton);
-            this.Controls.Add(this.SueldonumericUpDown);
-            this.Controls.Add(this.SegurotextBox);
-            this.Controls.Add(this.DescripciontextBox);
-            this.Controls.Add(this.IdnumericUpDown);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.HorariodateTimePicker);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "ContratoFormulario";
-            this.Text = "Contrato";
+            this.Name = "HorariosFormulario";
+            this.Text = "Horario del empleado";
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SueldonumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MyerrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,16 +157,12 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown IdnumericUpDown;
-        private System.Windows.Forms.TextBox DescripciontextBox;
-        private System.Windows.Forms.TextBox SegurotextBox;
-        private System.Windows.Forms.NumericUpDown SueldonumericUpDown;
+        private System.Windows.Forms.DateTimePicker HorariodateTimePicker;
         private System.Windows.Forms.Button Eliminarbutton;
         private System.Windows.Forms.Button GuardarButton;
         private System.Windows.Forms.Button Nuevobutton;
         private System.Windows.Forms.Button Buscarbutton;
-        private System.Windows.Forms.ErrorProvider MyErrorProvider;
+        private System.Windows.Forms.NumericUpDown IdnumericUpDown;
+        private System.Windows.Forms.ErrorProvider MyerrorProvider;
     }
 }

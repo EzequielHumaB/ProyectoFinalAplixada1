@@ -98,7 +98,7 @@
             // 
             // ApellidostextBox
             // 
-            this.ApellidostextBox.Location = new System.Drawing.Point(144, 109);
+            this.ApellidostextBox.Location = new System.Drawing.Point(141, 105);
             this.ApellidostextBox.Name = "ApellidostextBox";
             this.ApellidostextBox.Size = new System.Drawing.Size(138, 20);
             this.ApellidostextBox.TabIndex = 3;
@@ -122,7 +122,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(41, 145);
+            this.label4.Location = new System.Drawing.Point(41, 136);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 6;
@@ -130,7 +130,7 @@
             // 
             // CedulatextBox
             // 
-            this.CedulatextBox.Location = new System.Drawing.Point(144, 149);
+            this.CedulatextBox.Location = new System.Drawing.Point(141, 136);
             this.CedulatextBox.Name = "CedulatextBox";
             this.CedulatextBox.Size = new System.Drawing.Size(138, 20);
             this.CedulatextBox.TabIndex = 7;
@@ -138,7 +138,7 @@
             // FechaNacimientodateTimePicker
             // 
             this.FechaNacimientodateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.FechaNacimientodateTimePicker.Location = new System.Drawing.Point(144, 195);
+            this.FechaNacimientodateTimePicker.Location = new System.Drawing.Point(144, 171);
             this.FechaNacimientodateTimePicker.Name = "FechaNacimientodateTimePicker";
             this.FechaNacimientodateTimePicker.Size = new System.Drawing.Size(138, 20);
             this.FechaNacimientodateTimePicker.TabIndex = 8;
@@ -146,7 +146,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(38, 195);
+            this.label5.Location = new System.Drawing.Point(41, 171);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 13);
             this.label5.TabIndex = 9;
@@ -155,7 +155,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(41, 246);
+            this.label6.Location = new System.Drawing.Point(41, 203);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(69, 13);
             this.label6.TabIndex = 10;
@@ -163,7 +163,7 @@
             // 
             // NacionaliddadtextBox
             // 
-            this.NacionaliddadtextBox.Location = new System.Drawing.Point(144, 246);
+            this.NacionaliddadtextBox.Location = new System.Drawing.Point(144, 203);
             this.NacionaliddadtextBox.Name = "NacionaliddadtextBox";
             this.NacionaliddadtextBox.Size = new System.Drawing.Size(138, 20);
             this.NacionaliddadtextBox.TabIndex = 11;
@@ -171,7 +171,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(44, 288);
+            this.label7.Location = new System.Drawing.Point(41, 230);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(62, 13);
             this.label7.TabIndex = 12;
@@ -179,7 +179,7 @@
             // 
             // EstadoCivil
             // 
-            this.EstadoCivil.Location = new System.Drawing.Point(144, 288);
+            this.EstadoCivil.Location = new System.Drawing.Point(141, 230);
             this.EstadoCivil.Name = "EstadoCivil";
             this.EstadoCivil.Size = new System.Drawing.Size(138, 20);
             this.EstadoCivil.TabIndex = 13;
@@ -187,7 +187,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(41, 352);
+            this.label8.Location = new System.Drawing.Point(41, 296);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 13);
             this.label8.TabIndex = 14;
@@ -195,7 +195,7 @@
             // 
             // SalarionumericUpDown
             // 
-            this.SalarionumericUpDown.Location = new System.Drawing.Point(144, 352);
+            this.SalarionumericUpDown.Location = new System.Drawing.Point(144, 296);
             this.SalarionumericUpDown.Name = "SalarionumericUpDown";
             this.SalarionumericUpDown.Size = new System.Drawing.Size(48, 20);
             this.SalarionumericUpDown.TabIndex = 15;
@@ -203,7 +203,7 @@
             // FechaIngresodateTimePicker
             // 
             this.FechaIngresodateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.FechaIngresodateTimePicker.Location = new System.Drawing.Point(144, 385);
+            this.FechaIngresodateTimePicker.Location = new System.Drawing.Point(141, 330);
             this.FechaIngresodateTimePicker.Name = "FechaIngresodateTimePicker";
             this.FechaIngresodateTimePicker.Size = new System.Drawing.Size(138, 20);
             this.FechaIngresodateTimePicker.TabIndex = 16;
@@ -211,7 +211,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(44, 385);
+            this.label9.Location = new System.Drawing.Point(47, 330);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(75, 13);
             this.label9.TabIndex = 17;
@@ -220,7 +220,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(41, 471);
+            this.label10.Location = new System.Drawing.Point(41, 408);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(44, 13);
             this.label10.TabIndex = 18;
@@ -229,7 +229,7 @@
             // DetalledataGridView
             // 
             this.DetalledataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DetalledataGridView.Location = new System.Drawing.Point(41, 510);
+            this.DetalledataGridView.Location = new System.Drawing.Point(41, 456);
             this.DetalledataGridView.Name = "DetalledataGridView";
             this.DetalledataGridView.Size = new System.Drawing.Size(416, 150);
             this.DetalledataGridView.TabIndex = 20;
@@ -237,24 +237,25 @@
             // HorariocomboBox
             // 
             this.HorariocomboBox.FormattingEnabled = true;
-            this.HorariocomboBox.Location = new System.Drawing.Point(144, 471);
+            this.HorariocomboBox.Location = new System.Drawing.Point(141, 408);
             this.HorariocomboBox.Name = "HorariocomboBox";
             this.HorariocomboBox.Size = new System.Drawing.Size(138, 21);
             this.HorariocomboBox.TabIndex = 21;
             // 
             // AgregarHorariobutton
             // 
-            this.AgregarHorariobutton.Location = new System.Drawing.Point(312, 471);
+            this.AgregarHorariobutton.Location = new System.Drawing.Point(302, 408);
             this.AgregarHorariobutton.Name = "AgregarHorariobutton";
             this.AgregarHorariobutton.Size = new System.Drawing.Size(130, 23);
             this.AgregarHorariobutton.TabIndex = 22;
             this.AgregarHorariobutton.Text = "Agregar Horario";
             this.AgregarHorariobutton.UseVisualStyleBackColor = true;
+            this.AgregarHorariobutton.Click += new System.EventHandler(this.AgregarHorariobutton_Click);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(41, 425);
+            this.label11.Location = new System.Drawing.Point(41, 366);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(74, 13);
             this.label11.TabIndex = 23;
@@ -262,7 +263,7 @@
             // 
             // AgregarDepartamentobutton
             // 
-            this.AgregarDepartamentobutton.Location = new System.Drawing.Point(312, 426);
+            this.AgregarDepartamentobutton.Location = new System.Drawing.Point(302, 366);
             this.AgregarDepartamentobutton.Name = "AgregarDepartamentobutton";
             this.AgregarDepartamentobutton.Size = new System.Drawing.Size(130, 23);
             this.AgregarDepartamentobutton.TabIndex = 24;
@@ -272,7 +273,7 @@
             // DepartamentocomboBox
             // 
             this.DepartamentocomboBox.FormattingEnabled = true;
-            this.DepartamentocomboBox.Location = new System.Drawing.Point(144, 426);
+            this.DepartamentocomboBox.Location = new System.Drawing.Point(141, 366);
             this.DepartamentocomboBox.Name = "DepartamentocomboBox";
             this.DepartamentocomboBox.Size = new System.Drawing.Size(135, 21);
             this.DepartamentocomboBox.TabIndex = 25;
@@ -280,7 +281,7 @@
             // AgregarenelGridbutton
             // 
             this.AgregarenelGridbutton.Image = ((System.Drawing.Image)(resources.GetObject("AgregarenelGridbutton.Image")));
-            this.AgregarenelGridbutton.Location = new System.Drawing.Point(464, 471);
+            this.AgregarenelGridbutton.Location = new System.Drawing.Point(463, 456);
             this.AgregarenelGridbutton.Name = "AgregarenelGridbutton";
             this.AgregarenelGridbutton.Size = new System.Drawing.Size(75, 33);
             this.AgregarenelGridbutton.TabIndex = 43;
@@ -289,7 +290,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(41, 666);
+            this.button1.Location = new System.Drawing.Point(41, 632);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 23);
             this.button1.TabIndex = 44;
@@ -301,7 +302,7 @@
             // 
             this.Eliminarbutton.Image = ((System.Drawing.Image)(resources.GetObject("Eliminarbutton.Image")));
             this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Eliminarbutton.Location = new System.Drawing.Point(272, 695);
+            this.Eliminarbutton.Location = new System.Drawing.Point(272, 671);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(75, 57);
             this.Eliminarbutton.TabIndex = 47;
@@ -314,7 +315,7 @@
             // 
             this.GuardarButton.Image = ((System.Drawing.Image)(resources.GetObject("GuardarButton.Image")));
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.GuardarButton.Location = new System.Drawing.Point(165, 695);
+            this.GuardarButton.Location = new System.Drawing.Point(161, 671);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(75, 57);
             this.GuardarButton.TabIndex = 46;
@@ -327,7 +328,7 @@
             // 
             this.Nuevobutton.Image = ((System.Drawing.Image)(resources.GetObject("Nuevobutton.Image")));
             this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Nuevobutton.Location = new System.Drawing.Point(50, 695);
+            this.Nuevobutton.Location = new System.Drawing.Point(50, 671);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(75, 57);
             this.Nuevobutton.TabIndex = 45;
@@ -356,7 +357,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(41, 321);
+            this.label12.Location = new System.Drawing.Point(41, 266);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(59, 13);
             this.label12.TabIndex = 49;
@@ -364,7 +365,7 @@
             // 
             // IdContratonumericUpDown
             // 
-            this.IdContratonumericUpDown.Location = new System.Drawing.Point(144, 319);
+            this.IdContratonumericUpDown.Location = new System.Drawing.Point(141, 266);
             this.IdContratonumericUpDown.Name = "IdContratonumericUpDown";
             this.IdContratonumericUpDown.Size = new System.Drawing.Size(48, 20);
             this.IdContratonumericUpDown.TabIndex = 50;
@@ -373,7 +374,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 761);
+            this.ClientSize = new System.Drawing.Size(531, 737);
             this.Controls.Add(this.IdContratonumericUpDown);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.Buscarbutton);

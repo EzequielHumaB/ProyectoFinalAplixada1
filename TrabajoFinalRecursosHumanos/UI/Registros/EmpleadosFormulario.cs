@@ -196,8 +196,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 new Horarios(
                     IdHorario:0,
                     FechasHorario:(DateTime)HorariocomboBox.SelectedValue,
-                    IdEmpleado: (int)IdnumericUpDown.Value,
-                    IdContrato:(int)IdContratonumericUpDown.Value
+                    IdEmpleado: (int)IdnumericUpDown.Value
                     ));
             CargarGrid();
             IdnumericUpDown.Focus();
@@ -257,18 +256,25 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 empleados = EmpleadosBLL.Buscar(id);
                 if (empleados != null)
                 {
-                    MessageBox.Show("Inscripcion encontrado");
+                    MessageBox.Show("Empleado encontrado");
                     LlenarCampo(empleados);
                 }
                 else
                 {
-                    MessageBox.Show("Inscripcion no encontrada");
+                    MessageBox.Show("Empleado no encontrada");
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("No existe el producto");
+                MessageBox.Show("No existe el empleado");
             }
+        }
+
+        private void AgregarHorariobutton_Click(object sender, EventArgs e)
+        {
+            HorariosFormulario horarios = new HorariosFormulario();
+            horarios.StartPosition = FormStartPosition.CenterScreen;
+            horarios.ShowDialog();
         }
     }
 }
