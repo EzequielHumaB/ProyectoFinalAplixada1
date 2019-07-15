@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.ComponentModel.DataAnnotations;
 
 namespace Entidades
 {
     public class Horarios
     {
+        [Key]
         public int HorarioId { get; set; }
         public DateTime HorarioFechas { get; set; }
         public int EmpleadoId {get;set;}

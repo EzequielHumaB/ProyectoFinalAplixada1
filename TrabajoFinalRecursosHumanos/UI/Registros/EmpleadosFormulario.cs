@@ -195,7 +195,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             this.Horarios.Add(
                 new Horarios(
                     IdHorario:0,
-                    FechasHorario:(DateTime)HorariocomboBox.SelectedValue,
+                    FechasHorario:(DateTime)HorariodateTimePicker.Value,
                     IdEmpleado: (int)IdnumericUpDown.Value
                     ));
             CargarGrid();
@@ -212,15 +212,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             }
         }
 
-        private void LlenarComboxHorario()
-        {
-            var listado = new List<Empleados>();
-            listado = EmpleadosBLL.GetList(p => true);
-            HorariocomboBox.DataSource = listado;
-            HorariocomboBox.DisplayMember = "HorarioFechas";
-            HorariocomboBox.ValueMember = "HorarioId";
-        }
-
+       
         private void LlenarComboxDepartamento()
         {
             var listado = new List<Horarios>();
@@ -270,11 +262,6 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             }
         }
 
-        private void AgregarHorariobutton_Click(object sender, EventArgs e)
-        {
-            HorariosFormulario horarios = new HorariosFormulario();
-            horarios.StartPosition = FormStartPosition.CenterScreen;
-            horarios.ShowDialog();
-        }
+     
     }
 }

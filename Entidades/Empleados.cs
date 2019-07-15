@@ -19,8 +19,6 @@ namespace Entidades
         public string EstadoCivil { get; set; }
         public decimal Salario { get; set; }
         public DateTime FechaIngreso { get; set; }
-        public int DepartamentoId { get; set; }
-        public int ContratoId { get; set; }
         public virtual List<Horarios> Horarios { get; set; }
 
         public Empleados()
@@ -34,8 +32,6 @@ namespace Entidades
             EstadoCivil = string.Empty;
             Salario = 0;
             FechaIngreso = DateTime.Now;
-            DepartamentoId = 0;
-            ContratoId = 0;
             Horarios = new List<Horarios>();
         }
 

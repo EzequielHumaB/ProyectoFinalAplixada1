@@ -47,18 +47,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         private bool Validar()
         {
             bool paso = true;
-            if (HorariodateTimePicker.Value.Day == 7)
-            {
-                MessageBox.Show("El domingo no se trabaja");
-                HorariodateTimePicker.Focus();
-                paso = false;
-            }
-            if (HorariodateTimePicker.Value.Hour >= 22)
-            {
-                MessageBox.Show("A esa hora no se trabaja");
-                HorariodateTimePicker.Focus();
-                paso = false;
-            }
+         
             if (HorariodateTimePicker.Value.Hour < 7)
             {
                 MessageBox.Show("A esa hora no se trabaja");

@@ -39,7 +39,6 @@ namespace TrabajoFinalRecursosHumanos.BLL
                 RecursosHumanosContexto contexto = new RecursosHumanosContexto();
                 try
                 {
-                    var contrato = repositorioBase.Buscar(empleados.ContratoId);
                     var anterior = new RepositorioBase<Empleados>().Buscar(empleados.EmpleadoId);
 
                     foreach (var item in anterior.Horarios)
