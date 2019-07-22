@@ -206,4 +206,15 @@
   <metadata name="MyErrorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="AgregarenelGridbutton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAASxJREFUWEft17FKA0EUheHtYifpxVYbay0s7fQJ7AWtA9E38A3sfAIrfQkj2Gpn
+        IfaiRQpJgv4XdiEsZ5wZ7khA5sDXZHcuh91lM9vU1BTMLm7xgW+nGZ5wjjVk5QRzqMFeD1hHUvbwV0U6
+        N0iK3Ro1QFngvTVtf0u1hWg+oRYrr+hyBnVOyCmiUQtDPGUuEI1aGFLLhKyszB0OevbRZQP948dQs4yr
+        zBVyswk1y7jKXGPYs/wmHaB/fAdqlqkPcEgtE/K/y3zhsWXF1Dkhxct4uMrY1uIl029Xy1VmJW9g2zyr
+        xaXLjBDNM9Tie9juPscl1CxziGjGUItLekPSJ4udNIEaUoJ9eSRdlS72b2yfE2qYh12RrCLL2Ybt4tXz
+        kMMe1iPYNqOmplCa5gd5wD8Q9KnJlQAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>

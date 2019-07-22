@@ -33,11 +33,11 @@ namespace TrabajoFinalRecursosHumanos
             contratoFormulario.Show();
         }
 
-        private void HorarioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void EmpleadosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            HorariosFormulario horariosFormulario = new HorariosFormulario();
-            horariosFormulario.StartPosition = FormStartPosition.CenterScreen;
-            horariosFormulario.Show();
+            ConsultaEmpleadoFormulario consulta = new ConsultaEmpleadoFormulario();
+            consulta.StartPosition = FormStartPosition.CenterScreen;
+            consulta.Show();
         }
     }
 }

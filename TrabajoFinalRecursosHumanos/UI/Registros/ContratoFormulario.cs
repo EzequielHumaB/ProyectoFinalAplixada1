@@ -14,9 +14,12 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
 {
     public partial class ContratoFormulario : Form
     {
+        public List<Horarios> Horarios;
         public ContratoFormulario()
         {
+            Horarios = new List<Horarios>();  
             InitializeComponent();
+            LlenarComboBox();
         }
 
         private void Limpiar()
@@ -25,6 +28,13 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             SegurotextBox.Text = string.Empty;
             DescripciontextBox.Text = string.Empty;
             SueldonumericUpDown.Value = 0;
+            PuestotextBox.Text = string.Empty;
+            PrecioPorHorasnumericUpDown.Value = 0;
+            HorarioDelEmpleadodateTimePicker.Value = DateTime.Now;
+            IdEmpleadonumericUpDown.Value = 0;
+            IdDelHorarionumericUpDown.Value = 0;
+            CargarGrid();
+
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)
@@ -38,7 +48,11 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             contratos.ContratoId = (int)IdnumericUpDown.Value;
             contratos.DescripcionContrato = DescripciontextBox.Text;
             contratos.Seguro = SegurotextBox.Text;
-            contratos.Sueldo = SueldonumericUpDown.Value;
+            contratos.Salario = SueldonumericUpDown.Value;
+            contratos.Puesto = PuestotextBox.Text;
+            contratos.Horarios = this.Horarios;
+            contratos.EmpleadoId = (int)IdEmpleadonumericUpDown.Value;
+            CargarGrid();
             return contratos;
         }
 
@@ -47,7 +61,11 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             IdnumericUpDown.Value = contratos.ContratoId;
             DescripciontextBox.Text = contratos.DescripcionContrato;
             SegurotextBox.Text = contratos.Seguro;
-            SueldonumericUpDown.Value = contratos.Sueldo;
+            SueldonumericUpDown.Value = contratos.Salario;
+            PuestotextBox.Text = contratos.Puesto;
+            IdEmpleadonumericUpDown.Value = contratos.EmpleadoId;
+            this.Horarios = contratos.Horarios;
+            CargarGrid();
         }
 
         private bool Validar()
@@ -71,12 +89,30 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 SueldonumericUpDown.Focus();
                 paso = false;
             }
+            if(IdEmpleadonumericUpDown.Value == 0)
+            {
+                MyErrorProvider.SetError(IdEmpleadonumericUpDown,"El id de empleado no puede estar vacio");
+                IdEmpleadonumericUpDown.Focus();
+                paso = false;
+            }
+            if(IdDelHorarionumericUpDown.Value == 0)
+            {
+                MyErrorProvider.SetError(IdDelHorarionumericUpDown, "El id del horario no puede estar vacio");
+                IdDelHorarionumericUpDown.Focus();
+                paso = false;
+            }
+            if(DetalledataGridView.Rows.Count==0)
+            {
+                MyErrorProvider.SetError(DetalledataGridView, "El detalle no puede estar vacio");
+                DetalledataGridView.Focus();
+                paso = false;
+            }
+
             return paso;
         }
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            RepositorioBase<Contratos> repositorioBase = new RepositorioBase<Contratos>();
 
             Contratos contratos;               
             bool paso = false;
@@ -88,16 +124,16 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
 
             if (IdnumericUpDown.Value == 0)
             {
-                paso = repositorioBase.Guardar(contratos);
+                paso = ContratosBLL.Guardar(contratos);
                 MessageBox.Show("Guardado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 int id = Convert.ToInt32(IdnumericUpDown.Value);
-                contratos = repositorioBase.Buscar(id);
+                contratos = ContratosBLL.Buscar(id);
                 if (contratos != null)
                 {
-                    paso = repositorioBase.Modificar(LlenarClase());
+                    paso = ContratosBLL.Modificar(LlenarClase());
                     MessageBox.Show("Modificado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
@@ -117,11 +153,10 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         {
             int id;
             id = (int)IdnumericUpDown.Value;
-            RepositorioBase<Contratos> repositorioBase = new RepositorioBase<Contratos>();
             Limpiar();
             try
             {
-                if (repositorioBase.Eliminar(id))
+                if (ContratosBLL.Eliminar(id))
                 {
                     MessageBox.Show("Eliminado correctamente");
                 }
@@ -135,14 +170,12 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             int id;
-            RepositorioBase<Contratos> repositorioBase = new RepositorioBase<Contratos>();
             Contratos contratos = new Contratos();
             int.TryParse(IdnumericUpDown.Text, out id);
-            //id = (int)IDnumericUpDown.Value;
             Limpiar();
             try
             {
-                contratos = repositorioBase.Buscar(id);
+                contratos = ContratosBLL.Buscar(id);
                 if (contratos != null)
                 {
                     MessageBox.Show("Contrado encontrado");
@@ -157,6 +190,54 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             {
                 MessageBox.Show("No existe el contrato");
             }
+        }
+
+        private void Departamentobutton_Click(object sender, EventArgs e)
+        {
+            DepartamentoFormulario departamentoFormulario = new DepartamentoFormulario();
+            departamentoFormulario.StartPosition = FormStartPosition.CenterScreen;
+            departamentoFormulario.ShowDialog();
+        }
+
+        private void CargarGrid()
+        {
+            DetalledataGridView.DataSource = null;
+            DetalledataGridView.DataSource = this.Horarios;
+        }
+
+        private void AgregarenelGridbutton_Click(object sender, EventArgs e)
+        {
+            if (DetalledataGridView.DataSource != null)
+                this.Horarios = (List<Horarios>)DetalledataGridView.DataSource;
+
+            this.Horarios.Add(
+                new Horarios(
+                    fechaHorario: (DateTime)HorarioDelEmpleadodateTimePicker.Value,
+                    HorasExtrasCantidad: (int)CantidadHorasExtrasnumericUpDown.Value,
+                    HorasExtrasPrecio: (int)PrecioPorHorasnumericUpDown.Value
+                    )) ;
+            CargarGrid();
+            IdnumericUpDown.Focus();
+
+        }
+
+        private void Removerbutton_Click(object sender, EventArgs e)
+        {
+            if (DetalledataGridView.Rows.Count > 0 && DetalledataGridView.CurrentRow != null)
+            {
+                Horarios.RemoveAt(DetalledataGridView.CurrentRow.Index);
+                CargarGrid();
+            }
+        }
+
+        private void LlenarComboBox()
+        {
+            var listado = new List<Departamentos>();
+            RepositorioBase<Departamentos> repositorioBase = new RepositorioBase<Departamentos>();
+            listado = repositorioBase.GetList(p => true);
+            DepartamentocomboBox.DataSource = listado;
+            DepartamentocomboBox.DisplayMember = "NombreDepartamento";
+            DepartamentocomboBox.ValueMember = "DepartamentoId";
         }
     }
 }

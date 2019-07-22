@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrabajoFinalRecursosHumanos.BLL;
+using Entidades;
 
 namespace TrabajoFinalRecursosHumanos.UI.Consultas
 {
@@ -15,6 +17,92 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
         public ConsultaEmpleadoFormulario()
         {
             InitializeComponent();
+        }
+
+        private void Buscarbutton_Click(object sender, EventArgs e)
+        {
+            RepositorioBase<Empleados> repositorioBase = new RepositorioBase<Empleados>();
+
+            var listado = new List<Empleados>();
+            if (FechacheckBox.Checked == true)
+            {
+                if (CriteriotextBox.Text.Trim().Length > 0)
+                {
+                    try
+                    {
+                        switch (FiltrocomboBox.SelectedIndex)
+                        {
+
+                            case 0:
+                                listado = repositorioBase.GetList(p => true);
+                                break;                      
+                            case 1:
+                                listado = repositorioBase.GetList(p => p.Nombres.Contains(CriteriotextBox.Text));
+                                break;
+                            case 2:
+                                listado = repositorioBase.GetList(p => p.Apellidos.ToString() == CriteriotextBox.Text);
+                                break;
+                            case 3:
+                                listado = repositorioBase.GetList(p => p.Cedula.Contains(CriteriotextBox.Text));
+                                break;
+                            case 4:
+                                listado = repositorioBase.GetList(p => p.Nacionalidad.Contains(CriteriotextBox.Text));
+                                break;
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+
+                }
+                else
+                    listado = repositorioBase.GetList(p => true);
+
+
+                ConsultadataGridView.DataSource = null;
+                ConsultadataGridView.DataSource = listado;
+            }
+
+            else
+            {
+                if (CriteriotextBox.Text.Trim().Length > 0)
+                {
+                    try
+                    {
+                        switch (FiltrocomboBox.SelectedIndex)
+                        {
+
+                            case 0:
+                                listado = repositorioBase.GetList(p => true);
+                                break;
+                            case 1:
+                                listado = repositorioBase.GetList(p => p.Nombres.Contains(CriteriotextBox.Text));
+                                break;
+                            case 2:
+                                listado = repositorioBase.GetList(p => p.Apellidos.ToString() == CriteriotextBox.Text);
+                                break;
+                            case 3:
+                                listado = repositorioBase.GetList(p => p.Cedula.Contains(CriteriotextBox.Text));
+                                break;
+                            case 4:
+                                listado = repositorioBase.GetList(p => p.Nacionalidad.Contains(CriteriotextBox.Text));
+                                break;
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+
+                }
+                else
+                    listado = repositorioBase.GetList(p => true);
+
+
+                ConsultadataGridView.DataSource = null;
+                ConsultadataGridView.DataSource = listado;
+            }
         }
     }
 }

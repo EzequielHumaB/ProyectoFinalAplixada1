@@ -14,7 +14,10 @@ namespace TrabajoFinalRecursosHumanos
         public DbSet<Contratos> contratos { get; set; }
         public DbSet<Departamentos> Departamentos { get; set; }
 
+        public DbSet<TipoVacante> tipoVacantes { get; set; }
         public RecursosHumanosContexto() : base("ConStr")
-        { }
+        {
+            Database.SetInitializer<RecursosHumanosContexto>(new DropCreateDatabaseIfModelChanges<RecursosHumanosContexto>());
+        }
     }
 }

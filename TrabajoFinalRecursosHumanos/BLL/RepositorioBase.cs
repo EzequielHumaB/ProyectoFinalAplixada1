@@ -37,15 +37,15 @@ namespace TrabajoFinalRecursosHumanos.BLL
         public virtual bool Modificar(T entity)
         {
             bool paso = false;
-            try
-            {
+      //      try
+       //     {
                 contexto.Entry(entity).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
 
-            }catch
-            {
-                throw;
-            }
+      //      }catch
+      //      {
+      //          throw;
+         ///   }
             return paso;
         }
 

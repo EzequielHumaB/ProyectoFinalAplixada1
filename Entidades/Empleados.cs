@@ -4,22 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace Entidades
 {
   public class Empleados
     {
         [Key]
+        [Browsable(false)]
         public int EmpleadoId { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public string Cedula { get; set; }
-        public DateTime FechaNacimiento { get; set; }
         public string Nacionalidad { get; set; }
-        public string EstadoCivil { get; set; }
+        public String EstadoCivil { get; set; }
+        public DateTime FechaNacimiento { get; set; }
         public decimal Salario { get; set; }
         public DateTime FechaIngreso { get; set; }
-        public virtual List<Horarios> Horarios { get; set; }
 
         public Empleados()
         {
@@ -32,7 +33,6 @@ namespace Entidades
             EstadoCivil = string.Empty;
             Salario = 0;
             FechaIngreso = DateTime.Now;
-            Horarios = new List<Horarios>();
         }
 
     }

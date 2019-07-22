@@ -43,9 +43,32 @@
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.MyErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label5 = new System.Windows.Forms.Label();
+            this.PuestotextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.IdEmpleadonumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.IdDelHorarionumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.HorarioDelEmpleadodateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.PrecioPorHorasnumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.DetalledataGridView = new System.Windows.Forms.DataGridView();
+            this.Removerbutton = new System.Windows.Forms.Button();
+            this.AgregarenelGridbutton = new System.Windows.Forms.Button();
+            this.Departamentobutton = new System.Windows.Forms.Button();
+            this.DepartamentocomboBox = new System.Windows.Forms.ComboBox();
+            this.CantidadHorasExtrasnumericUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SueldonumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdEmpleadonumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdDelHorarionumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PrecioPorHorasnumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetalledataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CantidadHorasExtrasnumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -116,7 +139,7 @@
             // 
             this.Eliminarbutton.Image = ((System.Drawing.Image)(resources.GetObject("Eliminarbutton.Image")));
             this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Eliminarbutton.Location = new System.Drawing.Point(261, 175);
+            this.Eliminarbutton.Location = new System.Drawing.Point(273, 702);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(75, 57);
             this.Eliminarbutton.TabIndex = 50;
@@ -129,7 +152,7 @@
             // 
             this.GuardarButton.Image = ((System.Drawing.Image)(resources.GetObject("GuardarButton.Image")));
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.GuardarButton.Location = new System.Drawing.Point(150, 175);
+            this.GuardarButton.Location = new System.Drawing.Point(151, 702);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(75, 57);
             this.GuardarButton.TabIndex = 49;
@@ -142,7 +165,7 @@
             // 
             this.Nuevobutton.Image = ((System.Drawing.Image)(resources.GetObject("Nuevobutton.Image")));
             this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Nuevobutton.Location = new System.Drawing.Point(39, 175);
+            this.Nuevobutton.Location = new System.Drawing.Point(27, 702);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(75, 57);
             this.Nuevobutton.TabIndex = 48;
@@ -168,11 +191,180 @@
             // 
             this.MyErrorProvider.ContainerControl = this;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(34, 164);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 52;
+            this.label5.Text = "Puesto";
+            // 
+            // PuestotextBox
+            // 
+            this.PuestotextBox.Location = new System.Drawing.Point(173, 164);
+            this.PuestotextBox.Name = "PuestotextBox";
+            this.PuestotextBox.Size = new System.Drawing.Size(160, 20);
+            this.PuestotextBox.TabIndex = 53;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(31, 203);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 13);
+            this.label6.TabIndex = 54;
+            this.label6.Text = "Departamento";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(34, 240);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 13);
+            this.label7.TabIndex = 56;
+            this.label7.Text = "Id Empleado";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(37, 280);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 13);
+            this.label8.TabIndex = 57;
+            this.label8.Text = "Id Horario";
+            // 
+            // IdEmpleadonumericUpDown
+            // 
+            this.IdEmpleadonumericUpDown.Location = new System.Drawing.Point(173, 240);
+            this.IdEmpleadonumericUpDown.Name = "IdEmpleadonumericUpDown";
+            this.IdEmpleadonumericUpDown.Size = new System.Drawing.Size(70, 20);
+            this.IdEmpleadonumericUpDown.TabIndex = 58;
+            // 
+            // IdDelHorarionumericUpDown
+            // 
+            this.IdDelHorarionumericUpDown.Location = new System.Drawing.Point(173, 280);
+            this.IdDelHorarionumericUpDown.Name = "IdDelHorarionumericUpDown";
+            this.IdDelHorarionumericUpDown.Size = new System.Drawing.Size(70, 20);
+            this.IdDelHorarionumericUpDown.TabIndex = 59;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(37, 325);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(107, 13);
+            this.label9.TabIndex = 60;
+            this.label9.Text = "Horario del empleado";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(34, 362);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(66, 13);
+            this.label10.TabIndex = 61;
+            this.label10.Text = "Horas extras";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(31, 401);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(97, 13);
+            this.label11.TabIndex = 62;
+            this.label11.Text = "Precio horas extras";
+            // 
+            // HorarioDelEmpleadodateTimePicker
+            // 
+            this.HorarioDelEmpleadodateTimePicker.Location = new System.Drawing.Point(173, 325);
+            this.HorarioDelEmpleadodateTimePicker.Name = "HorarioDelEmpleadodateTimePicker";
+            this.HorarioDelEmpleadodateTimePicker.Size = new System.Drawing.Size(139, 20);
+            this.HorarioDelEmpleadodateTimePicker.TabIndex = 63;
+            // 
+            // PrecioPorHorasnumericUpDown
+            // 
+            this.PrecioPorHorasnumericUpDown.Location = new System.Drawing.Point(173, 401);
+            this.PrecioPorHorasnumericUpDown.Name = "PrecioPorHorasnumericUpDown";
+            this.PrecioPorHorasnumericUpDown.Size = new System.Drawing.Size(70, 20);
+            this.PrecioPorHorasnumericUpDown.TabIndex = 65;
+            // 
+            // DetalledataGridView
+            // 
+            this.DetalledataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DetalledataGridView.Location = new System.Drawing.Point(27, 445);
+            this.DetalledataGridView.Name = "DetalledataGridView";
+            this.DetalledataGridView.Size = new System.Drawing.Size(345, 183);
+            this.DetalledataGridView.TabIndex = 66;
+            // 
+            // Removerbutton
+            // 
+            this.Removerbutton.Location = new System.Drawing.Point(27, 650);
+            this.Removerbutton.Name = "Removerbutton";
+            this.Removerbutton.Size = new System.Drawing.Size(117, 23);
+            this.Removerbutton.TabIndex = 67;
+            this.Removerbutton.Text = "Revover filas";
+            this.Removerbutton.UseVisualStyleBackColor = true;
+            this.Removerbutton.Click += new System.EventHandler(this.Removerbutton_Click);
+            // 
+            // AgregarenelGridbutton
+            // 
+            this.AgregarenelGridbutton.Image = ((System.Drawing.Image)(resources.GetObject("AgregarenelGridbutton.Image")));
+            this.AgregarenelGridbutton.Location = new System.Drawing.Point(351, 401);
+            this.AgregarenelGridbutton.Name = "AgregarenelGridbutton";
+            this.AgregarenelGridbutton.Size = new System.Drawing.Size(75, 33);
+            this.AgregarenelGridbutton.TabIndex = 68;
+            this.AgregarenelGridbutton.UseVisualStyleBackColor = true;
+            this.AgregarenelGridbutton.Click += new System.EventHandler(this.AgregarenelGridbutton_Click);
+            // 
+            // Departamentobutton
+            // 
+            this.Departamentobutton.Location = new System.Drawing.Point(332, 203);
+            this.Departamentobutton.Name = "Departamentobutton";
+            this.Departamentobutton.Size = new System.Drawing.Size(94, 23);
+            this.Departamentobutton.TabIndex = 69;
+            this.Departamentobutton.Text = "Departamento";
+            this.Departamentobutton.UseVisualStyleBackColor = true;
+            this.Departamentobutton.Click += new System.EventHandler(this.Departamentobutton_Click);
+            // 
+            // DepartamentocomboBox
+            // 
+            this.DepartamentocomboBox.FormattingEnabled = true;
+            this.DepartamentocomboBox.Location = new System.Drawing.Point(173, 203);
+            this.DepartamentocomboBox.Name = "DepartamentocomboBox";
+            this.DepartamentocomboBox.Size = new System.Drawing.Size(137, 21);
+            this.DepartamentocomboBox.TabIndex = 70;
+            // 
+            // CantidadHorasExtrasnumericUpDown
+            // 
+            this.CantidadHorasExtrasnumericUpDown.Location = new System.Drawing.Point(173, 362);
+            this.CantidadHorasExtrasnumericUpDown.Name = "CantidadHorasExtrasnumericUpDown";
+            this.CantidadHorasExtrasnumericUpDown.Size = new System.Drawing.Size(70, 20);
+            this.CantidadHorasExtrasnumericUpDown.TabIndex = 71;
+            // 
             // ContratoFormulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 240);
+            this.ClientSize = new System.Drawing.Size(438, 771);
+            this.Controls.Add(this.CantidadHorasExtrasnumericUpDown);
+            this.Controls.Add(this.DepartamentocomboBox);
+            this.Controls.Add(this.Departamentobutton);
+            this.Controls.Add(this.AgregarenelGridbutton);
+            this.Controls.Add(this.Removerbutton);
+            this.Controls.Add(this.DetalledataGridView);
+            this.Controls.Add(this.PrecioPorHorasnumericUpDown);
+            this.Controls.Add(this.HorarioDelEmpleadodateTimePicker);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.IdDelHorarionumericUpDown);
+            this.Controls.Add(this.IdEmpleadonumericUpDown);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.PuestotextBox);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.Buscarbutton);
             this.Controls.Add(this.Eliminarbutton);
             this.Controls.Add(this.GuardarButton);
@@ -190,6 +382,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SueldonumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdEmpleadonumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdDelHorarionumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PrecioPorHorasnumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetalledataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CantidadHorasExtrasnumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,5 +407,23 @@
         private System.Windows.Forms.Button Nuevobutton;
         private System.Windows.Forms.Button Buscarbutton;
         private System.Windows.Forms.ErrorProvider MyErrorProvider;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox PuestotextBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button Removerbutton;
+        private System.Windows.Forms.DataGridView DetalledataGridView;
+        private System.Windows.Forms.NumericUpDown PrecioPorHorasnumericUpDown;
+        private System.Windows.Forms.DateTimePicker HorarioDelEmpleadodateTimePicker;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.NumericUpDown IdDelHorarionumericUpDown;
+        private System.Windows.Forms.NumericUpDown IdEmpleadonumericUpDown;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button AgregarenelGridbutton;
+        private System.Windows.Forms.ComboBox DepartamentocomboBox;
+        private System.Windows.Forms.Button Departamentobutton;
+        private System.Windows.Forms.NumericUpDown CantidadHorasExtrasnumericUpDown;
     }
 }

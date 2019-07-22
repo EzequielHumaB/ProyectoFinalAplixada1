@@ -14,11 +14,10 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
 {
     public partial class EmpleadosFormulario : Form
     {
-        public List<Horarios> Horarios { get; set; }
         public EmpleadosFormulario()
         {
             InitializeComponent();
-            Horarios = new List<Horarios>();
+            LlenarComboBox();
         }
 
         public void Limpiar()
@@ -30,7 +29,8 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             FechaIngresodateTimePicker.Value = DateTime.Now;
             SalarionumericUpDown.Value = 0;
             FechaIngresodateTimePicker.Value = DateTime.Now;
-            this.Horarios = new List<Horarios>();
+            NacionaliddadtextBox.Text = string.Empty;
+            EstadoCivil.Text = string.Empty;
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)
@@ -52,8 +52,6 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 empleados.EstadoCivil = EstadoCivil.Text;
                 empleados.Salario = SalarionumericUpDown.Value;
                 empleados.FechaIngreso = FechaIngresodateTimePicker.Value;
-                empleados.Horarios = this.Horarios;
-                CargarGrid();
             }
             catch (Exception)
             {
@@ -74,8 +72,6 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 EstadoCivil.Text = empleados.EstadoCivil;
                 SalarionumericUpDown.Value = empleados.Salario;
                 FechaIngresodateTimePicker.Value = empleados.FechaIngreso;
-                this.Horarios = empleados.Horarios;
-                CargarGrid();
             }
             catch (Exception)
             {
@@ -107,12 +103,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 paso = false;
             }
 
-            if (this.Horarios.Count == 0)
-            {
-                MyerrorProvider.SetError(DetalledataGridView, "Tienes que ingresar un Horario");
-                IdnumericUpDown.Focus();
-                paso = false;
-            }
+       
 
             if(FechaNacimientodateTimePicker.Value == DateTime.Now)
             {
@@ -139,79 +130,45 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
 
         private bool ExisteEnLaBaseDeDatos()
         {
-            Empleados empleados = EmpleadosBLL.Buscar((int)IdnumericUpDown.Value);
+            RepositorioBase<Empleados> repositorio = new RepositorioBase<Empleados>();
+            Empleados empleados = repositorio.Buscar((int)IdnumericUpDown.Value);
             return (empleados != null);
         }
 
-        public void CargarGrid()
-        {
-            DetalledataGridView.DataSource = null;
-            DetalledataGridView.DataSource = Horarios;
-        }
+
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            Empleados empleados
-                ;
+
+            RepositorioBase<Empleados> repositorio = new RepositorioBase<Empleados>();
             bool paso = false;
 
             if (!Validar())
                 return;
 
-            empleados = LlenarClase();
+            Empleados empleado = LlenarClase();
 
             if (IdnumericUpDown.Value == 0)
             {
-                paso = EmpleadosBLL.Guardar(empleados);
-                MessageBox.Show("Guardado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                paso = repositorio.Guardar(empleado);
             }
             else
-            {
-                int id = Convert.ToInt32(IdnumericUpDown.Value);
-                empleados = EmpleadosBLL.Buscar(id);
-                if (empleados != null)
-                {
-                    paso = EmpleadosBLL.Modificar(LlenarClase());
-                    MessageBox.Show("Modificado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                    MessageBox.Show("Id no existe", "Falló", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            {      
+               paso = repositorio.Modificar(empleado); 
             }
-
             if (paso)
             {
-                Limpiar();
+                MessageBox.Show("Guardado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
             else
-                MessageBox.Show("No se pudo guardar!!", "Fallo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void AgregarenelGridbutton_Click(object sender, EventArgs e)
-        {
-            if (DetalledataGridView.DataSource != null)
-                this.Horarios = (List<Horarios>)DetalledataGridView.DataSource;
-
-            this.Horarios.Add(
-                new Horarios(
-                    IdHorario:0,
-                    FechasHorario:(DateTime)HorariodateTimePicker.Value,
-                    IdEmpleado: (int)IdnumericUpDown.Value
-                    ));
-            CargarGrid();
-            IdnumericUpDown.Focus();
-        }
-
-        private void AgregarGrid_Click(object sender, EventArgs e)
-        {
-            if (DetalledataGridView.Rows.Count > 0 && DetalledataGridView.CurrentRow != null)
             {
-                //remover la fila
-                Horarios.RemoveAt(DetalledataGridView.CurrentRow.Index);
-                CargarGrid();
+                MessageBox.Show("No se pudo guardar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            Limpiar();
         }
 
+      
        
         private void LlenarComboxDepartamento()
         {
@@ -225,7 +182,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             Limpiar();
             try
             {
-                if (EmpleadosBLL.Eliminar(id))
+                if (ContratosBLL.Eliminar(id))
                 {
                     MessageBox.Show("Eliminado correctamente");
                 }
@@ -239,13 +196,14 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             int id;
+            RepositorioBase<Empleados> repositorio = new RepositorioBase<Empleados>();
             Empleados empleados = new Empleados();
             int.TryParse(IdnumericUpDown.Text, out id);
             //id = (int)IDnumericUpDown.Value;
             Limpiar();
             try
             {
-                empleados = EmpleadosBLL.Buscar(id);
+                empleados = repositorio.Buscar(id);
                 if (empleados != null)
                 {
                     MessageBox.Show("Empleado encontrado");
@@ -253,7 +211,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 }
                 else
                 {
-                    MessageBox.Show("Empleado no encontrada");
+                    MessageBox.Show("Empleado no encontrado");
                 }
             }
             catch (Exception)
@@ -262,6 +220,21 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             }
         }
 
-     
+        private void AgregarVacantebutton_Click(object sender, EventArgs e)
+        {
+            FoTipoVacantermulario foTipoVacantermulario = new FoTipoVacantermulario();
+            foTipoVacantermulario.StartPosition = FormStartPosition.CenterScreen;
+            foTipoVacantermulario.ShowDialog();
+        }
+
+        private void LlenarComboBox()
+        {
+            var listado = new List<TipoVacante>();
+            RepositorioBase<TipoVacante> repositorioBase = new RepositorioBase<TipoVacante>();
+            listado = repositorioBase.GetList(p => true);
+            VacantecomboBox.DataSource = listado;
+            VacantecomboBox.DisplayMember = "NombreTipoVacante";
+            VacantecomboBox.ValueMember = "TipoVacanteId";
+        }
     }
 }
