@@ -39,5 +39,18 @@ namespace TrabajoFinalRecursosHumanos
             consulta.StartPosition = FormStartPosition.CenterScreen;
             consulta.Show();
         }
+
+        private void ContratosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaDeContratos consultaDeContratos = new ConsultaDeContratos();
+            consultaDeContratos.StartPosition = FormStartPosition.CenterParent;
+            consultaDeContratos.Show();
+        }
+
+        private void HorarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HorariosFormulario horariosFormulario = new HorariosFormulario();
+            horariosFormulario.Show();
+        }
     }
 }

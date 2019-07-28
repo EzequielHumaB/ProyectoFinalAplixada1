@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 
-namespace TrabajoFinalRecursosHumanos.BLL
+namespace RecursosHumanosBLL
 {
-   public interface IRecursosHumanos<T> where T : class
+    public interface IRepositorio<T> where T : class
     {
         bool Guardar(T entity);
         bool Modificar(T entity);
         bool Eliminar(int id);
         T Buscar(int id);
-        List<T> GetList(Expression<Func<T,bool>> expression);
+        List<T> GetList(Expression<Func<T, bool>> expression);
     }
 }

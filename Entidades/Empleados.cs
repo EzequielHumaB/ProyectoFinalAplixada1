@@ -22,6 +22,7 @@ namespace Entidades
         public decimal Salario { get; set; }
         public DateTime FechaIngreso { get; set; }
 
+
         public Empleados()
         {
             EmpleadoId = 0;

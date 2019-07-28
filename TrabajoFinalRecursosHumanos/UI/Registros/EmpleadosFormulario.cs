@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
-using TrabajoFinalRecursosHumanos.BLL;
+using RecursosHumanosBLL;
 
 namespace TrabajoFinalRecursosHumanos.UI.Registros
 {

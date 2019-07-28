@@ -39,6 +39,8 @@
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.MyerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.FechaCreaciondateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyerrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -79,7 +81,7 @@
             // 
             this.Eliminarbutton.Image = ((System.Drawing.Image)(resources.GetObject("Eliminarbutton.Image")));
             this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Eliminarbutton.Location = new System.Drawing.Point(254, 113);
+            this.Eliminarbutton.Location = new System.Drawing.Point(254, 130);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(75, 57);
             this.Eliminarbutton.TabIndex = 50;
@@ -92,7 +94,7 @@
             // 
             this.GuardarButton.Image = ((System.Drawing.Image)(resources.GetObject("GuardarButton.Image")));
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.GuardarButton.Location = new System.Drawing.Point(143, 113);
+            this.GuardarButton.Location = new System.Drawing.Point(143, 130);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(75, 57);
             this.GuardarButton.TabIndex = 49;
@@ -105,7 +107,7 @@
             // 
             this.Nuevobutton.Image = ((System.Drawing.Image)(resources.GetObject("Nuevobutton.Image")));
             this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Nuevobutton.Location = new System.Drawing.Point(32, 113);
+            this.Nuevobutton.Location = new System.Drawing.Point(32, 130);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(75, 57);
             this.Nuevobutton.TabIndex = 48;
@@ -131,11 +133,30 @@
             // 
             this.MyerrorProvider.ContainerControl = this;
             // 
+            // FechaCreaciondateTimePicker
+            // 
+            this.FechaCreaciondateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.FechaCreaciondateTimePicker.Location = new System.Drawing.Point(191, 94);
+            this.FechaCreaciondateTimePicker.Name = "FechaCreaciondateTimePicker";
+            this.FechaCreaciondateTimePicker.Size = new System.Drawing.Size(134, 20);
+            this.FechaCreaciondateTimePicker.TabIndex = 63;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(32, 94);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 13);
+            this.label2.TabIndex = 62;
+            this.label2.Text = "Fecha de creacion";
+            // 
             // FoTipoVacantermulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(403, 191);
+            this.Controls.Add(this.FechaCreaciondateTimePicker);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.Buscarbutton);
             this.Controls.Add(this.Eliminarbutton);
             this.Controls.Add(this.GuardarButton);
@@ -164,5 +185,7 @@
         private System.Windows.Forms.Button Nuevobutton;
         private System.Windows.Forms.Button Buscarbutton;
         private System.Windows.Forms.ErrorProvider MyerrorProvider;
+        private System.Windows.Forms.DateTimePicker FechaCreaciondateTimePicker;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
-using TrabajoFinalRecursosHumanos.BLL;
+using RecursosHumanosBLL;
 
 namespace TrabajoFinalRecursosHumanos.UI.Registros
 {
@@ -23,6 +23,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         {
             IdnumericUpDown.Value = 0;
             NombreDepartamentotextBox.Text = string.Empty;
+            FechaCreaciondateTimePicker.Value = DateTime.Now;
         }
         private void Nuevobutton_Click(object sender, EventArgs e)
         {
@@ -33,6 +34,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         {
             Departamentos departamentos = new Departamentos();
             departamentos.DepartamentoId = (int)IdnumericUpDown.Value;
+            departamentos.FechaCreacion = (DateTime)FechaCreaciondateTimePicker.Value;
             departamentos.NombreDepartamento = NombreDepartamentotextBox.Text;
             return departamentos;
         }
@@ -41,6 +43,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         {
             IdnumericUpDown.Value = departamentos.DepartamentoId;
             NombreDepartamentotextBox.Text = departamentos.NombreDepartamento;
+            FechaCreaciondateTimePicker.Value = departamentos.FechaCreacion;
         }
 
         private bool Validar()

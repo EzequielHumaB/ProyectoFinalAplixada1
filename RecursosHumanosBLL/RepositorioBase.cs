@@ -1,33 +1,35 @@
-﻿using RecursosHumanosContexto;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Data.Entity;
-using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Entidades;
+using RecusrosHumanosContexto;
+using System.Data.Entity;
+using System.Linq.Expressions;
 
-namespace TrabajoFinalRecursosHumanos.BLL
+namespace RecursosHumanosBLL
 {
-   public class RepositorioBase<T> : IDisposable,IRecursosHumanos<T> where T : class
+    public class RepositorioBase<T> : IDisposable, IRepositorio<T> where T : class
     {
-        internal RecursosHumanosContexto contexto;
+        internal Contexto contexto;
 
         public RepositorioBase()
         {
-            contexto = new RecursosHumanosContexto();
+            contexto = new Contexto();
         }
         public virtual bool Guardar(T entity)
         {
             bool paso = false;
             try
             {
-                if(contexto.Set<T>().Add(entity)!=null)
+                if (contexto.Set<T>().Add(entity) != null)
                 {
                     paso = contexto.SaveChanges() > 0;
                 }
 
-            }catch
+            }
+            catch
             {
                 throw;
             }
@@ -37,15 +39,15 @@ namespace TrabajoFinalRecursosHumanos.BLL
         public virtual bool Modificar(T entity)
         {
             bool paso = false;
-      //      try
-       //     {
-                contexto.Entry(entity).State = EntityState.Modified;
-                paso = contexto.SaveChanges() > 0;
+           try
+           {
+            contexto.Entry(entity).State = EntityState.Modified;
+            paso = contexto.SaveChanges() > 0;
 
-      //      }catch
-      //      {
-      //          throw;
-         ///   }
+            }catch
+            {
+                 throw;
+            }
             return paso;
         }
 
@@ -57,7 +59,8 @@ namespace TrabajoFinalRecursosHumanos.BLL
                 var eliminar = contexto.Set<T>().Find(id);
                 contexto.Entry(eliminar).State = EntityState.Deleted;
                 paso = contexto.SaveChanges() > 0;
-            }catch
+            }
+            catch
             {
                 throw;
             }
@@ -70,20 +73,22 @@ namespace TrabajoFinalRecursosHumanos.BLL
             try
             {
                 entity = contexto.Set<T>().Find(id);
-            }catch
+            }
+            catch
             {
                 throw;
             }
             return entity;
         }
 
-        public List<T> GetList (Expression<Func<T,bool>> expression)
+        public List<T> GetList(Expression<Func<T, bool>> expression)
         {
             List<T> lista = new List<T>();
             try
             {
                 lista = contexto.Set<T>().Where(expression).ToList();
-            }catch
+            }
+            catch
             {
                 throw;
             }

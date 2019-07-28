@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
-using TrabajoFinalRecursosHumanos.BLL;
+using RecursosHumanosBLL;
 
 namespace TrabajoFinalRecursosHumanos.UI.Registros
 {
@@ -34,14 +34,14 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         {
             Horarios horarios = new Horarios();
             horarios.HorarioId = (int)IdnumericUpDown.Value;
-            horarios.HorarioFechas = (DateTime)HorariodateTimePicker.Value;
+            horarios.HorarioEntrada = (DateTime)HorariodateTimePicker.Value;
             return horarios;
         }
 
         private void LlenarCampo(Horarios horarios)
         {
             IdnumericUpDown.Value = horarios.HorarioId;
-            HorariodateTimePicker.Value = horarios.HorarioFechas;
+            HorariodateTimePicker.Value = horarios.HorarioEntrada;
         }
 
         private bool Validar()
@@ -137,6 +137,12 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             {
                 MessageBox.Show("No existe el horario");
             }
+        }
+
+        private void HorariodateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            HorariodateTimePicker.Format = DateTimePickerFormat.Custom;
+            HorariodateTimePicker.CustomFormat = "hh;mmv tt";
         }
     }
 }

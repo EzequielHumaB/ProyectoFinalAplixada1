@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
-using TrabajoFinalRecursosHumanos.BLL;
+using RecursosHumanosBLL;
 
 namespace TrabajoFinalRecursosHumanos.UI.Registros
 {
@@ -30,11 +30,13 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             SueldonumericUpDown.Value = 0;
             PuestotextBox.Text = string.Empty;
             PrecioPorHorasnumericUpDown.Value = 0;
+            IdEmpleadonumericUpDown.Value = 0;
             HorarioDelEmpleadodateTimePicker.Value = DateTime.Now;
+            HorarioSalidadateTimePicker.Value = DateTime.Now;
             IdEmpleadonumericUpDown.Value = 0;
             IdDelHorarionumericUpDown.Value = 0;
+            FechaCreaciondateTimePicker.Value = DateTime.Now;
             CargarGrid();
-
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)
@@ -52,6 +54,8 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             contratos.Puesto = PuestotextBox.Text;
             contratos.Horarios = this.Horarios;
             contratos.EmpleadoId = (int)IdEmpleadonumericUpDown.Value;
+            contratos.FechaCreacion = FechaCreaciondateTimePicker.Value;
+            contratos.EmpleadoId = (int)IdEmpleadonumericUpDown.Value;
             CargarGrid();
             return contratos;
         }
@@ -63,6 +67,8 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             SegurotextBox.Text = contratos.Seguro;
             SueldonumericUpDown.Value = contratos.Salario;
             PuestotextBox.Text = contratos.Puesto;
+            IdEmpleadonumericUpDown.Value = contratos.EmpleadoId;
+            FechaCreaciondateTimePicker.Value = contratos.FechaCreacion;
             IdEmpleadonumericUpDown.Value = contratos.EmpleadoId;
             this.Horarios = contratos.Horarios;
             CargarGrid();
@@ -77,6 +83,49 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 DescripciontextBox.Focus();
                 paso = false;
             }
+
+            if(HorarioSalidadateTimePicker.Value.DayOfWeek == DayOfWeek.Sunday)
+            {
+                MyErrorProvider.SetError(HorarioSalidadateTimePicker,"No se trabajan los domingos");
+                HorarioSalidadateTimePicker.Focus();
+                paso = false;
+            }
+
+            if(HorarioDelEmpleadodateTimePicker.Value.DayOfWeek == DayOfWeek.Sunday)
+            {
+                MyErrorProvider.SetError(HorarioDelEmpleadodateTimePicker, "No se trabajan los domingos");
+                HorarioDelEmpleadodateTimePicker.Focus();
+                paso = false;
+            }
+
+            if (HorarioDelEmpleadodateTimePicker.Value.DayOfWeek == DayOfWeek.Saturday || HorarioDelEmpleadodateTimePicker.MinDate.Hour > 14)
+            {
+                MyErrorProvider.SetError(HorarioDelEmpleadodateTimePicker, "Hora invalida");
+                HorarioDelEmpleadodateTimePicker.Focus();
+                paso = false;
+            }
+
+            if(HorarioDelEmpleadodateTimePicker.MaxDate.Hour >=22)
+            {
+                MyErrorProvider.SetError(HorarioDelEmpleadodateTimePicker, "Hora invalida");
+                HorarioDelEmpleadodateTimePicker.Focus();
+                paso = false;
+            }
+
+            if(HorarioSalidadateTimePicker.Value.DayOfWeek == DayOfWeek.Saturday || HorarioSalidadateTimePicker.MinDate.Hour >=14)
+            {
+                MyErrorProvider.SetError(HorarioSalidadateTimePicker, "Hora invalida");
+                HorarioSalidadateTimePicker.Focus();
+                paso = false;
+            }
+
+            if(HorarioSalidadateTimePicker.Value.Hour >22)
+            {
+                MyErrorProvider.SetError(HorarioSalidadateTimePicker, "Hora invalida");
+                HorarioSalidadateTimePicker.Focus();
+                paso = false;
+            }
+
             if(string.IsNullOrEmpty(SegurotextBox.Text))
             {
                 MyErrorProvider.SetError(SegurotextBox,"El seguro no puede estar vacio");
@@ -213,6 +262,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             this.Horarios.Add(
                 new Horarios(
                     fechaHorario: (DateTime)HorarioDelEmpleadodateTimePicker.Value,
+                    SalidaHorario: (DateTime)HorarioSalidadateTimePicker.Value,
                     HorasExtrasCantidad: (int)CantidadHorasExtrasnumericUpDown.Value,
                     HorasExtrasPrecio: (int)PrecioPorHorasnumericUpDown.Value
                     )) ;
@@ -238,6 +288,21 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             DepartamentocomboBox.DataSource = listado;
             DepartamentocomboBox.DisplayMember = "NombreDepartamento";
             DepartamentocomboBox.ValueMember = "DepartamentoId";
+        }
+
+        private void HorarioDelEmpleadodateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            HorarioDelEmpleadodateTimePicker.CustomFormat = "HH:mm";
+        }
+
+        private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            HorarioSalidadateTimePicker.CustomFormat = "HH:mm";
+        }
+
+        private void IdEmpleadonumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

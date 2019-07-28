@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TrabajoFinalRecursosHumanos.BLL;
+using RecursosHumanosBLL;
 using Entidades;
 
 namespace TrabajoFinalRecursosHumanos.UI.Registros
@@ -23,6 +23,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         {
             IdnumericUpDown.Value = 0;
             NombreVacantetextBox.Text = string.Empty;
+            FechaCreaciondateTimePicker.Value = DateTime.Now;
         }
 
         private void GuardarButton_Click(object sender, EventArgs e)
@@ -59,6 +60,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             TipoVacante tipoVacante = new TipoVacante();
             tipoVacante.TipoVacanteId = (int)IdnumericUpDown.Value;
             tipoVacante.NombreTipoVacante = NombreVacantetextBox.Text;
+            tipoVacante.FechaCreacion = FechaCreaciondateTimePicker.Value;
             return tipoVacante;
         }
 
@@ -66,6 +68,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         {
             IdnumericUpDown.Value = tipovacante.TipoVacanteId;
             NombreVacantetextBox.Text = tipovacante.NombreTipoVacante;
+            FechaCreaciondateTimePicker.Value = tipovacante.FechaCreacion;
         }
 
         private bool Validar()

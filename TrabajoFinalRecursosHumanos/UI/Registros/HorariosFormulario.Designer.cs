@@ -67,6 +67,7 @@
             this.HorariodateTimePicker.Name = "HorariodateTimePicker";
             this.HorariodateTimePicker.Size = new System.Drawing.Size(197, 20);
             this.HorariodateTimePicker.TabIndex = 3;
+            this.HorariodateTimePicker.ValueChanged += new System.EventHandler(this.HorariodateTimePicker_ValueChanged);
             // 
             // Eliminarbutton
             // 

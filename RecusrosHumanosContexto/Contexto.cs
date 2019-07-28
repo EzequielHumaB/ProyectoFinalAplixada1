@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using Entidades;
 
-namespace TrabajoFinalRecursosHumanos
+namespace RecusrosHumanosContexto
 {
-   public class RecursosHumanosContexto : DbContext
+    public class Contexto : DbContext
     {
         public DbSet<Empleados> Empleados { get; set; }
         public DbSet<Contratos> contratos { get; set; }
         public DbSet<Departamentos> Departamentos { get; set; }
 
         public DbSet<TipoVacante> tipoVacantes { get; set; }
-        public RecursosHumanosContexto() : base("ConStr")
+        public Contexto() : base("ConStr")
         {
-            Database.SetInitializer<RecursosHumanosContexto>(new DropCreateDatabaseIfModelChanges<RecursosHumanosContexto>());
+            Database.SetInitializer<Contexto>(new DropCreateDatabaseIfModelChanges<Contexto>());
         }
     }
 }

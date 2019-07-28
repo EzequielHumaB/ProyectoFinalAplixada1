@@ -11,31 +11,39 @@ namespace Entidades
     {
         [Key]
         public int HorarioId { get; set; }
-        public DateTime HorarioFechas { get; set; }
+        public DateTime HorarioEntrada { get; set; }
+
+        public DateTime HorarioSalida { get; set; }
+
         public int EmpleadoId {get;set;}
         public int CantidadHorasExtras { get; set; }
         public decimal PrecioHorasExtras { get; set; }
 
+        
+
         public Horarios()
         {
             HorarioId = 0;
-            HorarioFechas = DateTime.Now;
+            HorarioEntrada = DateTime.Now;
             EmpleadoId = 0;
             CantidadHorasExtras = 0;
             PrecioHorasExtras = 0;
+            HorarioSalida = DateTime.Now;
         }
-        public Horarios(int IdHorario, DateTime FechasHorario, int IdEmpleado, int HorasExtresCantidad, int HorasExtrasPrecio)
+        public Horarios(int IdHorario, DateTime FechasHorario, DateTime SalidaHorario,int IdEmpleado, int HorasExtresCantidad, int HorasExtrasPrecio)
         {
             HorarioId = IdHorario;
-            HorarioFechas = FechasHorario;
+            HorarioEntrada = FechasHorario;
+            HorarioSalida = SalidaHorario;
             EmpleadoId = IdEmpleado;
             CantidadHorasExtras = HorasExtresCantidad;
             PrecioHorasExtras = HorasExtrasPrecio;
         }
 
-        public Horarios(DateTime fechaHorario, int HorasExtrasCantidad, decimal HorasExtrasPrecio)
+        public Horarios(DateTime fechaHorario,DateTime SalidaHorario, int HorasExtrasCantidad, decimal HorasExtrasPrecio)
         {
-            HorarioFechas = fechaHorario;
+            HorarioEntrada = fechaHorario;
+            HorarioSalida = SalidaHorario;
             CantidadHorasExtras = HorasExtrasCantidad;
             PrecioHorasExtras = HorasExtrasPrecio;
         }

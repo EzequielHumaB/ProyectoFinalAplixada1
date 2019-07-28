@@ -13,15 +13,13 @@ namespace Entidades
         public  int DepartamentoId { get; set; }
         public string NombreDepartamento { get; set; }
 
+        public DateTime FechaCreacion { get; set; }
+
         public Departamentos()
         {
             DepartamentoId = 0;
             NombreDepartamento = string.Empty;
-        }
-        public Departamentos(int IdDepartamento, string DepartamentoNombre)
-        {
-            DepartamentoId = IdDepartamento;
-            NombreDepartamento = DepartamentoNombre;
+            FechaCreacion = DateTime.Now;
         }
     }
 

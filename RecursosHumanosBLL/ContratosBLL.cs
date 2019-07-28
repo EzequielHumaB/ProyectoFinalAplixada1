@@ -1,38 +1,42 @@
-﻿using Entidades;
-using System.Data.Entity;
-using System.Linq;
-using System.Linq.Expressions;
+﻿using System;
 using System.Collections.Generic;
-using System;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Entidades;
+using RecusrosHumanosContexto;
+using System.Linq.Expressions;
+using System.Data.Entity;
 
-namespace TrabajoFinalRecursosHumanos.BLL
+namespace RecursosHumanosBLL
 {
-    public class ContratosBLL
+   public class ContratosBLL
     {
         public static bool Guardar(Contratos contratos)
         {
-            RecursosHumanosContexto contexto = new RecursosHumanosContexto();
+            Contexto contexto = new Contexto();
             bool paso = false;
             Empleados empleados = new Empleados();
             decimal sumando = 0;
             try
             {
-                if(contexto.contratos.Add(contratos)!=null)
+                if (contexto.contratos.Add(contratos) != null)
                 {
-                    foreach(var item in contratos.Horarios)
+                    foreach (var item in contratos.Horarios)
                     {
-                         sumando = contexto.Empleados.Find(contratos.EmpleadoId).Salario += item.CantidadHorasExtras * item.PrecioHorasExtras;
-                //        contratos.Salario = sumando;
+                        sumando = contexto.Empleados.Find(contratos.EmpleadoId).Salario += item.CantidadHorasExtras * item.PrecioHorasExtras;
+                        //        contratos.Salario = sumando;
                     }
                     paso = contexto.SaveChanges() > 0;
                 }
-            }catch
+            }
+            catch
             {
                 throw;
             }
             finally
             {
-                
+
             }
             return paso;
         }
@@ -40,7 +44,7 @@ namespace TrabajoFinalRecursosHumanos.BLL
         public static bool Modificar(Contratos contratos)
         {
             bool paso = false;
-            RecursosHumanosContexto contexto = new RecursosHumanosContexto();
+            Contexto contexto = new Contexto();
             RepositorioBase<Empleados> repositorioBase = new RepositorioBase<Empleados>();
             try
             {
@@ -80,23 +84,24 @@ namespace TrabajoFinalRecursosHumanos.BLL
             }
             return paso;
         }
-    
+
 
         public static bool Eliminar(int id)
         {
             bool paso = false;
-            RecursosHumanosContexto contexto = new RecursosHumanosContexto();
+            Contexto contexto = new Contexto();
             decimal sumando = 0;
             try
-            {                
+            {
                 Contratos Eliminar = contexto.contratos.Find(id);
                 foreach (var item in Eliminar.Horarios)
                 {
-                    sumando = contexto.Empleados.Find(Eliminar.EmpleadoId).Salario -= item.CantidadHorasExtras * item.PrecioHorasExtras;               
+                    sumando = contexto.Empleados.Find(Eliminar.EmpleadoId).Salario -= item.CantidadHorasExtras * item.PrecioHorasExtras;
                 }
                 contexto.Entry(Eliminar).State = EntityState.Deleted;
                 paso = contexto.SaveChanges() > 0;
-            }catch
+            }
+            catch
             {
                 throw;
             }
@@ -110,12 +115,13 @@ namespace TrabajoFinalRecursosHumanos.BLL
         public static Contratos Buscar(int id)
         {
             Contratos contratos = new Contratos();
-            RecursosHumanosContexto contexto = new RecursosHumanosContexto();
+            Contexto contexto = new Contexto();
             try
             {
                 contratos = contexto.contratos.Find(id);
                 contratos.Horarios.Count();
-            }catch
+            }
+            catch
             {
                 throw;
             }
@@ -126,15 +132,16 @@ namespace TrabajoFinalRecursosHumanos.BLL
             return contratos;
         }
 
-        public static List<Contratos> GetList(Expression<Func<Contratos,bool>> expression)
+        public static List<Contratos> GetList(Expression<Func<Contratos, bool>> expression)
         {
             List<Contratos> lista = new List<Contratos>();
-            RecursosHumanosContexto contexto = new RecursosHumanosContexto();
+            Contexto contexto = new Contexto();
             try
             {
                 lista = contexto.contratos.Where(expression).ToList();
-                
-            }catch
+
+            }
+            catch
             {
                 throw;
             }
