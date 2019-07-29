@@ -31,7 +31,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.UsuariotextBox = new System.Windows.Forms.TextBox();
-            this.ContraseñatextBox = new System.Windows.Forms.TextBox();
+            this.ClaveUsuarioTextBox = new System.Windows.Forms.TextBox();
+            this.Guardarbutton = new System.Windows.Forms.Button();
+            this.Mostrarbutton = new System.Windows.Forms.Button();
+            this.Encriptadolabel = new System.Windows.Forms.Label();
+            this.Desencriptadolabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -60,23 +64,66 @@
             this.UsuariotextBox.Size = new System.Drawing.Size(187, 33);
             this.UsuariotextBox.TabIndex = 2;
             // 
-            // ContraseñatextBox
+            // ClaveUsuarioTextBox
             // 
-            this.ContraseñatextBox.Location = new System.Drawing.Point(132, 91);
-            this.ContraseñatextBox.Multiline = true;
-            this.ContraseñatextBox.Name = "ContraseñatextBox";
-            this.ContraseñatextBox.Size = new System.Drawing.Size(187, 33);
-            this.ContraseñatextBox.TabIndex = 3;
+            this.ClaveUsuarioTextBox.Location = new System.Drawing.Point(132, 91);
+            this.ClaveUsuarioTextBox.Multiline = true;
+            this.ClaveUsuarioTextBox.Name = "ClaveUsuarioTextBox";
+            this.ClaveUsuarioTextBox.Size = new System.Drawing.Size(187, 33);
+            this.ClaveUsuarioTextBox.TabIndex = 3;
+            // 
+            // Guardarbutton
+            // 
+            this.Guardarbutton.Location = new System.Drawing.Point(40, 143);
+            this.Guardarbutton.Name = "Guardarbutton";
+            this.Guardarbutton.Size = new System.Drawing.Size(75, 23);
+            this.Guardarbutton.TabIndex = 4;
+            this.Guardarbutton.Text = "Guardar";
+            this.Guardarbutton.UseVisualStyleBackColor = true;
+            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
+            // 
+            // Mostrarbutton
+            // 
+            this.Mostrarbutton.Location = new System.Drawing.Point(204, 143);
+            this.Mostrarbutton.Name = "Mostrarbutton";
+            this.Mostrarbutton.Size = new System.Drawing.Size(75, 23);
+            this.Mostrarbutton.TabIndex = 5;
+            this.Mostrarbutton.Text = "Mostrar";
+            this.Mostrarbutton.UseVisualStyleBackColor = true;
+            // 
+            // Encriptadolabel
+            // 
+            this.Encriptadolabel.AutoSize = true;
+            this.Encriptadolabel.Location = new System.Drawing.Point(49, 190);
+            this.Encriptadolabel.Name = "Encriptadolabel";
+            this.Encriptadolabel.Size = new System.Drawing.Size(35, 13);
+            this.Encriptadolabel.TabIndex = 6;
+            this.Encriptadolabel.Text = "label3";
+            // 
+            // Desencriptadolabel
+            // 
+            this.Desencriptadolabel.AutoSize = true;
+            this.Desencriptadolabel.Location = new System.Drawing.Point(49, 237);
+            this.Desencriptadolabel.Name = "Desencriptadolabel";
+            this.Desencriptadolabel.Size = new System.Drawing.Size(35, 13);
+            this.Desencriptadolabel.TabIndex = 7;
+            this.Desencriptadolabel.Text = "label4";
             // 
             // IniciarSesionFormulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(403, 164);
-            this.Controls.Add(this.ContraseñatextBox);
+            this.ClientSize = new System.Drawing.Size(357, 308);
+            this.Controls.Add(this.Desencriptadolabel);
+            this.Controls.Add(this.Encriptadolabel);
+            this.Controls.Add(this.Mostrarbutton);
+            this.Controls.Add(this.Guardarbutton);
+            this.Controls.Add(this.ClaveUsuarioTextBox);
             this.Controls.Add(this.UsuariotextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "IniciarSesionFormulario";
             this.Text = "IniciarSesionFormulario";
             this.ResumeLayout(false);
@@ -89,6 +136,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox UsuariotextBox;
-        private System.Windows.Forms.TextBox ContraseñatextBox;
+        private System.Windows.Forms.TextBox ClaveUsuarioTextBox;
+        private System.Windows.Forms.Button Guardarbutton;
+        private System.Windows.Forms.Button Mostrarbutton;
+        private System.Windows.Forms.Label Encriptadolabel;
+        private System.Windows.Forms.Label Desencriptadolabel;
     }
 }

@@ -30,80 +30,107 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.horariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.horarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultawToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.empleadosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.iniciarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iniciarSesionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contratosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.departamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tipoDeVacanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.empleadosToolStripMenuItem,
             this.empleadoToolStripMenuItem,
             this.horarioToolStripMenuItem,
-            this.consultawToolStripMenuItem});
+            this.iniciarSesionToolStripMenuItem,
+            this.iniciarSesionToolStripMenuItem1,
+            this.consultasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(663, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // empleadosToolStripMenuItem
-            // 
-            this.empleadosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.horariosToolStripMenuItem});
-            this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
-            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
-            this.empleadosToolStripMenuItem.Text = "Empleados";
-            this.empleadosToolStripMenuItem.Click += new System.EventHandler(this.EmpleadosToolStripMenuItem_Click);
-            // 
-            // horariosToolStripMenuItem
-            // 
-            this.horariosToolStripMenuItem.Name = "horariosToolStripMenuItem";
-            this.horariosToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.horariosToolStripMenuItem.Text = "Horarios";
-            // 
             // empleadoToolStripMenuItem
             // 
             this.empleadoToolStripMenuItem.Name = "empleadoToolStripMenuItem";
-            this.empleadoToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.empleadoToolStripMenuItem.Text = "Contrato";
+            this.empleadoToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.empleadoToolStripMenuItem.Text = "Usuario";
             this.empleadoToolStripMenuItem.Click += new System.EventHandler(this.EmpleadoToolStripMenuItem_Click);
             // 
             // horarioToolStripMenuItem
             // 
             this.horarioToolStripMenuItem.Name = "horarioToolStripMenuItem";
-            this.horarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.horarioToolStripMenuItem.Text = "Horario";
+            this.horarioToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.horarioToolStripMenuItem.Text = "Empleado";
             this.horarioToolStripMenuItem.Click += new System.EventHandler(this.HorarioToolStripMenuItem_Click);
             // 
-            // consultawToolStripMenuItem
+            // iniciarSesionToolStripMenuItem
             // 
-            this.consultawToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.empleadosToolStripMenuItem1,
-            this.contratosToolStripMenuItem});
-            this.consultawToolStripMenuItem.Name = "consultawToolStripMenuItem";
-            this.consultawToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.consultawToolStripMenuItem.Text = "Consultas";
+            this.iniciarSesionToolStripMenuItem.Name = "iniciarSesionToolStripMenuItem";
+            this.iniciarSesionToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.iniciarSesionToolStripMenuItem.Text = "Contratos";
+            this.iniciarSesionToolStripMenuItem.Click += new System.EventHandler(this.IniciarSesionToolStripMenuItem_Click);
             // 
-            // empleadosToolStripMenuItem1
+            // iniciarSesionToolStripMenuItem1
             // 
-            this.empleadosToolStripMenuItem1.Name = "empleadosToolStripMenuItem1";
-            this.empleadosToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
-            this.empleadosToolStripMenuItem1.Text = "Empleados";
-            this.empleadosToolStripMenuItem1.Click += new System.EventHandler(this.EmpleadosToolStripMenuItem1_Click);
+            this.iniciarSesionToolStripMenuItem1.Name = "iniciarSesionToolStripMenuItem1";
+            this.iniciarSesionToolStripMenuItem1.Size = new System.Drawing.Size(91, 20);
+            this.iniciarSesionToolStripMenuItem1.Text = "Iniciar Sesion ";
+            this.iniciarSesionToolStripMenuItem1.Click += new System.EventHandler(this.IniciarSesionToolStripMenuItem1_Click);
+            // 
+            // consultasToolStripMenuItem
+            // 
+            this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usuarioToolStripMenuItem,
+            this.eToolStripMenuItem,
+            this.contratosToolStripMenuItem,
+            this.departamentosToolStripMenuItem,
+            this.tipoDeVacanteToolStripMenuItem});
+            this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
+            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.consultasToolStripMenuItem.Text = "Consultas";
+            // 
+            // usuarioToolStripMenuItem
+            // 
+            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuarioToolStripMenuItem.Text = "Usuario ";
+            this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.UsuarioToolStripMenuItem_Click);
+            // 
+            // eToolStripMenuItem
+            // 
+            this.eToolStripMenuItem.Name = "eToolStripMenuItem";
+            this.eToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eToolStripMenuItem.Text = "Empleados ";
+            this.eToolStripMenuItem.Click += new System.EventHandler(this.EToolStripMenuItem_Click);
             // 
             // contratosToolStripMenuItem
             // 
             this.contratosToolStripMenuItem.Name = "contratosToolStripMenuItem";
-            this.contratosToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.contratosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.contratosToolStripMenuItem.Text = "Contratos";
-            this.contratosToolStripMenuItem.Click += new System.EventHandler(this.ContratosToolStripMenuItem_Click);
+            this.contratosToolStripMenuItem.Click += new System.EventHandler(this.ContratosToolStripMenuItem_Click_1);
+            // 
+            // departamentosToolStripMenuItem
+            // 
+            this.departamentosToolStripMenuItem.Name = "departamentosToolStripMenuItem";
+            this.departamentosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.departamentosToolStripMenuItem.Text = "Departamentos";
+            this.departamentosToolStripMenuItem.Click += new System.EventHandler(this.DepartamentosToolStripMenuItem_Click);
+            // 
+            // tipoDeVacanteToolStripMenuItem
+            // 
+            this.tipoDeVacanteToolStripMenuItem.Name = "tipoDeVacanteToolStripMenuItem";
+            this.tipoDeVacanteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tipoDeVacanteToolStripMenuItem.Text = "Tipo de vacante ";
+            this.tipoDeVacanteToolStripMenuItem.Click += new System.EventHandler(this.TipoDeVacanteToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -127,13 +154,16 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem horariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem empleadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem horarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultawToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem iniciarSesionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iniciarSesionToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contratosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem departamentosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tipoDeVacanteToolStripMenuItem;
     }
 }
 

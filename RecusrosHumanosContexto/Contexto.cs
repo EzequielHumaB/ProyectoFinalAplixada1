@@ -15,6 +15,7 @@ namespace RecusrosHumanosContexto
         public DbSet<Departamentos> Departamentos { get; set; }
 
         public DbSet<TipoVacante> tipoVacantes { get; set; }
+        public DbSet<Usuarios> Usuarios { get; set; }
         public Contexto() : base("ConStr")
         {
             Database.SetInitializer<Contexto>(new DropCreateDatabaseIfModelChanges<Contexto>());

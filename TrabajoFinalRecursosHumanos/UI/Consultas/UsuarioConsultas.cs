@@ -7,22 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Entidades;
 using RecursosHumanosBLL;
+using Entidades;
 
 namespace TrabajoFinalRecursosHumanos.UI.Consultas
 {
-    public partial class ConsultaDeContratos : Form
+    public partial class UsuarioConsultas : Form
     {
-        public ConsultaDeContratos()
+        public UsuarioConsultas()
         {
             InitializeComponent();
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
+            RepositorioBase<Usuarios> repositorioBase = new RepositorioBase<Usuarios>();
 
-            var listado = new List<Contratos>();
+            var listado = new List<Usuarios>();
             if (FechacheckBox.Checked == true)
             {
                 if (CriteriotextBox.Text.Trim().Length > 0)
@@ -33,18 +34,17 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
                         {
 
                             case 0:
-                                listado = ContratosBLL.GetList(p => true);
+                                listado = repositorioBase.GetList(p => true);
                                 break;
                             case 1:
-                                listado = ContratosBLL.GetList(p => p.Horarios.ToString() ==CriteriotextBox.Text);
+                                listado = repositorioBase.GetList(p => p.Usuario.Contains(CriteriotextBox.Text));
                                 break;
                             case 2:
-                                listado = ContratosBLL.GetList(p => p.Salario.ToString() == CriteriotextBox.Text);
+                                listado = repositorioBase.GetList(p => p.FechaCreacion.ToString() == CriteriotextBox.Text);
                                 break;
                             case 3:
-                                listado = ContratosBLL.GetList(p => p.Seguro.Contains(CriteriotextBox.Text));
+                                listado = repositorioBase.GetList(p => p.NivelUsuario.Contains(CriteriotextBox.Text));
                                 break;
-                     
                         }
                     }
                     catch (Exception)
@@ -54,7 +54,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
 
                 }
                 else
-                    listado = ContratosBLL.GetList(p => true);
+                    listado = repositorioBase.GetList(p => true);
 
 
                 ConsultadataGridView.DataSource = null;
@@ -71,18 +71,17 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
                         {
 
                             case 0:
-                                listado = ContratosBLL.GetList(p => true);
+                                listado = repositorioBase.GetList(p => true);
                                 break;
                             case 1:
-                                listado = ContratosBLL.GetList(p => p.Horarios.ToString() == CriteriotextBox.Text);
+                                listado = repositorioBase.GetList(p => p.Usuario.Contains(CriteriotextBox.Text));
                                 break;
                             case 2:
-                                listado = ContratosBLL.GetList(p => p.Salario.ToString() == CriteriotextBox.Text);
+                                listado = repositorioBase.GetList(p => p.FechaCreacion.ToString() == CriteriotextBox.Text);
                                 break;
                             case 3:
-                                listado = ContratosBLL.GetList(p => p.Seguro.Contains(CriteriotextBox.Text));
+                                listado = repositorioBase.GetList(p => p.NivelUsuario.Contains(CriteriotextBox.Text));
                                 break;
-                       
                         }
                     }
                     catch (Exception)
@@ -92,7 +91,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
 
                 }
                 else
-                    listado = ContratosBLL.GetList(p => true);
+                    listado = repositorioBase.GetList(p => true);
 
 
                 ConsultadataGridView.DataSource = null;

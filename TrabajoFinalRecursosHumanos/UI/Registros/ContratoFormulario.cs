@@ -51,9 +51,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             contratos.DescripcionContrato = DescripciontextBox.Text;
             contratos.Seguro = SegurotextBox.Text;
             contratos.Salario = SueldonumericUpDown.Value;
-            contratos.Puesto = PuestotextBox.Text;
             contratos.Horarios = this.Horarios;
-            contratos.EmpleadoId = (int)IdEmpleadonumericUpDown.Value;
             contratos.FechaCreacion = FechaCreaciondateTimePicker.Value;
             contratos.EmpleadoId = (int)IdEmpleadonumericUpDown.Value;
             CargarGrid();
@@ -66,7 +64,6 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             DescripciontextBox.Text = contratos.DescripcionContrato;
             SegurotextBox.Text = contratos.Seguro;
             SueldonumericUpDown.Value = contratos.Salario;
-            PuestotextBox.Text = contratos.Puesto;
             IdEmpleadonumericUpDown.Value = contratos.EmpleadoId;
             FechaCreaciondateTimePicker.Value = contratos.FechaCreacion;
             IdEmpleadonumericUpDown.Value = contratos.EmpleadoId;
@@ -77,6 +74,8 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         private bool Validar()
         {
             bool paso = true;
+            Empleados empleados = new Empleados();
+
             if(string.IsNullOrEmpty(DescripciontextBox.Text))
             {
                 MyErrorProvider.SetError(DescripciontextBox, "La descripcion no puede estar vacia");
@@ -156,6 +155,13 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 DetalledataGridView.Focus();
                 paso = false;
             }
+            if(empleados==null)
+            {
+                MessageBox.Show("El empleado no ha sido creado");
+                paso = false;
+            }
+
+        
 
             return paso;
         }

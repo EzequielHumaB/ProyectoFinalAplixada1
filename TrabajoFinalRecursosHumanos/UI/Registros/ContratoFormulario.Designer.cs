@@ -143,7 +143,7 @@
             // 
             this.Eliminarbutton.Image = ((System.Drawing.Image)(resources.GetObject("Eliminarbutton.Image")));
             this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Eliminarbutton.Location = new System.Drawing.Point(273, 700);
+            this.Eliminarbutton.Location = new System.Drawing.Point(273, 692);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(75, 57);
             this.Eliminarbutton.TabIndex = 50;
@@ -156,7 +156,7 @@
             // 
             this.GuardarButton.Image = ((System.Drawing.Image)(resources.GetObject("GuardarButton.Image")));
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.GuardarButton.Location = new System.Drawing.Point(151, 700);
+            this.GuardarButton.Location = new System.Drawing.Point(151, 692);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(75, 57);
             this.GuardarButton.TabIndex = 49;
@@ -169,7 +169,7 @@
             // 
             this.Nuevobutton.Image = ((System.Drawing.Image)(resources.GetObject("Nuevobutton.Image")));
             this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Nuevobutton.Location = new System.Drawing.Point(27, 700);
+            this.Nuevobutton.Location = new System.Drawing.Point(27, 692);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(75, 57);
             this.Nuevobutton.TabIndex = 48;
@@ -232,7 +232,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(34, 327);
+            this.label8.Location = new System.Drawing.Point(34, 319);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 13);
             this.label8.TabIndex = 57;
@@ -248,7 +248,7 @@
             // 
             // IdDelHorarionumericUpDown
             // 
-            this.IdDelHorarionumericUpDown.Location = new System.Drawing.Point(173, 325);
+            this.IdDelHorarionumericUpDown.Location = new System.Drawing.Point(173, 317);
             this.IdDelHorarionumericUpDown.Name = "IdDelHorarionumericUpDown";
             this.IdDelHorarionumericUpDown.Size = new System.Drawing.Size(70, 20);
             this.IdDelHorarionumericUpDown.TabIndex = 59;
@@ -256,7 +256,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(31, 352);
+            this.label9.Location = new System.Drawing.Point(31, 344);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(89, 13);
             this.label9.TabIndex = 60;
@@ -265,7 +265,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(31, 413);
+            this.label10.Location = new System.Drawing.Point(31, 405);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(66, 13);
             this.label10.TabIndex = 61;
@@ -274,7 +274,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(31, 439);
+            this.label11.Location = new System.Drawing.Point(31, 431);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(97, 13);
             this.label11.TabIndex = 62;
@@ -283,7 +283,7 @@
             // HorarioDelEmpleadodateTimePicker
             // 
             this.HorarioDelEmpleadodateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.HorarioDelEmpleadodateTimePicker.Location = new System.Drawing.Point(173, 352);
+            this.HorarioDelEmpleadodateTimePicker.Location = new System.Drawing.Point(173, 344);
             this.HorarioDelEmpleadodateTimePicker.Name = "HorarioDelEmpleadodateTimePicker";
             this.HorarioDelEmpleadodateTimePicker.Size = new System.Drawing.Size(70, 20);
             this.HorarioDelEmpleadodateTimePicker.TabIndex = 63;
@@ -291,7 +291,7 @@
             // 
             // PrecioPorHorasnumericUpDown
             // 
-            this.PrecioPorHorasnumericUpDown.Location = new System.Drawing.Point(173, 442);
+            this.PrecioPorHorasnumericUpDown.Location = new System.Drawing.Point(173, 434);
             this.PrecioPorHorasnumericUpDown.Name = "PrecioPorHorasnumericUpDown";
             this.PrecioPorHorasnumericUpDown.Size = new System.Drawing.Size(70, 20);
             this.PrecioPorHorasnumericUpDown.TabIndex = 65;
@@ -299,14 +299,14 @@
             // DetalledataGridView
             // 
             this.DetalledataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DetalledataGridView.Location = new System.Drawing.Point(34, 471);
+            this.DetalledataGridView.Location = new System.Drawing.Point(34, 463);
             this.DetalledataGridView.Name = "DetalledataGridView";
             this.DetalledataGridView.Size = new System.Drawing.Size(345, 183);
             this.DetalledataGridView.TabIndex = 66;
             // 
             // Removerbutton
             // 
-            this.Removerbutton.Location = new System.Drawing.Point(27, 671);
+            this.Removerbutton.Location = new System.Drawing.Point(27, 663);
             this.Removerbutton.Name = "Removerbutton";
             this.Removerbutton.Size = new System.Drawing.Size(117, 23);
             this.Removerbutton.TabIndex = 67;
@@ -317,7 +317,7 @@
             // AgregarenelGridbutton
             // 
             this.AgregarenelGridbutton.Image = ((System.Drawing.Image)(resources.GetObject("AgregarenelGridbutton.Image")));
-            this.AgregarenelGridbutton.Location = new System.Drawing.Point(351, 429);
+            this.AgregarenelGridbutton.Location = new System.Drawing.Point(351, 421);
             this.AgregarenelGridbutton.Name = "AgregarenelGridbutton";
             this.AgregarenelGridbutton.Size = new System.Drawing.Size(75, 33);
             this.AgregarenelGridbutton.TabIndex = 68;
@@ -344,7 +344,7 @@
             // 
             // CantidadHorasExtrasnumericUpDown
             // 
-            this.CantidadHorasExtrasnumericUpDown.Location = new System.Drawing.Point(173, 411);
+            this.CantidadHorasExtrasnumericUpDown.Location = new System.Drawing.Point(173, 403);
             this.CantidadHorasExtrasnumericUpDown.Name = "CantidadHorasExtrasnumericUpDown";
             this.CantidadHorasExtrasnumericUpDown.Size = new System.Drawing.Size(70, 20);
             this.CantidadHorasExtrasnumericUpDown.TabIndex = 71;
@@ -368,7 +368,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(34, 381);
+            this.label13.Location = new System.Drawing.Point(34, 373);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(86, 13);
             this.label13.TabIndex = 74;
@@ -377,7 +377,7 @@
             // HorarioSalidadateTimePicker
             // 
             this.HorarioSalidadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.HorarioSalidadateTimePicker.Location = new System.Drawing.Point(173, 381);
+            this.HorarioSalidadateTimePicker.Location = new System.Drawing.Point(173, 373);
             this.HorarioSalidadateTimePicker.Name = "HorarioSalidadateTimePicker";
             this.HorarioSalidadateTimePicker.Size = new System.Drawing.Size(70, 20);
             this.HorarioSalidadateTimePicker.TabIndex = 75;

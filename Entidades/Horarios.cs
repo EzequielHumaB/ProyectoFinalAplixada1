@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace Entidades
 {
     public class Horarios
     {
         [Key]
+        [Browsable(false)]
         public int HorarioId { get; set; }
         public DateTime HorarioEntrada { get; set; }
 

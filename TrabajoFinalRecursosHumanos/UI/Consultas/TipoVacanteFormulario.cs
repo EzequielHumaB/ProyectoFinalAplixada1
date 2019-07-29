@@ -9,24 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using RecursosHumanosBLL;
 using Entidades;
-using TrabajoFinalRecursosHumanos.UI.Reportes;
 
 namespace TrabajoFinalRecursosHumanos.UI.Consultas
 {
-    public partial class ConsultaEmpleadoFormulario : Form
+    public partial class TipoVacanteFormulario : Form
     {
-        public List<Empleados> empleados;
-        public ConsultaEmpleadoFormulario()
+        public TipoVacanteFormulario()
         {
             InitializeComponent();
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
-             
-            RepositorioBase<Empleados> repositorioBase = new RepositorioBase<Empleados>();
+            RepositorioBase<TipoVacante> repositorioBase = new RepositorioBase<TipoVacante>();
 
-            var listado = new List<Empleados>();
+            var listado = new List<TipoVacante>();
             if (FechacheckBox.Checked == true)
             {
                 if (CriteriotextBox.Text.Trim().Length > 0)
@@ -38,19 +35,14 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
 
                             case 0:
                                 listado = repositorioBase.GetList(p => true);
-                                break;                      
+                                break;
                             case 1:
-                                listado = repositorioBase.GetList(p => p.Nombres.Contains(CriteriotextBox.Text));
+                                listado = repositorioBase.GetList(p => p.NombreTipoVacante.Contains(CriteriotextBox.Text));
                                 break;
                             case 2:
-                                listado = repositorioBase.GetList(p => p.Apellidos.ToString() == CriteriotextBox.Text);
+                                listado = repositorioBase.GetList(p => p.FechaCreacion.ToString() == CriteriotextBox.Text);
                                 break;
-                            case 3:
-                                listado = repositorioBase.GetList(p => p.Cedula.Contains(CriteriotextBox.Text));
-                                break;
-                            case 4:
-                                listado = repositorioBase.GetList(p => p.Nacionalidad.Contains(CriteriotextBox.Text));
-                                break;
+
                         }
                     }
                     catch (Exception)
@@ -63,8 +55,8 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
                     listado = repositorioBase.GetList(p => true);
 
 
-                empleados = listado;
-                ConsultadataGridView.DataSource = empleados;
+                ConsultadataGridView.DataSource = null;
+                ConsultadataGridView.DataSource = listado;
             }
 
             else
@@ -80,16 +72,10 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
                                 listado = repositorioBase.GetList(p => true);
                                 break;
                             case 1:
-                                listado = repositorioBase.GetList(p => p.Nombres.Contains(CriteriotextBox.Text));
+                                listado = repositorioBase.GetList(p => p.NombreTipoVacante.Contains(CriteriotextBox.Text));
                                 break;
                             case 2:
-                                listado = repositorioBase.GetList(p => p.Apellidos.ToString() == CriteriotextBox.Text);
-                                break;
-                            case 3:
-                                listado = repositorioBase.GetList(p => p.Cedula.Contains(CriteriotextBox.Text));
-                                break;
-                            case 4:
-                                listado = repositorioBase.GetList(p => p.Nacionalidad.Contains(CriteriotextBox.Text));
+                                listado = repositorioBase.GetList(p => p.FechaCreacion.ToString() == CriteriotextBox.Text);
                                 break;
                         }
                     }
@@ -103,8 +89,8 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
                     listado = repositorioBase.GetList(p => true);
 
 
-                empleados = listado;
-                ConsultadataGridView.DataSource = empleados;
+                ConsultadataGridView.DataSource = null;
+                ConsultadataGridView.DataSource = listado;
             }
         }
 
@@ -155,22 +141,6 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
 
         private void Label1_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void Imprimirbutton_Click(object sender, EventArgs e)
-        {
-            if (ConsultadataGridView.RowCount == 0)
-            {
-                MessageBox.Show("No hay Datos Para Imprimir");
-                return;
-            }
-            else
-            {
-
-                ListaEmpleados listaEmpleados = new ListaEmpleados(empleados);
-                listaEmpleados.Show();
-            }
 
         }
     }
