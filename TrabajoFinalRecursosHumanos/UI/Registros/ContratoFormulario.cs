@@ -28,7 +28,6 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             SegurotextBox.Text = string.Empty;
             DescripciontextBox.Text = string.Empty;
             SueldonumericUpDown.Value = 0;
-            PuestotextBox.Text = string.Empty;
             PrecioPorHorasnumericUpDown.Value = 0;
             IdEmpleadonumericUpDown.Value = 0;
             HorarioDelEmpleadodateTimePicker.Value = DateTime.Now;
@@ -306,9 +305,6 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             HorarioSalidadateTimePicker.CustomFormat = "HH:mm";
         }
 
-        private void IdEmpleadonumericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+     
     }
 }

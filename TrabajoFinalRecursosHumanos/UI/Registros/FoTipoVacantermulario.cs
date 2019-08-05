@@ -38,6 +38,8 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
 
             if (IdnumericUpDown.Value == 0)
             {
+                if (!NoRepetidos())
+                    return;
                 paso = repositorio.Guardar(tipoVacante);
             }
             else
@@ -77,6 +79,26 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             if (string.IsNullOrEmpty(NombreVacantetextBox.Text))
             {
                 MyerrorProvider.SetError(NombreVacantetextBox, "El nombre no puede estar vacio");
+                NombreVacantetextBox.Focus();
+                paso = false;
+            }
+
+            if(NombreVacantetextBox.Text.Length<5)
+            {
+                MyerrorProvider.SetError(NombreVacantetextBox,"Vacante invalida");
+                NombreVacantetextBox.Focus();
+                paso = false;
+            }
+
+            return paso;
+        }
+
+        private bool NoRepetidos()
+        {
+            bool paso = true;
+            if(Validaciones.VacantesNoIguales(NombreVacantetextBox.Text))
+            {
+                MyerrorProvider.SetError(NombreVacantetextBox, "La vacante ya existe");
                 NombreVacantetextBox.Focus();
                 paso = false;
             }
@@ -131,6 +153,37 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             {
                 MessageBox.Show("No existe la vacante");
             }
+        }
+
+        private void NombreSoloLetrasValidacion(KeyPressEventArgs e)
+        {
+            try
+            {
+                if (char.IsLetter(e.KeyChar))
+                    e.Handled = false;
+                else if (char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (char.IsSeparator(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void NombreVacantetextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            NombreSoloLetrasValidacion(e);
         }
 
     }

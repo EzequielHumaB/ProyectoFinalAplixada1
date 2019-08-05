@@ -66,6 +66,11 @@
             // IdnumericUpDown
             // 
             this.IdnumericUpDown.Location = new System.Drawing.Point(189, 13);
+            this.IdnumericUpDown.Maximum = new decimal(new int[] {
+            -1530494976,
+            232830,
+            0,
+            0});
             this.IdnumericUpDown.Name = "IdnumericUpDown";
             this.IdnumericUpDown.Size = new System.Drawing.Size(63, 20);
             this.IdnumericUpDown.TabIndex = 3;
@@ -76,6 +81,7 @@
             this.NombreVacantetextBox.Name = "NombreVacantetextBox";
             this.NombreVacantetextBox.Size = new System.Drawing.Size(138, 20);
             this.NombreVacantetextBox.TabIndex = 4;
+            this.NombreVacantetextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombreVacantetextBox_KeyPress);
             // 
             // Eliminarbutton
             // 

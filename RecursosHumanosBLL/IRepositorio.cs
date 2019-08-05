@@ -14,5 +14,6 @@ namespace RecursosHumanosBLL
         bool Eliminar(int id);
         T Buscar(int id);
         List<T> GetList(Expression<Func<T, bool>> expression);
+
     }
 }

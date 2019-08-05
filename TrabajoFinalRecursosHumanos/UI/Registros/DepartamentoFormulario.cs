@@ -55,7 +55,25 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 NombreDepartamentotextBox.Focus();
                 paso = false;
             }
+            if(NombreDepartamentotextBox.Text.Length<3)
+             {
+                MyerrorProvider.SetError(NombreDepartamentotextBox, "Nombre ivalido");
+                NombreDepartamentotextBox.Focus();
+                paso = false;
+            }
+         
+            return paso;
+        }
 
+        private bool NoRepetidos()
+        {
+            bool paso = true;
+            if(Validaciones.DepartamentosNoIguales(NombreDepartamentotextBox.Text))
+            {
+                MyerrorProvider.SetError(NombreDepartamentotextBox, "El departamento ya existe");
+                NombreDepartamentotextBox.Focus();
+                paso = false;
+            }
             return paso;
         }
 
@@ -71,6 +89,8 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
 
             if (IdnumericUpDown.Value == 0)
             {
+                if (!NoRepetidos())
+                    return;
                 paso = repositorio.Guardar(departamentos);
             }
             else
@@ -120,7 +140,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 departamentos = repositorioBase.Buscar(id);
                 if (departamentos != null)
                 {
-                    MessageBox.Show("Departamwnto encontrado encontrado");
+                    MessageBox.Show("Departamwnto encontrado");
                     LlenarCampo(departamentos);
                 }
                 else
@@ -132,6 +152,36 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             {
                 MessageBox.Show("No existe el departamento");
             }
+        }
+
+        private void NombreSoloLetrasValidacion(KeyPressEventArgs e)
+        {
+            try
+            {
+                if (char.IsLetter(e.KeyChar))
+                    e.Handled = false;
+                else if (char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (char.IsSeparator(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+
+            }
+            catch
+            {
+
+            }
+        }
+        private void NombreDepartamentotextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            NombreSoloLetrasValidacion(e);
         }
     }
 }

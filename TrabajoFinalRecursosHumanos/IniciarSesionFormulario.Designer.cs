@@ -32,10 +32,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.UsuariotextBox = new System.Windows.Forms.TextBox();
             this.ClaveUsuarioTextBox = new System.Windows.Forms.TextBox();
-            this.Guardarbutton = new System.Windows.Forms.Button();
-            this.Mostrarbutton = new System.Windows.Forms.Button();
-            this.Encriptadolabel = new System.Windows.Forms.Label();
-            this.Desencriptadolabel = new System.Windows.Forms.Label();
+            this.Cancelarbutton = new System.Windows.Forms.Button();
+            this.IniciarSesionbutton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -72,52 +70,34 @@
             this.ClaveUsuarioTextBox.Size = new System.Drawing.Size(187, 33);
             this.ClaveUsuarioTextBox.TabIndex = 3;
             // 
-            // Guardarbutton
+            // Cancelarbutton
             // 
-            this.Guardarbutton.Location = new System.Drawing.Point(40, 143);
-            this.Guardarbutton.Name = "Guardarbutton";
-            this.Guardarbutton.Size = new System.Drawing.Size(75, 23);
-            this.Guardarbutton.TabIndex = 4;
-            this.Guardarbutton.Text = "Guardar";
-            this.Guardarbutton.UseVisualStyleBackColor = true;
-            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
+            this.Cancelarbutton.Location = new System.Drawing.Point(132, 143);
+            this.Cancelarbutton.Name = "Cancelarbutton";
+            this.Cancelarbutton.Size = new System.Drawing.Size(75, 23);
+            this.Cancelarbutton.TabIndex = 4;
+            this.Cancelarbutton.Text = "Cancelar";
+            this.Cancelarbutton.UseVisualStyleBackColor = true;
+            this.Cancelarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
             // 
-            // Mostrarbutton
+            // IniciarSesionbutton
             // 
-            this.Mostrarbutton.Location = new System.Drawing.Point(204, 143);
-            this.Mostrarbutton.Name = "Mostrarbutton";
-            this.Mostrarbutton.Size = new System.Drawing.Size(75, 23);
-            this.Mostrarbutton.TabIndex = 5;
-            this.Mostrarbutton.Text = "Mostrar";
-            this.Mostrarbutton.UseVisualStyleBackColor = true;
-            // 
-            // Encriptadolabel
-            // 
-            this.Encriptadolabel.AutoSize = true;
-            this.Encriptadolabel.Location = new System.Drawing.Point(49, 190);
-            this.Encriptadolabel.Name = "Encriptadolabel";
-            this.Encriptadolabel.Size = new System.Drawing.Size(35, 13);
-            this.Encriptadolabel.TabIndex = 6;
-            this.Encriptadolabel.Text = "label3";
-            // 
-            // Desencriptadolabel
-            // 
-            this.Desencriptadolabel.AutoSize = true;
-            this.Desencriptadolabel.Location = new System.Drawing.Point(49, 237);
-            this.Desencriptadolabel.Name = "Desencriptadolabel";
-            this.Desencriptadolabel.Size = new System.Drawing.Size(35, 13);
-            this.Desencriptadolabel.TabIndex = 7;
-            this.Desencriptadolabel.Text = "label4";
+            this.IniciarSesionbutton.Location = new System.Drawing.Point(227, 143);
+            this.IniciarSesionbutton.Name = "IniciarSesionbutton";
+            this.IniciarSesionbutton.Size = new System.Drawing.Size(92, 23);
+            this.IniciarSesionbutton.TabIndex = 5;
+            this.IniciarSesionbutton.Text = "Iniciar sesion";
+            this.IniciarSesionbutton.UseVisualStyleBackColor = true;
+            this.IniciarSesionbutton.Click += new System.EventHandler(this.IniciarSesionbutton_Click);
             // 
             // IniciarSesionFormulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 308);
-            this.Controls.Add(this.Desencriptadolabel);
-            this.Controls.Add(this.Encriptadolabel);
-            this.Controls.Add(this.Mostrarbutton);
-            this.Controls.Add(this.Guardarbutton);
+            this.CausesValidation = false;
+            this.ClientSize = new System.Drawing.Size(349, 196);
+            this.Controls.Add(this.IniciarSesionbutton);
+            this.Controls.Add(this.Cancelarbutton);
             this.Controls.Add(this.ClaveUsuarioTextBox);
             this.Controls.Add(this.UsuariotextBox);
             this.Controls.Add(this.label2);
@@ -125,7 +105,10 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "IniciarSesionFormulario";
-            this.Text = "IniciarSesionFormulario";
+            this.Text = "Inicio de sesión ";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.IniciarSesionFormulario_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.IniciarSesionFormulario_FormClosed);
+            this.Load += new System.EventHandler(this.IniciarSesionFormulario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,9 +120,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox UsuariotextBox;
         private System.Windows.Forms.TextBox ClaveUsuarioTextBox;
-        private System.Windows.Forms.Button Guardarbutton;
-        private System.Windows.Forms.Button Mostrarbutton;
-        private System.Windows.Forms.Label Encriptadolabel;
-        private System.Windows.Forms.Label Desencriptadolabel;
+        private System.Windows.Forms.Button Cancelarbutton;
+        private System.Windows.Forms.Button IniciarSesionbutton;
     }
 }

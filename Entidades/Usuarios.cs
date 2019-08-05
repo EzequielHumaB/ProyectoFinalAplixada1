@@ -12,11 +12,12 @@ namespace Entidades
    public class Usuarios
     {
         [Key]
-        [Browsable(false)]
         public int UsuarioId { get; set; }
         public string Usuario { get; set; }
         public string NivelUsuario { get; set; }
         public DateTime FechaCreacion { get; set; }
+        public string ClaveUsuario { get; set; }
+        public string ConfirmarClaveUsuario { get; set; }
  
         public Usuarios()
         {
@@ -24,12 +25,10 @@ namespace Entidades
             Usuario = string.Empty;
             NivelUsuario = string.Empty;
             FechaCreacion = DateTime.Now;;
+            ClaveUsuario = string.Empty;
+            ConfirmarClaveUsuario = string.Empty;
         }
         
-        public Usuarios(int Id, string Usuarioss)
-        {
-            UsuarioId = Id;
-            Usuario = Usuarioss;
-        }
+     
     }
 }

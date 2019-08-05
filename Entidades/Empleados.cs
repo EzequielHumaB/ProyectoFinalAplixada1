@@ -22,7 +22,8 @@ namespace Entidades
         public decimal Salario { get; set; }
         public DateTime FechaIngreso { get; set; }
 
-        public int UsuarioId { get; set; }
+        public string Celular { get; set; }
+        public string Telefono { get; set; }
         public Empleados()
         {
             EmpleadoId = 0;
@@ -34,7 +35,8 @@ namespace Entidades
             EstadoCivil = string.Empty;
             Salario = 0;
             FechaIngreso = DateTime.Now;
-            UsuarioId = 0;
+            Celular = string.Empty;
+            Telefono = string.Empty;
         }
 
     }

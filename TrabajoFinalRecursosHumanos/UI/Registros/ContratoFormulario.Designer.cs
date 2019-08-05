@@ -43,8 +43,6 @@
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.MyErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label5 = new System.Windows.Forms.Label();
-            this.PuestotextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -78,7 +76,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 24);
+            this.label1.Location = new System.Drawing.Point(31, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 0;
@@ -87,7 +85,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 60);
+            this.label2.Location = new System.Drawing.Point(30, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 13);
             this.label2.TabIndex = 1;
@@ -96,7 +94,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 90);
+            this.label3.Location = new System.Drawing.Point(31, 66);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 2;
@@ -105,7 +103,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 126);
+            this.label4.Location = new System.Drawing.Point(34, 92);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 3;
@@ -113,28 +111,33 @@
             // 
             // IdnumericUpDown
             // 
-            this.IdnumericUpDown.Location = new System.Drawing.Point(173, 24);
+            this.IdnumericUpDown.Location = new System.Drawing.Point(173, 14);
             this.IdnumericUpDown.Name = "IdnumericUpDown";
             this.IdnumericUpDown.Size = new System.Drawing.Size(70, 20);
             this.IdnumericUpDown.TabIndex = 4;
             // 
             // DescripciontextBox
             // 
-            this.DescripciontextBox.Location = new System.Drawing.Point(173, 60);
+            this.DescripciontextBox.Location = new System.Drawing.Point(173, 40);
             this.DescripciontextBox.Name = "DescripciontextBox";
             this.DescripciontextBox.Size = new System.Drawing.Size(160, 20);
             this.DescripciontextBox.TabIndex = 5;
             // 
             // SegurotextBox
             // 
-            this.SegurotextBox.Location = new System.Drawing.Point(173, 90);
+            this.SegurotextBox.Location = new System.Drawing.Point(173, 66);
             this.SegurotextBox.Name = "SegurotextBox";
             this.SegurotextBox.Size = new System.Drawing.Size(160, 20);
             this.SegurotextBox.TabIndex = 6;
             // 
             // SueldonumericUpDown
             // 
-            this.SueldonumericUpDown.Location = new System.Drawing.Point(173, 126);
+            this.SueldonumericUpDown.Location = new System.Drawing.Point(173, 92);
+            this.SueldonumericUpDown.Maximum = new decimal(new int[] {
+            -1486618624,
+            232830643,
+            0,
+            0});
             this.SueldonumericUpDown.Name = "SueldonumericUpDown";
             this.SueldonumericUpDown.Size = new System.Drawing.Size(70, 20);
             this.SueldonumericUpDown.TabIndex = 7;
@@ -143,7 +146,7 @@
             // 
             this.Eliminarbutton.Image = ((System.Drawing.Image)(resources.GetObject("Eliminarbutton.Image")));
             this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Eliminarbutton.Location = new System.Drawing.Point(273, 692);
+            this.Eliminarbutton.Location = new System.Drawing.Point(258, 624);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(75, 57);
             this.Eliminarbutton.TabIndex = 50;
@@ -156,7 +159,7 @@
             // 
             this.GuardarButton.Image = ((System.Drawing.Image)(resources.GetObject("GuardarButton.Image")));
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.GuardarButton.Location = new System.Drawing.Point(151, 692);
+            this.GuardarButton.Location = new System.Drawing.Point(151, 624);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(75, 57);
             this.GuardarButton.TabIndex = 49;
@@ -169,7 +172,7 @@
             // 
             this.Nuevobutton.Image = ((System.Drawing.Image)(resources.GetObject("Nuevobutton.Image")));
             this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Nuevobutton.Location = new System.Drawing.Point(27, 692);
+            this.Nuevobutton.Location = new System.Drawing.Point(27, 624);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(75, 57);
             this.Nuevobutton.TabIndex = 48;
@@ -182,7 +185,7 @@
             // 
             this.Buscarbutton.Image = ((System.Drawing.Image)(resources.GetObject("Buscarbutton.Image")));
             this.Buscarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Buscarbutton.Location = new System.Drawing.Point(282, 13);
+            this.Buscarbutton.Location = new System.Drawing.Point(339, 5);
             this.Buscarbutton.Name = "Buscarbutton";
             this.Buscarbutton.Size = new System.Drawing.Size(90, 34);
             this.Buscarbutton.TabIndex = 51;
@@ -195,26 +198,10 @@
             // 
             this.MyErrorProvider.ContainerControl = this;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(34, 164);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
-            this.label5.TabIndex = 52;
-            this.label5.Text = "Puesto";
-            // 
-            // PuestotextBox
-            // 
-            this.PuestotextBox.Location = new System.Drawing.Point(173, 164);
-            this.PuestotextBox.Name = "PuestotextBox";
-            this.PuestotextBox.Size = new System.Drawing.Size(160, 20);
-            this.PuestotextBox.TabIndex = 53;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(31, 203);
+            this.label6.Location = new System.Drawing.Point(31, 124);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 13);
             this.label6.TabIndex = 54;
@@ -223,7 +210,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(34, 240);
+            this.label7.Location = new System.Drawing.Point(34, 161);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(66, 13);
             this.label7.TabIndex = 56;
@@ -232,7 +219,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(34, 319);
+            this.label8.Location = new System.Drawing.Point(31, 236);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 13);
             this.label8.TabIndex = 57;
@@ -240,15 +227,24 @@
             // 
             // IdEmpleadonumericUpDown
             // 
-            this.IdEmpleadonumericUpDown.Location = new System.Drawing.Point(173, 240);
+            this.IdEmpleadonumericUpDown.Location = new System.Drawing.Point(173, 161);
+            this.IdEmpleadonumericUpDown.Maximum = new decimal(new int[] {
+            1316134912,
+            2328,
+            0,
+            0});
             this.IdEmpleadonumericUpDown.Name = "IdEmpleadonumericUpDown";
             this.IdEmpleadonumericUpDown.Size = new System.Drawing.Size(70, 20);
             this.IdEmpleadonumericUpDown.TabIndex = 58;
-            this.IdEmpleadonumericUpDown.ValueChanged += new System.EventHandler(this.IdEmpleadonumericUpDown_ValueChanged);
             // 
             // IdDelHorarionumericUpDown
             // 
-            this.IdDelHorarionumericUpDown.Location = new System.Drawing.Point(173, 317);
+            this.IdDelHorarionumericUpDown.Location = new System.Drawing.Point(173, 236);
+            this.IdDelHorarionumericUpDown.Maximum = new decimal(new int[] {
+            1569325056,
+            23283064,
+            0,
+            0});
             this.IdDelHorarionumericUpDown.Name = "IdDelHorarionumericUpDown";
             this.IdDelHorarionumericUpDown.Size = new System.Drawing.Size(70, 20);
             this.IdDelHorarionumericUpDown.TabIndex = 59;
@@ -256,7 +252,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(31, 344);
+            this.label9.Location = new System.Drawing.Point(31, 265);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(89, 13);
             this.label9.TabIndex = 60;
@@ -265,7 +261,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(31, 405);
+            this.label10.Location = new System.Drawing.Point(31, 326);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(66, 13);
             this.label10.TabIndex = 61;
@@ -274,7 +270,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(31, 431);
+            this.label11.Location = new System.Drawing.Point(30, 356);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(97, 13);
             this.label11.TabIndex = 62;
@@ -283,15 +279,20 @@
             // HorarioDelEmpleadodateTimePicker
             // 
             this.HorarioDelEmpleadodateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.HorarioDelEmpleadodateTimePicker.Location = new System.Drawing.Point(173, 344);
+            this.HorarioDelEmpleadodateTimePicker.Location = new System.Drawing.Point(173, 265);
             this.HorarioDelEmpleadodateTimePicker.Name = "HorarioDelEmpleadodateTimePicker";
-            this.HorarioDelEmpleadodateTimePicker.Size = new System.Drawing.Size(70, 20);
+            this.HorarioDelEmpleadodateTimePicker.Size = new System.Drawing.Size(83, 20);
             this.HorarioDelEmpleadodateTimePicker.TabIndex = 63;
             this.HorarioDelEmpleadodateTimePicker.ValueChanged += new System.EventHandler(this.HorarioDelEmpleadodateTimePicker_ValueChanged);
             // 
             // PrecioPorHorasnumericUpDown
             // 
-            this.PrecioPorHorasnumericUpDown.Location = new System.Drawing.Point(173, 434);
+            this.PrecioPorHorasnumericUpDown.Location = new System.Drawing.Point(173, 359);
+            this.PrecioPorHorasnumericUpDown.Maximum = new decimal(new int[] {
+            -1981284352,
+            -1966660860,
+            0,
+            0});
             this.PrecioPorHorasnumericUpDown.Name = "PrecioPorHorasnumericUpDown";
             this.PrecioPorHorasnumericUpDown.Size = new System.Drawing.Size(70, 20);
             this.PrecioPorHorasnumericUpDown.TabIndex = 65;
@@ -299,14 +300,14 @@
             // DetalledataGridView
             // 
             this.DetalledataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DetalledataGridView.Location = new System.Drawing.Point(34, 463);
+            this.DetalledataGridView.Location = new System.Drawing.Point(28, 386);
             this.DetalledataGridView.Name = "DetalledataGridView";
             this.DetalledataGridView.Size = new System.Drawing.Size(345, 183);
             this.DetalledataGridView.TabIndex = 66;
             // 
             // Removerbutton
             // 
-            this.Removerbutton.Location = new System.Drawing.Point(27, 663);
+            this.Removerbutton.Location = new System.Drawing.Point(27, 584);
             this.Removerbutton.Name = "Removerbutton";
             this.Removerbutton.Size = new System.Drawing.Size(117, 23);
             this.Removerbutton.TabIndex = 67;
@@ -317,7 +318,7 @@
             // AgregarenelGridbutton
             // 
             this.AgregarenelGridbutton.Image = ((System.Drawing.Image)(resources.GetObject("AgregarenelGridbutton.Image")));
-            this.AgregarenelGridbutton.Location = new System.Drawing.Point(351, 421);
+            this.AgregarenelGridbutton.Location = new System.Drawing.Point(351, 346);
             this.AgregarenelGridbutton.Name = "AgregarenelGridbutton";
             this.AgregarenelGridbutton.Size = new System.Drawing.Size(75, 33);
             this.AgregarenelGridbutton.TabIndex = 68;
@@ -326,7 +327,7 @@
             // 
             // Departamentobutton
             // 
-            this.Departamentobutton.Location = new System.Drawing.Point(332, 203);
+            this.Departamentobutton.Location = new System.Drawing.Point(332, 124);
             this.Departamentobutton.Name = "Departamentobutton";
             this.Departamentobutton.Size = new System.Drawing.Size(94, 23);
             this.Departamentobutton.TabIndex = 69;
@@ -336,22 +337,28 @@
             // 
             // DepartamentocomboBox
             // 
+            this.DepartamentocomboBox.Enabled = false;
             this.DepartamentocomboBox.FormattingEnabled = true;
-            this.DepartamentocomboBox.Location = new System.Drawing.Point(173, 203);
+            this.DepartamentocomboBox.Location = new System.Drawing.Point(173, 124);
             this.DepartamentocomboBox.Name = "DepartamentocomboBox";
             this.DepartamentocomboBox.Size = new System.Drawing.Size(137, 21);
             this.DepartamentocomboBox.TabIndex = 70;
             // 
             // CantidadHorasExtrasnumericUpDown
             // 
-            this.CantidadHorasExtrasnumericUpDown.Location = new System.Drawing.Point(173, 403);
+            this.CantidadHorasExtrasnumericUpDown.Location = new System.Drawing.Point(173, 324);
+            this.CantidadHorasExtrasnumericUpDown.Maximum = new decimal(new int[] {
+            -1530494976,
+            232830,
+            0,
+            0});
             this.CantidadHorasExtrasnumericUpDown.Name = "CantidadHorasExtrasnumericUpDown";
             this.CantidadHorasExtrasnumericUpDown.Size = new System.Drawing.Size(70, 20);
             this.CantidadHorasExtrasnumericUpDown.TabIndex = 71;
             // 
             // FechaCreaciondateTimePicker
             // 
-            this.FechaCreaciondateTimePicker.Location = new System.Drawing.Point(173, 280);
+            this.FechaCreaciondateTimePicker.Location = new System.Drawing.Point(173, 201);
             this.FechaCreaciondateTimePicker.Name = "FechaCreaciondateTimePicker";
             this.FechaCreaciondateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.FechaCreaciondateTimePicker.TabIndex = 72;
@@ -359,7 +366,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(34, 280);
+            this.label12.Location = new System.Drawing.Point(31, 201);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(96, 13);
             this.label12.TabIndex = 73;
@@ -368,7 +375,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(34, 373);
+            this.label13.Location = new System.Drawing.Point(31, 294);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(86, 13);
             this.label13.TabIndex = 74;
@@ -377,9 +384,9 @@
             // HorarioSalidadateTimePicker
             // 
             this.HorarioSalidadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.HorarioSalidadateTimePicker.Location = new System.Drawing.Point(173, 373);
+            this.HorarioSalidadateTimePicker.Location = new System.Drawing.Point(173, 294);
             this.HorarioSalidadateTimePicker.Name = "HorarioSalidadateTimePicker";
-            this.HorarioSalidadateTimePicker.Size = new System.Drawing.Size(70, 20);
+            this.HorarioSalidadateTimePicker.Size = new System.Drawing.Size(83, 20);
             this.HorarioSalidadateTimePicker.TabIndex = 75;
             this.HorarioSalidadateTimePicker.ValueChanged += new System.EventHandler(this.DateTimePicker1_ValueChanged);
             // 
@@ -387,7 +394,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 771);
+            this.ClientSize = new System.Drawing.Size(438, 695);
             this.Controls.Add(this.HorarioSalidadateTimePicker);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -408,8 +415,6 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.PuestotextBox);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.Buscarbutton);
             this.Controls.Add(this.Eliminarbutton);
             this.Controls.Add(this.GuardarButton);
@@ -453,8 +458,6 @@
         private System.Windows.Forms.Button Buscarbutton;
         private System.Windows.Forms.ErrorProvider MyErrorProvider;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox PuestotextBox;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button Removerbutton;
         private System.Windows.Forms.DataGridView DetalledataGridView;
         private System.Windows.Forms.NumericUpDown PrecioPorHorasnumericUpDown;

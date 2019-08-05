@@ -51,6 +51,23 @@ namespace RecursosHumanosBLL
             return paso;
         }
 
+        public static bool ModificarUsuario(Usuarios usuarios)
+        {
+            bool paso = false;
+            Contexto contexto = new Contexto();
+            try
+            {
+                contexto.Entry(usuarios).State = EntityState.Modified;
+                paso = contexto.SaveChanges()>0;
+
+            }catch
+            {
+                throw;
+            }
+            return paso;
+        }
+
+
         public virtual bool Eliminar(int id)
         {
             bool paso = false;
@@ -102,5 +119,25 @@ namespace RecursosHumanosBLL
         {
             contexto.Dispose();
         }
+
+        public virtual bool PalabrasNoIguales(string descripcion)
+        {
+            bool paso = false;
+            T entity;
+            try
+            {
+                if (contexto.Set<T>().Any(p => p.Equals(descripcion)))
+                {
+                    paso = true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return paso;
+        }
+    
     }
 }

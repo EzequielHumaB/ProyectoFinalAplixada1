@@ -12,7 +12,8 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
 {
     public partial class ListaContrato : Form
     {
-        public ListaContrato()
+
+        public ListaContrato(List<Entidades.Contratos> contratos)
         {
             InitializeComponent();
         }

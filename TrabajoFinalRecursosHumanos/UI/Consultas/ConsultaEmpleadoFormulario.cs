@@ -108,55 +108,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
             }
         }
 
-        private void CriteriotextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FiltrocomboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void HastadateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DesdedateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ConsultadataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void Label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FechacheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void Imprimirbutton_Click(object sender, EventArgs e)
         {

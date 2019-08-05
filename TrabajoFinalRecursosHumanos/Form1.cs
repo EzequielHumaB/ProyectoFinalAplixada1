@@ -63,9 +63,35 @@ namespace TrabajoFinalRecursosHumanos
 
         private void IniciarSesionToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            IniciarSesion();
+        }
+
+        private void IniciarSesion()
+        {
             IniciarSesionFormulario iniciarSesionFormulario = new IniciarSesionFormulario();
             iniciarSesionFormulario.StartPosition = FormStartPosition.CenterScreen;
-            iniciarSesionFormulario.Show();
+            iniciarSesionFormulario.ShowDialog();
+            validar();
+        }
+
+        private void validar()
+        {
+            IniciarSesionFormulario iniciarSesionFormulario = new IniciarSesionFormulario();
+            if(iniciarSesionFormulario.ValidarIniciarSesion() == 1)
+            {
+                ConsultaStrio.Enabled = true;
+                ContratosStrip.Enabled = true;
+                EmpleadosStrio.Enabled = true;
+                UsuarioStrip.Enabled = true;
+            }
+            else if(iniciarSesionFormulario.ValidarIniciarSesion()==2)
+            {
+                ConsultaStrio.Enabled = true;
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
         private void UsuarioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -101,6 +127,11 @@ namespace TrabajoFinalRecursosHumanos
             TipoVacanteFormulario tipoVacanteFormulario = new TipoVacanteFormulario();
             tipoVacanteFormulario.StartPosition = FormStartPosition.CenterScreen;
             tipoVacanteFormulario.Show();
+        }
+
+        private void MenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

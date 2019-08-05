@@ -100,6 +100,11 @@
             // IdnumericUpDown
             // 
             this.IdnumericUpDown.Location = new System.Drawing.Point(177, 23);
+            this.IdnumericUpDown.Maximum = new decimal(new int[] {
+            1874919424,
+            2328306,
+            0,
+            0});
             this.IdnumericUpDown.Name = "IdnumericUpDown";
             this.IdnumericUpDown.Size = new System.Drawing.Size(47, 20);
             this.IdnumericUpDown.TabIndex = 55;
@@ -110,6 +115,7 @@
             this.NombreDepartamentotextBox.Name = "NombreDepartamentotextBox";
             this.NombreDepartamentotextBox.Size = new System.Drawing.Size(134, 20);
             this.NombreDepartamentotextBox.TabIndex = 54;
+            this.NombreDepartamentotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombreDepartamentotextBox_KeyPress);
             // 
             // label3
             // 

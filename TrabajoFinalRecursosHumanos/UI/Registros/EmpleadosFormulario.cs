@@ -18,6 +18,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         {
             InitializeComponent();
             LlenarComboBox();
+            LlenarEstadoCivilComboBox();
         }
 
         public void Limpiar()
@@ -30,7 +31,9 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             SalarionumericUpDown.Value = 0;
             FechaIngresodateTimePicker.Value = DateTime.Now;
             NacionaliddadtextBox.Text = string.Empty;
-            EstadoCivil.Text = string.Empty;
+            EstadoCivilcomboBox.Text = string.Empty;
+            TelefonotextBox.Text = string.Empty;
+            CelulartextBox.Text = string.Empty;
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)
@@ -49,9 +52,11 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 empleados.Cedula = CedulatextBox.Text;
                 empleados.FechaNacimiento = FechaNacimientodateTimePicker.Value;
                 empleados.Nacionalidad = NacionaliddadtextBox.Text;
-                empleados.EstadoCivil = EstadoCivil.Text;
+                empleados.EstadoCivil = EstadoCivilcomboBox.Text;
                 empleados.Salario = SalarionumericUpDown.Value;
                 empleados.FechaIngreso = FechaIngresodateTimePicker.Value;
+                empleados.Celular = CelulartextBox.Text;
+                empleados.Telefono = TelefonotextBox.Text;
             }
             catch (Exception)
             {
@@ -69,9 +74,11 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 CedulatextBox.Text = empleados.Cedula;
                 FechaNacimientodateTimePicker.Value = empleados.FechaNacimiento;
                 NacionaliddadtextBox.Text = empleados.Nacionalidad;
-                EstadoCivil.Text = empleados.EstadoCivil;
+                EstadoCivilcomboBox.Text = empleados.EstadoCivil;
                 SalarionumericUpDown.Value = empleados.Salario;
                 FechaIngresodateTimePicker.Value = empleados.FechaIngreso;
+                TelefonotextBox.Text = empleados.Telefono;
+                CelulartextBox.Text = empleados.Celular;
             }
             catch (Exception)
             {
@@ -103,7 +110,26 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 paso = false;
             }
 
-       
+            if(CedulatextBox.Text.Length <11)
+            {
+                MyerrorProvider.SetError(CedulatextBox,"Cedula invalida");
+                CedulatextBox.Focus();
+                paso = false;
+            }
+
+            if(NombrestextBox.Text.Length <2)
+            {
+                MyerrorProvider.SetError(NombrestextBox, "Nombre invalido");
+                NombrestextBox.Focus();
+                paso = false;
+            }
+
+            if(ApellidostextBox.Text.Length < 2)
+            {
+                MyerrorProvider.SetError(ApellidostextBox, "Apellido invalido");
+                ApellidostextBox.Focus();
+                paso = false;
+            }
 
             if(FechaNacimientodateTimePicker.Value == DateTime.Now)
             {
@@ -119,10 +145,51 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 paso = false;
             }
 
-            if(SalarionumericUpDown.Value == 0)
+
+            if(TelefonotextBox.Text.Length <10)
+            {
+                MyerrorProvider.SetError(TelefonotextBox, "Telefono invalido");
+                TelefonotextBox.Focus();
+                paso = false;
+            }
+                
+            if(CelulartextBox.Text.Length  != 10)
+            {
+                MyerrorProvider.SetError(CelulartextBox, "Celular invalido");
+                CelulartextBox.Focus();
+                paso = false;
+            }
+
+            if (SalarionumericUpDown.Value == 0)
             {
                 MyerrorProvider.SetError(SalarionumericUpDown,"El salario no puede ser cero");
                 SalarionumericUpDown.Focus();
+                paso = false;
+            }
+             
+            return paso;
+        }
+
+        private bool NoRepetido()
+        {
+            bool paso = true;
+            if (Validaciones.TelefonosNoIguales(TelefonotextBox.Text))
+            {
+                MyerrorProvider.SetError(TelefonotextBox, "Este telefono ya existe");
+                TelefonotextBox.Focus();
+                paso = false;
+            }
+
+            if (Validaciones.CedulasNoIguales(CedulatextBox.Text))
+            {
+                MyerrorProvider.SetError(CedulatextBox, "Ya existe esta cedula");
+                CedulatextBox.Focus();
+                paso = false;
+            }
+            if(Validaciones.CedulasNoIguales(CelulartextBox.Text))
+            {
+                MyerrorProvider.SetError(CelulartextBox,"Esta cedula ya existe");
+                CelulartextBox.Focus();
                 paso = false;
             }
             return paso;
@@ -145,11 +212,13 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
 
             if (!Validar())
                 return;
-
+        
             Empleados empleado = LlenarClase();
 
             if (IdnumericUpDown.Value == 0)
             {
+                if (!NoRepetido())
+                    return;
                 paso = repositorio.Guardar(empleado);
             }
             else
@@ -179,10 +248,11 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         {
             int id;
             id = (int)IdnumericUpDown.Value;
+            RepositorioBase<Empleados> repositorioBase = new RepositorioBase<Empleados>();
             Limpiar();
             try
             {
-                if (ContratosBLL.Eliminar(id))
+                if (repositorioBase.Eliminar(id))
                 {
                     MessageBox.Show("Eliminado correctamente");
                 }
@@ -235,6 +305,86 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             VacantecomboBox.DataSource = listado;
             VacantecomboBox.DisplayMember = "NombreTipoVacante";
             VacantecomboBox.ValueMember = "TipoVacanteId";
+        }
+
+     
+        public void SoloNumero(KeyPressEventArgs e)
+        {
+            if(char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if(char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if(char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void CedulatextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SoloNumero(e);  
+        }
+
+        private void TelefonotextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SoloNumero(e);
+        }
+
+        private void CelulartextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SoloNumero(e);
+        }
+
+        private void NombreSoloLetrasValidacion(KeyPressEventArgs e)
+        {
+            try
+            {
+                if (char.IsLetter(e.KeyChar))
+                    e.Handled = false;
+                else if (char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (char.IsSeparator(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void NombrestextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            NombreSoloLetrasValidacion(e);
+        }
+
+        private void ApellidostextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            NombreSoloLetrasValidacion(e);
+        }
+
+     private void LlenarEstadoCivilComboBox()
+        {
+            EstadoCivilcomboBox.Items.Add("Soltero");
+            EstadoCivilcomboBox.Items.Add("Casado");
+            EstadoCivilcomboBox.Items.Add("Soltero");
+            EstadoCivilcomboBox.Items.Add("Viudo");
         }
     }
 }

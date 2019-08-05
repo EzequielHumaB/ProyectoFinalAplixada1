@@ -14,6 +14,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
 {
     public partial class ConsultaDeContratos : Form
     {
+        public List<Contratos> contratos;
         public ConsultaDeContratos()
         {
             InitializeComponent();
@@ -22,6 +23,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
 
+            
             var listado = new List<Contratos>();
             if (FechacheckBox.Checked == true)
             {
@@ -57,8 +59,8 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
                     listado = ContratosBLL.GetList(p => true);
 
 
-                ConsultadataGridView.DataSource = null;
-                ConsultadataGridView.DataSource = listado;
+                contratos = listado;
+                ConsultadataGridView.DataSource = contratos;
             }
 
             else
@@ -95,8 +97,23 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
                     listado = ContratosBLL.GetList(p => true);
 
 
-                ConsultadataGridView.DataSource = null;
-                ConsultadataGridView.DataSource = listado;
+                contratos = listado;
+                ConsultadataGridView.DataSource = contratos;
+            }
+        }
+
+        private void Imprimirbutton_Click(object sender, EventArgs e)
+        {
+            if (ConsultadataGridView.RowCount == 0)
+            {
+                MessageBox.Show("No hay Datos Para Imprimir");
+                return;
+            }
+            else
+            {
+
+                ListaContrato listaContrato = new ListaContrato(contratos);
+                listaContrato.Show();
             }
         }
     }

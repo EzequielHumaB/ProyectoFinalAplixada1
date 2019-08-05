@@ -41,9 +41,7 @@
             this.FechaNacimientodateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.NacionaliddadtextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.EstadoCivil = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.SalarionumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.FechaIngresodateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -56,9 +54,17 @@
             this.label10 = new System.Windows.Forms.Label();
             this.VacantecomboBox = new System.Windows.Forms.ComboBox();
             this.AgregarVacantebutton = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.TelefonotextBox = new System.Windows.Forms.TextBox();
+            this.CelulartextBox = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.EstadoCivilcomboBox = new System.Windows.Forms.ComboBox();
+            this.NacionaliddadtextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SalarionumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyerrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // NombrestextBox
@@ -67,6 +73,7 @@
             this.NombrestextBox.Name = "NombrestextBox";
             this.NombrestextBox.Size = new System.Drawing.Size(138, 20);
             this.NombrestextBox.TabIndex = 0;
+            this.NombrestextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombrestextBox_KeyPress);
             // 
             // label1
             // 
@@ -92,6 +99,7 @@
             this.ApellidostextBox.Name = "ApellidostextBox";
             this.ApellidostextBox.Size = new System.Drawing.Size(138, 20);
             this.ApellidostextBox.TabIndex = 3;
+            this.ApellidostextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ApellidostextBox_KeyPress);
             // 
             // label3
             // 
@@ -105,6 +113,11 @@
             // IdnumericUpDown
             // 
             this.IdnumericUpDown.Location = new System.Drawing.Point(144, 36);
+            this.IdnumericUpDown.Maximum = new decimal(new int[] {
+            1316134912,
+            2328,
+            0,
+            0});
             this.IdnumericUpDown.Name = "IdnumericUpDown";
             this.IdnumericUpDown.Size = new System.Drawing.Size(48, 20);
             this.IdnumericUpDown.TabIndex = 5;
@@ -124,6 +137,7 @@
             this.CedulatextBox.Name = "CedulatextBox";
             this.CedulatextBox.Size = new System.Drawing.Size(138, 20);
             this.CedulatextBox.TabIndex = 7;
+            this.CedulatextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CedulatextBox_KeyPress);
             // 
             // FechaNacimientodateTimePicker
             // 
@@ -151,13 +165,6 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Nacionalidad";
             // 
-            // NacionaliddadtextBox
-            // 
-            this.NacionaliddadtextBox.Location = new System.Drawing.Point(144, 203);
-            this.NacionaliddadtextBox.Name = "NacionaliddadtextBox";
-            this.NacionaliddadtextBox.Size = new System.Drawing.Size(138, 20);
-            this.NacionaliddadtextBox.TabIndex = 11;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -166,13 +173,6 @@
             this.label7.Size = new System.Drawing.Size(62, 13);
             this.label7.TabIndex = 12;
             this.label7.Text = "Estado Civil";
-            // 
-            // EstadoCivil
-            // 
-            this.EstadoCivil.Location = new System.Drawing.Point(144, 230);
-            this.EstadoCivil.Name = "EstadoCivil";
-            this.EstadoCivil.Size = new System.Drawing.Size(138, 20);
-            this.EstadoCivil.TabIndex = 13;
             // 
             // label8
             // 
@@ -186,8 +186,13 @@
             // SalarionumericUpDown
             // 
             this.SalarionumericUpDown.Location = new System.Drawing.Point(144, 303);
+            this.SalarionumericUpDown.Maximum = new decimal(new int[] {
+            -1486618624,
+            232830643,
+            0,
+            0});
             this.SalarionumericUpDown.Name = "SalarionumericUpDown";
-            this.SalarionumericUpDown.Size = new System.Drawing.Size(48, 20);
+            this.SalarionumericUpDown.Size = new System.Drawing.Size(121, 20);
             this.SalarionumericUpDown.TabIndex = 15;
             // 
             // FechaIngresodateTimePicker
@@ -211,7 +216,7 @@
             // 
             this.Eliminarbutton.Image = ((System.Drawing.Image)(resources.GetObject("Eliminarbutton.Image")));
             this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Eliminarbutton.Location = new System.Drawing.Point(301, 381);
+            this.Eliminarbutton.Location = new System.Drawing.Point(301, 446);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(75, 57);
             this.Eliminarbutton.TabIndex = 47;
@@ -224,7 +229,7 @@
             // 
             this.GuardarButton.Image = ((System.Drawing.Image)(resources.GetObject("GuardarButton.Image")));
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.GuardarButton.Location = new System.Drawing.Point(166, 381);
+            this.GuardarButton.Location = new System.Drawing.Point(166, 446);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(75, 57);
             this.GuardarButton.TabIndex = 46;
@@ -237,7 +242,7 @@
             // 
             this.Nuevobutton.Image = ((System.Drawing.Image)(resources.GetObject("Nuevobutton.Image")));
             this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Nuevobutton.Location = new System.Drawing.Point(44, 381);
+            this.Nuevobutton.Location = new System.Drawing.Point(44, 446);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(75, 57);
             this.Nuevobutton.TabIndex = 45;
@@ -274,6 +279,7 @@
             // 
             // VacantecomboBox
             // 
+            this.VacantecomboBox.Enabled = false;
             this.VacantecomboBox.FormattingEnabled = true;
             this.VacantecomboBox.Location = new System.Drawing.Point(144, 269);
             this.VacantecomboBox.Name = "VacantecomboBox";
@@ -282,19 +288,77 @@
             // 
             // AgregarVacantebutton
             // 
-            this.AgregarVacantebutton.Location = new System.Drawing.Point(301, 266);
+            this.AgregarVacantebutton.Location = new System.Drawing.Point(301, 269);
             this.AgregarVacantebutton.Name = "AgregarVacantebutton";
             this.AgregarVacantebutton.Size = new System.Drawing.Size(101, 23);
             this.AgregarVacantebutton.TabIndex = 53;
-            this.AgregarVacantebutton.Text = "Agregarvacante";
+            this.AgregarVacantebutton.Text = "Agregar vacante";
             this.AgregarVacantebutton.UseVisualStyleBackColor = true;
             this.AgregarVacantebutton.Click += new System.EventHandler(this.AgregarVacantebutton_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(38, 377);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(49, 13);
+            this.label11.TabIndex = 54;
+            this.label11.Text = "Telefono";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(41, 417);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(39, 13);
+            this.label12.TabIndex = 55;
+            this.label12.Text = "Celular";
+            // 
+            // TelefonotextBox
+            // 
+            this.TelefonotextBox.Location = new System.Drawing.Point(144, 377);
+            this.TelefonotextBox.Name = "TelefonotextBox";
+            this.TelefonotextBox.Size = new System.Drawing.Size(138, 20);
+            this.TelefonotextBox.TabIndex = 56;
+            this.TelefonotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TelefonotextBox_KeyPress);
+            // 
+            // CelulartextBox
+            // 
+            this.CelulartextBox.Location = new System.Drawing.Point(144, 417);
+            this.CelulartextBox.Name = "CelulartextBox";
+            this.CelulartextBox.Size = new System.Drawing.Size(138, 20);
+            this.CelulartextBox.TabIndex = 57;
+            this.CelulartextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CelulartextBox_KeyPress);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // EstadoCivilcomboBox
+            // 
+            this.EstadoCivilcomboBox.FormattingEnabled = true;
+            this.EstadoCivilcomboBox.Location = new System.Drawing.Point(144, 230);
+            this.EstadoCivilcomboBox.Name = "EstadoCivilcomboBox";
+            this.EstadoCivilcomboBox.Size = new System.Drawing.Size(121, 21);
+            this.EstadoCivilcomboBox.TabIndex = 58;
+            // 
+            // NacionaliddadtextBox
+            // 
+            this.NacionaliddadtextBox.Location = new System.Drawing.Point(144, 203);
+            this.NacionaliddadtextBox.Name = "NacionaliddadtextBox";
+            this.NacionaliddadtextBox.Size = new System.Drawing.Size(138, 20);
+            this.NacionaliddadtextBox.TabIndex = 11;
             // 
             // EmpleadosFormulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(431, 463);
+            this.ClientSize = new System.Drawing.Size(431, 513);
+            this.Controls.Add(this.EstadoCivilcomboBox);
+            this.Controls.Add(this.CelulartextBox);
+            this.Controls.Add(this.TelefonotextBox);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.AgregarVacantebutton);
             this.Controls.Add(this.VacantecomboBox);
             this.Controls.Add(this.label10);
@@ -306,7 +370,6 @@
             this.Controls.Add(this.FechaIngresodateTimePicker);
             this.Controls.Add(this.SalarionumericUpDown);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.EstadoCivil);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.NacionaliddadtextBox);
             this.Controls.Add(this.label6);
@@ -325,6 +388,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SalarionumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyerrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,9 +407,7 @@
         private System.Windows.Forms.DateTimePicker FechaNacimientodateTimePicker;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox NacionaliddadtextBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox EstadoCivil;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.NumericUpDown SalarionumericUpDown;
         private System.Windows.Forms.DateTimePicker FechaIngresodateTimePicker;
@@ -358,5 +420,12 @@
         private System.Windows.Forms.Button AgregarVacantebutton;
         private System.Windows.Forms.ComboBox VacantecomboBox;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox CelulartextBox;
+        private System.Windows.Forms.TextBox TelefonotextBox;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ComboBox EstadoCivilcomboBox;
+        private System.Windows.Forms.TextBox NacionaliddadtextBox;
     }
 }

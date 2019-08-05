@@ -15,14 +15,11 @@ namespace Entidades
         public string NombreDepartamento { get; set; }
 
         public DateTime FechaCreacion { get; set; }
-        public int UsuarioId { get; set; }
-
         public Departamentos()
         {
             DepartamentoId = 0;
             NombreDepartamento = string.Empty;
             FechaCreacion = DateTime.Now;
-            UsuarioId = 0;
         }
     }
 

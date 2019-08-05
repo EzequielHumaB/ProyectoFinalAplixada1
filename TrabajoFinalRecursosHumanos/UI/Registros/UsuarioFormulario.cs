@@ -20,6 +20,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         public UsuarioFormulario()
         {
             InitializeComponent();
+            LlenarCombox();
         }
 
         static byte[] Encriptar(byte[] imput)
@@ -62,8 +63,10 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         {
             IdnumericUpDown.Value = 0;
             NombretextBox.Text = string.Empty;
-            NiveltextBox.Text = string.Empty;
             FechadateTimePicker.Value = DateTime.Now;
+            ContraseñatextBox.Text = string.Empty;
+            ConfirmarContraseñatextBox.Text = string.Empty;
+            NivelcUsuarioomboBox.Text = string.Empty;
         }
         private void Nuevobutton_Click(object sender, EventArgs e)
         {
@@ -74,23 +77,27 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         {
             Usuarios usuarios = new Usuarios();
             GenerarLlave();
-            byte[] encriptado = Encriptar(Encoding.UTF8.GetBytes(IdnumericUpDown.ToString()));
+            byte[] encriptado = Encriptar(Encoding.UTF8.GetBytes(ContraseñatextBox.ToString()));
             byte[] desencriptado = DesEncriptar(encriptado);
-            // BitConverter.ToInt32(encriptado.Length);
-         //   string resultado = Encriptar(IdnumericUpDown.Value);
-            usuarios.UsuarioId = Convert.ToInt32(encriptado.Length);
+            usuarios.UsuarioId = (int)IdnumericUpDown.Value;
             usuarios.Usuario = NombretextBox.Text;
-            usuarios.NivelUsuario = NiveltextBox.Text;
+            usuarios.ClaveUsuario = BitConverter.ToString(encriptado).Replace("-", " ");
+            usuarios.ConfirmarClaveUsuario = ConfirmarContraseñatextBox.Text;
+            usuarios.NivelUsuario = NivelcUsuarioomboBox.Text;
             return usuarios;
         }
 
+        //Llenar campos
         private void LlenarCampo(Usuarios usuarios)
         {
             IdnumericUpDown.Value = usuarios.UsuarioId;
             NombretextBox.Text = usuarios.Usuario;
-            NiveltextBox.Text = usuarios.NivelUsuario;
+            NivelcUsuarioomboBox.Text = usuarios.NivelUsuario;
+            ContraseñatextBox.Text = usuarios.ConfirmarClaveUsuario;
+            ConfirmarContraseñatextBox.Text = usuarios.ConfirmarClaveUsuario;
         }
 
+        //Validar
         private bool Validar()
         {
             bool paso = true;
@@ -101,20 +108,101 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 paso = false;
             }
 
-            if(string.IsNullOrEmpty(NiveltextBox.Text))
-            {
-                MyerrorProvider.SetError(NiveltextBox,"El nivel de usuario no puede estar vacio");
-                NiveltextBox.Focus();
-                paso = false;
-            }
-
             if(FechadateTimePicker.Value > DateTime.Now)
             {
                 MyerrorProvider.SetError(FechadateTimePicker,"Fecha invalida");
                 FechadateTimePicker.Focus();
                 paso = false;
             }
+            if (NombretextBox.Text.Length <2)
+            {
+                MyerrorProvider.SetError(NombretextBox, "El nombre debe tener al menos 2 caracteres'");
+                NombretextBox.Focus();
+                paso = false;
+            }
+
+            if(NivelcUsuarioomboBox.Text == string.Empty)
+            {
+                MyerrorProvider.SetError(NivelcUsuarioomboBox, "El nivel de usaurio no puede estar vacio");
+                NivelcUsuarioomboBox.Focus();
+                paso = false;
+            }
+
+            if (ContraseñatextBox.Text.Trim().Length <=7)
+            {
+                MyerrorProvider.SetError(ContraseñatextBox,"La contraseña debe tener al menos 8 caracteres");
+                ContraseñatextBox.Focus();
+                paso = false;
+            }
+
+            if(ConfirmarContraseñatextBox.Text != ContraseñatextBox.Text)
+            {
+                MyerrorProvider.SetError(ConfirmarContraseñatextBox,"Confirmacion incorrecta");
+                ConfirmarContraseñatextBox.Focus();
+                paso = false;
+            }
+
+            if(string.IsNullOrEmpty(ContraseñatextBox.Text))
+            {
+                MyerrorProvider.SetError(ContraseñatextBox, "La contraseña no puede estar vacia");
+                ContraseñatextBox.Focus();
+                paso = false;
+            }
+
+            if(string.IsNullOrEmpty(ConfirmarContraseñatextBox.Text))
+            {
+
+                MyerrorProvider.SetError(ConfirmarContraseñatextBox, "La confirmacion no puede estar vacia");
+                ConfirmarContraseñatextBox.Focus();
+                paso = false;
+            }
+
             return paso;
+        }
+
+        private bool NoRepetidos()
+        {
+            bool paso = true;
+            if (Validaciones.PalabrasNoIguales(NombretextBox.Text))
+            {
+                MyerrorProvider.SetError(NombretextBox, "Los nombres de Usuarios no pueden ser iguales");
+                NombretextBox.Focus();
+                paso = false;
+            }
+
+            if(Validaciones.ContraseñasNoIguales(ConfirmarContraseñatextBox.Text))
+            {
+                MyerrorProvider.SetError(ConfirmarContraseñatextBox, "Esta contraseña ya existe");
+                ConfirmarContraseñatextBox.Focus();
+                paso = false;               
+            }
+
+            return paso;
+        }
+
+        private void NombreSoloLetrasValidacion(KeyPressEventArgs e)
+        {
+            try
+            {
+                if(char.IsLetter(e.KeyChar))
+                   e.Handled = false;
+                else if (char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if(char.IsSeparator(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+
+            }catch
+            {
+
+            }
         }
 
         private void GuardarButton_Click(object sender, EventArgs e)
@@ -125,21 +213,22 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             if (!Validar())
                 return;
 
-            Usuarios usuarios = LlenarClase();
+            Usuarios usuario = LlenarClase();
 
             if (IdnumericUpDown.Value == 0)
             {
-                paso = repositorio.Guardar(usuarios);
+                if (!NoRepetidos())
+                    return;
+                paso = repositorio.Guardar(usuario);
             }
             else
             {
-                paso = repositorio.Modificar(usuarios);
+                paso = repositorio.Modificar(usuario);
             }
             if (paso)
             {
                 MessageBox.Show("Guardado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                byte[] encriptado = Encriptar(Encoding.UTF8.GetBytes(IdnumericUpDown.ToString()));
-                Pruebalabel.Text = BitConverter.ToString(encriptado).Replace("-", " ");
+
             }
             else
             {
@@ -167,27 +256,42 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             }
         }
 
+        private void LlenarCombox()
+        {
+            NivelcUsuarioomboBox.Items.Add("Administrador");
+            NivelcUsuarioomboBox.Items.Add("Secretario");
+        }
+
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             int id;
             RepositorioBase<Usuarios> repositorioBase = new RepositorioBase<Usuarios>();
             Usuarios usuarios = new Usuarios();
-            int.TryParse(IdnumericUpDown.Text, out id);
+      //      int.TryParse(IdnumericUpDown.Text, out id);
+            id = (int)IdnumericUpDown.Value;
             Limpiar();
             try
             {
                 usuarios = repositorioBase.Buscar(id);
                 if (usuarios != null)
                 {
-                    MessageBox.Show("Dia encontrado");
+                    MessageBox.Show("Usuario encontrado");
                     LlenarCampo(usuarios);
                 }
-
+                else
+                {
+                    MessageBox.Show("Usuari no encontrado");
+                }
             }
             catch (Exception)
             {
-                MessageBox.Show("No existe el horario");
+                MessageBox.Show("No existe el usuario");
             }
+        }
+
+        private void NombretextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            NombreSoloLetrasValidacion(e);
         }
     }
 }
