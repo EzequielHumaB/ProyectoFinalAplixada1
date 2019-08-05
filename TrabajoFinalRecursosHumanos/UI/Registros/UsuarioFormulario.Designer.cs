@@ -179,6 +179,7 @@
             this.NivelcUsuarioomboBox.Name = "NivelcUsuarioomboBox";
             this.NivelcUsuarioomboBox.Size = new System.Drawing.Size(121, 21);
             this.NivelcUsuarioomboBox.TabIndex = 68;
+            this.NivelcUsuarioomboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NivelcUsuarioomboBox_KeyPress);
             // 
             // label5
             // 

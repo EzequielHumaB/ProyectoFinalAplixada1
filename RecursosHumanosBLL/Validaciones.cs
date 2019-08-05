@@ -28,7 +28,9 @@ namespace RecursosHumanosBLL
             return paso;
         }
 
-     
+
+   
+
         public static bool ContraseñasNoIguales(string contraseña)
         {
             bool paso = false;

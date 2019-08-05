@@ -38,9 +38,10 @@
             this.eToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contratosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.departamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tipoDeVacanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TipoVacanteStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.LogOutStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.Permisolabel = new System.Windows.Forms.Label();
+            this.VacantesStrio = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,9 +50,10 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.UsuarioStrip,
             this.EmpleadosStrio,
+            this.VacantesStrio,
             this.ContratosStrip,
-            this.ConsultaStrio,
-            this.LogOutStrip});
+            this.LogOutStrip,
+            this.ConsultaStrio});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(663, 24);
@@ -88,7 +90,7 @@
             this.eToolStripMenuItem,
             this.contratosToolStripMenuItem,
             this.departamentosToolStripMenuItem,
-            this.tipoDeVacanteToolStripMenuItem});
+            this.TipoVacanteStrip});
             this.ConsultaStrio.Name = "ConsultaStrio";
             this.ConsultaStrio.Size = new System.Drawing.Size(71, 20);
             this.ConsultaStrio.Text = "Consultas";
@@ -98,7 +100,7 @@
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
             this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuarioToolStripMenuItem.Text = "Usuario ";
-            this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.UsuarioToolStripMenuItem_Click);
+            this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.UsuarioToolStripMenuItem_Click_1);
             // 
             // eToolStripMenuItem
             // 
@@ -121,12 +123,12 @@
             this.departamentosToolStripMenuItem.Text = "Departamentos";
             this.departamentosToolStripMenuItem.Click += new System.EventHandler(this.DepartamentosToolStripMenuItem_Click);
             // 
-            // tipoDeVacanteToolStripMenuItem
+            // TipoVacanteStrip
             // 
-            this.tipoDeVacanteToolStripMenuItem.Name = "tipoDeVacanteToolStripMenuItem";
-            this.tipoDeVacanteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.tipoDeVacanteToolStripMenuItem.Text = "Tipo de vacante ";
-            this.tipoDeVacanteToolStripMenuItem.Click += new System.EventHandler(this.TipoDeVacanteToolStripMenuItem_Click);
+            this.TipoVacanteStrip.Name = "TipoVacanteStrip";
+            this.TipoVacanteStrip.Size = new System.Drawing.Size(180, 22);
+            this.TipoVacanteStrip.Text = "Tipo de vacante ";
+            this.TipoVacanteStrip.Click += new System.EventHandler(this.TipoDeVacanteToolStripMenuItem_Click);
             // 
             // LogOutStrip
             // 
@@ -144,6 +146,13 @@
             this.Permisolabel.Size = new System.Drawing.Size(51, 16);
             this.Permisolabel.TabIndex = 2;
             this.Permisolabel.Text = "label1";
+            // 
+            // VacantesStrio
+            // 
+            this.VacantesStrio.Name = "VacantesStrio";
+            this.VacantesStrio.Size = new System.Drawing.Size(65, 20);
+            this.VacantesStrio.Text = "Vacantes";
+            this.VacantesStrio.Click += new System.EventHandler(this.VacantesStrio_Click);
             // 
             // Form1
             // 
@@ -177,9 +186,10 @@
         private System.Windows.Forms.ToolStripMenuItem eToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contratosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem departamentosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tipoDeVacanteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TipoVacanteStrip;
         private System.Windows.Forms.Label Permisolabel;
         private System.Windows.Forms.ToolStripMenuItem LogOutStrip;
+        private System.Windows.Forms.ToolStripMenuItem VacantesStrio;
     }
 }
 

@@ -25,7 +25,6 @@ namespace RecursosHumanosBLL
                     foreach (var item in contratos.Horarios)
                     {
                         sumando = contexto.Empleados.Find(contratos.EmpleadoId).Salario += item.CantidadHorasExtras * item.PrecioHorasExtras;
-                        //        contratos.Salario = sumando;
                     }
                     paso = contexto.SaveChanges() > 0;
                 }
@@ -45,6 +44,7 @@ namespace RecursosHumanosBLL
         {
             bool paso = false;
             Contexto contexto = new Contexto();
+            decimal sumando;
             RepositorioBase<Empleados> repositorioBase = new RepositorioBase<Empleados>();
             try
             {
@@ -53,6 +53,8 @@ namespace RecursosHumanosBLL
 
                 foreach (var item in anterior.Horarios)
                 {
+                    sumando = contexto.Empleados.Find(contratos.EmpleadoId).Salario -= item.CantidadHorasExtras * item.PrecioHorasExtras;
+
                     if (!contratos.Horarios.Any(A => A.HorarioId == item.HorarioId))
                     {
                         contexto.Entry(item).State = EntityState.Deleted;

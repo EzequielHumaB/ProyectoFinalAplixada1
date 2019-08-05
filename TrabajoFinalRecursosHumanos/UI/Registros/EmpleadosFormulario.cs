@@ -14,6 +14,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
 {
     public partial class EmpleadosFormulario : Form
     {
+        int controla; //Esto es para cuando se quiere modificar pero cambian el id 
         public EmpleadosFormulario()
         {
             InitializeComponent();
@@ -231,6 +232,11 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                     return;
                 paso = repositorio.Guardar(empleado);
             }
+            else if(IdnumericUpDown.Value!=controla)
+            {
+                MessageBox.Show("Se ha cambiado el id");
+                return;
+            }
             else
             {      
                paso = repositorio.Modificar(empleado); 
@@ -279,6 +285,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             RepositorioBase<Empleados> repositorio = new RepositorioBase<Empleados>();
             Empleados empleados = new Empleados();
             int.TryParse(IdnumericUpDown.Text, out id);
+            controla = id;
             Limpiar();
             try
             {
@@ -400,6 +407,11 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         {
             e.Handled = true;
             
+        }
+
+        private void EstadoCivilcomboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Entidades
         public string Usuario { get; set; }
         public string NivelUsuario { get; set; }
         public DateTime FechaCreacion { get; set; }
+        [Browsable(false)]
         public string ClaveUsuario { get; set; }
  
         public Usuarios()

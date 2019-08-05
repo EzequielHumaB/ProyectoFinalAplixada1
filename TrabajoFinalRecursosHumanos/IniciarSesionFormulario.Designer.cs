@@ -67,6 +67,7 @@
             this.ClaveUsuarioTextBox.Location = new System.Drawing.Point(132, 91);
             this.ClaveUsuarioTextBox.Multiline = true;
             this.ClaveUsuarioTextBox.Name = "ClaveUsuarioTextBox";
+            this.ClaveUsuarioTextBox.PasswordChar = '*';
             this.ClaveUsuarioTextBox.Size = new System.Drawing.Size(187, 33);
             this.ClaveUsuarioTextBox.TabIndex = 3;
             // 

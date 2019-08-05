@@ -14,6 +14,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
 {
     public partial class ContratoFormulario : Form
     {
+        int controla;
         public List<Horarios> Horarios;
         public ContratoFormulario()
         {
@@ -34,6 +35,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             HorarioSalidadateTimePicker.Value = DateTime.Now;
             IdEmpleadonumericUpDown.Value = 0;
             IdDelHorarionumericUpDown.Value = 0;
+            CantidadHorasExtrasnumericUpDown.Value = 0;
             FechaCreaciondateTimePicker.Value = DateTime.Now;
             CargarGrid();
         }
@@ -59,6 +61,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
 
         private void LlenarCampo(Contratos contratos)
         {
+            Horarios horarios = new Horarios();
             IdnumericUpDown.Value = contratos.ContratoId;
             DescripciontextBox.Text = contratos.DescripcionContrato;
             SegurotextBox.Text = contratos.Seguro;
@@ -66,8 +69,10 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             IdEmpleadonumericUpDown.Value = contratos.EmpleadoId;
             FechaCreaciondateTimePicker.Value = contratos.FechaCreacion;
             IdEmpleadonumericUpDown.Value = contratos.EmpleadoId;
+            CantidadHorasExtrasnumericUpDown.Value = horarios.CantidadHorasExtras;
             this.Horarios = contratos.Horarios;
             CargarGrid();
+            
         }
 
         private bool Validar()
@@ -160,11 +165,27 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 paso = false;
             }
 
-        
-
+           
+  
             return paso;
         }
 
+
+        private bool ValidarExistenciaEmpleado()
+        {
+            bool paso = false;
+            Empleados empleados = new Empleados();
+            var listado = new List<Empleados>();
+            foreach (var item in listado)
+            {
+                if (item.EmpleadoId != IdEmpleadonumericUpDown.Value)
+                {
+                    paso = true;
+                    break;
+                }
+            }
+            return paso;
+        }
         private void GuardarButton_Click(object sender, EventArgs e)
         {
 
@@ -178,8 +199,23 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
 
             if (IdnumericUpDown.Value == 0)
             {
+                if (!ValidarExistenciaEmpleado())
+                {
+                    MessageBox.Show("El id del empleado no existe");
+                    return;
+                }
                 paso = ContratosBLL.Guardar(contratos);
                 MessageBox.Show("Guardado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if(IdnumericUpDown.Value!=controla)
+            {
+                MessageBox.Show("Se ha cambiado el id");
+                return;
+            }
+            else if(!ValidarExistenciaEmpleado())
+            {
+                MessageBox.Show("El id del empleado no existe");
+                return;
             }
             else
             {
@@ -226,6 +262,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             int id;
             Contratos contratos = new Contratos();
             int.TryParse(IdnumericUpDown.Text, out id);
+            controla = id;
             Limpiar();
             try
             {
@@ -305,6 +342,9 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             HorarioSalidadateTimePicker.CustomFormat = "HH:mm";
         }
 
-     
+        private void DepartamentocomboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

@@ -14,6 +14,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
 {
     public partial class DepartamentoFormulario : Form
     {
+        int controla;
         public DepartamentoFormulario()
         {
             InitializeComponent();
@@ -93,6 +94,11 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                     return;
                 paso = repositorio.Guardar(departamentos);
             }
+            else if(IdnumericUpDown.Value!=controla)
+            {
+                MessageBox.Show("Se ha camiado el id");
+                return;
+            }
             else
             {
                paso = repositorio.Modificar(departamentos); 
@@ -134,6 +140,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             RepositorioBase<Departamentos> repositorioBase = new RepositorioBase<Departamentos>();
             Departamentos departamentos = new Departamentos();
             int.TryParse(IdnumericUpDown.Text, out id);
+            controla = id;
             Limpiar();
             try
             {

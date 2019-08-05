@@ -337,12 +337,12 @@
             // 
             // DepartamentocomboBox
             // 
-            this.DepartamentocomboBox.Enabled = false;
             this.DepartamentocomboBox.FormattingEnabled = true;
             this.DepartamentocomboBox.Location = new System.Drawing.Point(173, 124);
             this.DepartamentocomboBox.Name = "DepartamentocomboBox";
             this.DepartamentocomboBox.Size = new System.Drawing.Size(137, 21);
             this.DepartamentocomboBox.TabIndex = 70;
+            this.DepartamentocomboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DepartamentocomboBox_KeyPress);
             // 
             // CantidadHorasExtrasnumericUpDown
             // 

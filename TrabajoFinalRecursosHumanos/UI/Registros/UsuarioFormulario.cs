@@ -15,6 +15,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
 {
     public partial class UsuarioFormulario : Form
     {
+        int controla;
         public UsuarioFormulario()
         {
             InitializeComponent();
@@ -124,12 +125,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 paso = false;
             }
 
-            if(string.IsNullOrEmpty(ContraseñatextBox.Text))
-            {
-                MyerrorProvider.SetError(ContraseñatextBox, "La contraseña no puede estar vacia");
-                ContraseñatextBox.Focus();
-                paso = false;
-            }
+         
 
             if(string.IsNullOrEmpty(ConfirmarContraseñatextBox.Text))
             {
@@ -147,15 +143,15 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             bool paso = true;
             if (Validaciones.PalabrasNoIguales(NombretextBox.Text))
             {
-                MyerrorProvider.SetError(NombretextBox, "Los nombres de Usuarios no pueden ser iguales");
+                MyerrorProvider.SetError(NombretextBox, "Ya existe el usuario");
                 NombretextBox.Focus();
                 paso = false;
             }
 
-            if(Validaciones.ContraseñasNoIguales(ConfirmarContraseñatextBox.Text))
+            if(Validaciones.ContraseñasNoIguales(Encriptar(ContraseñatextBox.Text)))
             {
-                MyerrorProvider.SetError(ConfirmarContraseñatextBox, "Esta contraseña ya existe");
-                ConfirmarContraseñatextBox.Focus();
+                MyerrorProvider.SetError(ContraseñatextBox,"Esta contraseña ya existe");
+                ContraseñatextBox.Focus();
                 paso = false;               
             }
 
@@ -174,8 +170,13 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 }
                 else if(char.IsSeparator(e.KeyChar))
                 {
+                    e.Handled = true;
+                }
+                else if(char.IsDigit(e.KeyChar))
+                {
                     e.Handled = false;
                 }
+
                 else
                 {
                     e.Handled = true;
@@ -203,12 +204,18 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                     return;
                 paso = repositorio.Guardar(usuario);
             }
+            else if(IdnumericUpDown.Value != controla)
+            {
+                MessageBox.Show("Se ha cambiado el id");
+                return;
+            }
             else
             {
                 paso = repositorio.Modificar(usuario);
             }
             if (paso)
             {
+               
                 MessageBox.Show("Guardado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
@@ -249,8 +256,8 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             int id;
             RepositorioBase<Usuarios> repositorioBase = new RepositorioBase<Usuarios>();
             Usuarios usuarios = new Usuarios();
-      //      int.TryParse(IdnumericUpDown.Text, out id);
             id = (int)IdnumericUpDown.Value;
+            controla = id;
             Limpiar();
             try
             {
@@ -274,6 +281,11 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         private void NombretextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             NombreSoloLetrasValidacion(e);
+        }
+
+        private void NivelcUsuarioomboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
 {
     public partial class FoTipoVacantermulario : Form
     {
+        int controla;
         public FoTipoVacantermulario()
         {
             InitializeComponent();
@@ -42,6 +43,11 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                     return;
                 paso = repositorio.Guardar(tipoVacante);
             }
+            else if(IdnumericUpDown.Value!=controla)
+            {
+                MessageBox.Show("Se ha cambiado el id");
+                return;
+            }                       
             else
             {    
                 paso = repositorio.Modificar(tipoVacante);
@@ -135,6 +141,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             RepositorioBase<TipoVacante> repositorioBase = new RepositorioBase<TipoVacante>();
             TipoVacante tipoVacante = new TipoVacante();
             int.TryParse(IdnumericUpDown.Text, out id);
+            controla = id;
             Limpiar();
             try
             {

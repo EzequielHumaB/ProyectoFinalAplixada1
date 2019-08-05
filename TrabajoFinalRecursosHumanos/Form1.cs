@@ -24,15 +24,12 @@ namespace TrabajoFinalRecursosHumanos
             MostrarPermisoUsuarioValidacion(UsuarioIdentificacion);
             ControlUsuario();
         }
-
-     
-
         private void EmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(Permisolabel.Text == "Administrador" | Permisolabel.Text == "Solo Usuario")
             {
                 UsuarioFormulario usuarioFormulario = new UsuarioFormulario();
-                usuarioFormulario.StartPosition = FormStartPosition.CenterScreen;
+                usuarioFormulario.MdiParent = this;
                 usuarioFormulario.Show();
             }
             else
@@ -44,31 +41,18 @@ namespace TrabajoFinalRecursosHumanos
         private void EmpleadosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ConsultaEmpleadoFormulario consulta = new ConsultaEmpleadoFormulario();
-            consulta.StartPosition = FormStartPosition.CenterScreen;
+            consulta.MdiParent = this;
             consulta.Show();
         }
 
-        private void ContratosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(Permisolabel.Text == "Administrador")
-            {
-                ConsultaDeContratos consultaDeContratos = new ConsultaDeContratos();
-                consultaDeContratos.StartPosition = FormStartPosition.CenterParent;
-                consultaDeContratos.Show();
-            }
-            else
-            {
-                MessageBox.Show("No tienes permiso para entrar");
-            }
-           
-        }
+       
 
         private void HorarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(Permisolabel.Text == "Administrador" | Permisolabel.Text == "Solo Usuario")
             {
                 EmpleadosFormulario empleadosFormulario = new EmpleadosFormulario();
-                empleadosFormulario.StartPosition = FormStartPosition.CenterScreen;
+                empleadosFormulario.MdiParent = this;
                 empleadosFormulario.Show();
             }
             else
@@ -109,6 +93,7 @@ namespace TrabajoFinalRecursosHumanos
                 EmpleadosStrio.Enabled = true;
                 ConsultaStrio.Enabled = true;
                 LogOutStrip.Enabled = true;
+                TipoVacanteStrip.Enabled = true;
             }
 
         }
@@ -119,7 +104,7 @@ namespace TrabajoFinalRecursosHumanos
             if(Permisolabel.Text == "Administrador" | Permisolabel.Text == "Solo Usuario")
             {
                 UsuarioConsultas usuarioConsultas = new UsuarioConsultas();
-                usuarioConsultas.StartPosition = FormStartPosition.CenterScreen;
+                usuarioConsultas.MdiParent = this;
                 usuarioConsultas.Show();
             }
              else
@@ -133,7 +118,7 @@ namespace TrabajoFinalRecursosHumanos
             if(Permisolabel.Text == "Administrador" | Permisolabel.Text == "Solo Usuario")
             {
                 ConsultaEmpleadoFormulario consultaEmpleadoFormulario = new ConsultaEmpleadoFormulario();
-                consultaEmpleadoFormulario.StartPosition = FormStartPosition.CenterScreen;
+                consultaEmpleadoFormulario.MdiParent = this;
                 consultaEmpleadoFormulario.Show();
             }
             else
@@ -148,7 +133,7 @@ namespace TrabajoFinalRecursosHumanos
             if(Permisolabel.Text == "Administrador" | Permisolabel.Text == "Solo Usuario")
             {
                 ConsultaDeContratos consultaDeContratos = new ConsultaDeContratos();
-                consultaDeContratos.StartPosition = FormStartPosition.CenterScreen;
+                consultaDeContratos.MdiParent = this;
                 consultaDeContratos.Show();
             }
             else
@@ -163,7 +148,7 @@ namespace TrabajoFinalRecursosHumanos
             if(Permisolabel.Text == "Administrador" | Permisolabel.Text == "Solo Usuario")
             {
                 DepartamentosConsultas departamentoConsultas = new DepartamentosConsultas();
-                departamentoConsultas.StartPosition = FormStartPosition.CenterScreen;
+                departamentoConsultas.MdiParent = this;
                 departamentoConsultas.Show();
             }
             else
@@ -178,7 +163,7 @@ namespace TrabajoFinalRecursosHumanos
             if(Permisolabel.Text == "Administradpr" | Permisolabel.Text == "Solo Usuario")
             {
                 TipoVacanteFormulario tipoVacanteFormulario = new TipoVacanteFormulario();
-                tipoVacanteFormulario.StartPosition = FormStartPosition.CenterScreen;
+                tipoVacanteFormulario.MdiParent = this;
                 tipoVacanteFormulario.Show();
             }
             else
@@ -201,11 +186,23 @@ namespace TrabajoFinalRecursosHumanos
             if(Permisolabel.Text == "Administrador" | Permisolabel.Text == "Solo Usuario")
             {
                 ContratoFormulario contratoFormulario = new ContratoFormulario();
-                contratoFormulario.StartPosition = FormStartPosition.CenterScreen;
+                contratoFormulario.MdiParent = this;
                 contratoFormulario.Show();
             }
         }
 
-      
+        private void VacantesStrio_Click(object sender, EventArgs e)
+        {
+            FoTipoVacantermulario foTipoVacantermulario = new FoTipoVacantermulario();
+            foTipoVacantermulario.MdiParent = this;
+            foTipoVacantermulario.Show();
+        }
+
+        private void UsuarioToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            UsuarioConsultas usuarioConsultas = new UsuarioConsultas();
+            usuarioConsultas.MdiParent = this;
+            usuarioConsultas.Show();
+        }
     }
 }

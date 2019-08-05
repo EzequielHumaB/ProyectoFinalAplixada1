@@ -341,6 +341,7 @@
             this.EstadoCivilcomboBox.Name = "EstadoCivilcomboBox";
             this.EstadoCivilcomboBox.Size = new System.Drawing.Size(121, 21);
             this.EstadoCivilcomboBox.TabIndex = 58;
+            this.EstadoCivilcomboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EstadoCivilcomboBox_KeyPress);
             // 
             // NacionaliddadtextBox
             // 

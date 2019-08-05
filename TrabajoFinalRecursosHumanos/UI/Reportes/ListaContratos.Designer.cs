@@ -30,6 +30,7 @@
         {
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.contratoReporte1 = new TrabajoFinalRecursosHumanos.UI.Reportes.ContratoReporte();
+            this.contratoReporte2 = new TrabajoFinalRecursosHumanos.UI.Reportes.ContratoReporte();
             this.SuspendLayout();
             // 
             // crystalReportViewer1
@@ -60,5 +61,6 @@
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
         private ContratoReporte contratoReporte1;
+        private ContratoReporte contratoReporte2;
     }
 }
