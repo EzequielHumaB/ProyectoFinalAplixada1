@@ -279,12 +279,12 @@
             // 
             // VacantecomboBox
             // 
-            this.VacantecomboBox.Enabled = false;
             this.VacantecomboBox.FormattingEnabled = true;
             this.VacantecomboBox.Location = new System.Drawing.Point(144, 269);
             this.VacantecomboBox.Name = "VacantecomboBox";
             this.VacantecomboBox.Size = new System.Drawing.Size(121, 21);
             this.VacantecomboBox.TabIndex = 52;
+            this.VacantecomboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VacantecomboBox_KeyPress);
             // 
             // AgregarVacantebutton
             // 

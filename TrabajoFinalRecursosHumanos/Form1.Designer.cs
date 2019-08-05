@@ -39,7 +39,8 @@
             this.contratosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.departamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoDeVacanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.iniciarSesionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.LogOutStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.Permisolabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,17 +51,15 @@
             this.EmpleadosStrio,
             this.ContratosStrip,
             this.ConsultaStrio,
-            this.iniciarSesionToolStripMenuItem1});
+            this.LogOutStrip});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(663, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuStrip1_ItemClicked);
             // 
             // UsuarioStrip
             // 
-            this.UsuarioStrip.Enabled = false;
             this.UsuarioStrip.Name = "UsuarioStrip";
             this.UsuarioStrip.Size = new System.Drawing.Size(59, 20);
             this.UsuarioStrip.Text = "Usuario";
@@ -68,7 +67,6 @@
             // 
             // EmpleadosStrio
             // 
-            this.EmpleadosStrio.Enabled = false;
             this.EmpleadosStrio.Name = "EmpleadosStrio";
             this.EmpleadosStrio.Size = new System.Drawing.Size(72, 20);
             this.EmpleadosStrio.Text = "Empleado";
@@ -78,11 +76,10 @@
             // 
             this.ContratosStrip.Checked = true;
             this.ContratosStrip.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ContratosStrip.Enabled = false;
             this.ContratosStrip.Name = "ContratosStrip";
             this.ContratosStrip.Size = new System.Drawing.Size(71, 20);
             this.ContratosStrip.Text = "Contratos";
-            this.ContratosStrip.Click += new System.EventHandler(this.IniciarSesionToolStripMenuItem_Click);
+            this.ContratosStrip.Click += new System.EventHandler(this.ContratosStrip_Click);
             // 
             // ConsultaStrio
             // 
@@ -92,7 +89,6 @@
             this.contratosToolStripMenuItem,
             this.departamentosToolStripMenuItem,
             this.tipoDeVacanteToolStripMenuItem});
-            this.ConsultaStrio.Enabled = false;
             this.ConsultaStrio.Name = "ConsultaStrio";
             this.ConsultaStrio.Size = new System.Drawing.Size(71, 20);
             this.ConsultaStrio.Text = "Consultas";
@@ -132,12 +128,22 @@
             this.tipoDeVacanteToolStripMenuItem.Text = "Tipo de vacante ";
             this.tipoDeVacanteToolStripMenuItem.Click += new System.EventHandler(this.TipoDeVacanteToolStripMenuItem_Click);
             // 
-            // iniciarSesionToolStripMenuItem1
+            // LogOutStrip
             // 
-            this.iniciarSesionToolStripMenuItem1.Name = "iniciarSesionToolStripMenuItem1";
-            this.iniciarSesionToolStripMenuItem1.Size = new System.Drawing.Size(91, 20);
-            this.iniciarSesionToolStripMenuItem1.Text = "Iniciar Sesion ";
-            this.iniciarSesionToolStripMenuItem1.Click += new System.EventHandler(this.IniciarSesionToolStripMenuItem1_Click);
+            this.LogOutStrip.Name = "LogOutStrip";
+            this.LogOutStrip.Size = new System.Drawing.Size(59, 20);
+            this.LogOutStrip.Text = "LogOut";
+            this.LogOutStrip.Click += new System.EventHandler(this.LogOutToolStripMenuItem_Click);
+            // 
+            // Permisolabel
+            // 
+            this.Permisolabel.AutoSize = true;
+            this.Permisolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Permisolabel.Location = new System.Drawing.Point(489, 3);
+            this.Permisolabel.Name = "Permisolabel";
+            this.Permisolabel.Size = new System.Drawing.Size(51, 16);
+            this.Permisolabel.TabIndex = 2;
+            this.Permisolabel.Text = "label1";
             // 
             // Form1
             // 
@@ -146,6 +152,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(663, 349);
+            this.Controls.Add(this.Permisolabel);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -165,13 +172,14 @@
         private System.Windows.Forms.ToolStripMenuItem UsuarioStrip;
         private System.Windows.Forms.ToolStripMenuItem EmpleadosStrio;
         private System.Windows.Forms.ToolStripMenuItem ContratosStrip;
-        private System.Windows.Forms.ToolStripMenuItem iniciarSesionToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ConsultaStrio;
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contratosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem departamentosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tipoDeVacanteToolStripMenuItem;
+        private System.Windows.Forms.Label Permisolabel;
+        private System.Windows.Forms.ToolStripMenuItem LogOutStrip;
     }
 }
 

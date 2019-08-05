@@ -16,14 +16,14 @@ namespace TrabajoFinalRecursosHumanos.UI.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class UsuarioReportes : ReportClass {
+    public class TipoVacanteReporte : ReportClass {
         
-        public UsuarioReportes() {
+        public TipoVacanteReporte() {
         }
         
         public override string ResourceName {
             get {
-                return "UsuarioReportes.rpt";
+                return "TipoVacanteReporte.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Reportes {
         
         public override string FullResourceName {
             get {
-                return "TrabajoFinalRecursosHumanos.UI.Reportes.UsuarioReportes.rpt";
+                return "TrabajoFinalRecursosHumanos.UI.Reportes.TipoVacanteReporte.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace TrabajoFinalRecursosHumanos.UI.Reportes {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedUsuarioReportes : Component, ICachedReport {
+    public class CachedTipoVacanteReporte : Component, ICachedReport {
         
-        public CachedUsuarioReportes() {
+        public CachedTipoVacanteReporte() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            UsuarioReportes rpt = new UsuarioReportes();
+            TipoVacanteReporte rpt = new TipoVacanteReporte();
             rpt.Site = this.Site;
             return rpt;
         }

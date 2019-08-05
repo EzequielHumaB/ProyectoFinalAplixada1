@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using RecursosHumanosBLL;
 using Entidades;
+using TrabajoFinalRecursosHumanos.UI.Reportes;
 
 namespace TrabajoFinalRecursosHumanos.UI.Consultas
 {
     public partial class UsuarioConsultas : Form
     {
+        public List<Usuarios> Usuarios;
         public UsuarioConsultas()
         {
             InitializeComponent();
@@ -57,8 +59,8 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
                     listado = repositorioBase.GetList(p => true);
 
 
-                ConsultadataGridView.DataSource = null;
-                ConsultadataGridView.DataSource = listado;
+                Usuarios = listado;
+                ConsultadataGridView.DataSource = Usuarios;
             }
 
             else
@@ -94,8 +96,23 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
                     listado = repositorioBase.GetList(p => true);
 
 
-                ConsultadataGridView.DataSource = null;
-                ConsultadataGridView.DataSource = listado;
+                Usuarios = listado;
+                ConsultadataGridView.DataSource = Usuarios;
+            }
+        }
+
+        private void Imprimirbutton_Click(object sender, EventArgs e)
+        {
+            if (ConsultadataGridView.RowCount == 0)
+            {
+                MessageBox.Show("No hay Datos Para Imprimir");
+                return;
+            }
+            else
+            {
+
+                ListaUsuarios ListaUsuarios = new ListaUsuarios(Usuarios);
+                ListaUsuarios.Show();
             }
         }
     }

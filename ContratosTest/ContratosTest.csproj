@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7EBF0821-108E-4ABA-8732-6AAD8C097713}</ProjectGuid>
+    <ProjectGuid>{A1D20EBB-31E1-41E1-8ACD-9213DF32D490}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UsuarioTests</RootNamespace>
-    <AssemblyName>UsuarioTests</AssemblyName>
+    <RootNamespace>ContratosTest</RootNamespace>
+    <AssemblyName>ContratosTest</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

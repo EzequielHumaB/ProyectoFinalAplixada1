@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using RecursosHumanosBLL;
 using Entidades;
+using TrabajoFinalRecursosHumanos.UI.Reportes;
 
 namespace TrabajoFinalRecursosHumanos.UI.Consultas
 {
     public partial class TipoVacanteFormulario : Form
     {
+        public List<TipoVacante> tipoVacantes;
         public TipoVacanteFormulario()
         {
             InitializeComponent();
@@ -55,8 +57,8 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
                     listado = repositorioBase.GetList(p => true);
 
 
-                ConsultadataGridView.DataSource = null;
-                ConsultadataGridView.DataSource = listado;
+                tipoVacantes = listado;
+                ConsultadataGridView.DataSource = tipoVacantes;
             }
 
             else
@@ -89,59 +91,24 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
                     listado = repositorioBase.GetList(p => true);
 
 
-                ConsultadataGridView.DataSource = null;
-                ConsultadataGridView.DataSource = listado;
+                tipoVacantes = listado;
+                ConsultadataGridView.DataSource = tipoVacantes;
             }
         }
 
-        private void CriteriotextBox_TextChanged(object sender, EventArgs e)
+        private void Imprimirbutton_Click(object sender, EventArgs e)
         {
+            if (ConsultadataGridView.RowCount == 0)
+            {
+                MessageBox.Show("No hay Datos Para Imprimir");
+                return;
+            }
+            else
+            {
 
-        }
-
-        private void FiltrocomboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void HastadateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DesdedateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ConsultadataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void Label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FechacheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
+                ListaVacantes listaVacantes = new ListaVacantes(tipoVacantes);
+                listaVacantes.Show();
+            }
         }
     }
 }

@@ -86,17 +86,11 @@
     <Compile Include="UI\Consultas\ConsultaEmpleadoFormulario.Designer.cs">
       <DependentUpon>ConsultaEmpleadoFormulario.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Consultas\DepartamentoConsultas.cs">
+    <Compile Include="UI\Consultas\DepartamentosConsultas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Consultas\DepartamentoConsultas.Designer.cs">
-      <DependentUpon>DepartamentoConsultas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Consultas\ListaContrato.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Consultas\ListaContrato.Designer.cs">
-      <DependentUpon>ListaContrato.cs</DependentUpon>
+    <Compile Include="UI\Consultas\DepartamentosConsultas.Designer.cs">
+      <DependentUpon>DepartamentosConsultas.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Consultas\TipoVacanteFormulario.cs">
       <SubType>Form</SubType>
@@ -140,10 +134,10 @@
     <Compile Include="UI\Registros\UsuarioFormulario.Designer.cs">
       <DependentUpon>UsuarioFormulario.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Reportes\ContratosReporte.cs">
+    <Compile Include="UI\Reportes\ContratoReporte.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ContratosReporte.rpt</DependentUpon>
+      <DependentUpon>ContratoReporte.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UI\Reportes\DepartamentoReporte.cs">
@@ -158,11 +152,17 @@
       <DependentUpon>EmpleadoReporte.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\Reportes\ListaContrato.cs">
+    <Compile Include="UI\Reportes\ListaContratos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Reportes\ListaContrato.Designer.cs">
-      <DependentUpon>ListaContrato.cs</DependentUpon>
+    <Compile Include="UI\Reportes\ListaContratos.Designer.cs">
+      <DependentUpon>ListaContratos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\ListaDepartamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ListaDepartamentos.Designer.cs">
+      <DependentUpon>ListaDepartamentos.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Reportes\ListaEmpleados.cs">
       <SubType>Form</SubType>
@@ -170,16 +170,28 @@
     <Compile Include="UI\Reportes\ListaEmpleados.Designer.cs">
       <DependentUpon>ListaEmpleados.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Reportes\TiposVacantesReportes.cs">
+    <Compile Include="UI\Reportes\ListaUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ListaUsuarios.Designer.cs">
+      <DependentUpon>ListaUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\ListaVacantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ListaVacantes.Designer.cs">
+      <DependentUpon>ListaVacantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\TipoVacanteReporte.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TiposVacantesReportes.rpt</DependentUpon>
+      <DependentUpon>TipoVacanteReporte.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\Reportes\UsuarioReportes.cs">
+    <Compile Include="UI\Reportes\UsuarioReporte.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>UsuarioReportes.rpt</DependentUpon>
+      <DependentUpon>UsuarioReporte.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
@@ -203,11 +215,8 @@
     <EmbeddedResource Include="UI\Consultas\ConsultaEmpleadoFormulario.resx">
       <DependentUpon>ConsultaEmpleadoFormulario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Consultas\DepartamentoConsultas.resx">
-      <DependentUpon>DepartamentoConsultas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Consultas\ListaContrato.resx">
-      <DependentUpon>ListaContrato.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Consultas\DepartamentosConsultas.resx">
+      <DependentUpon>DepartamentosConsultas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Consultas\TipoVacanteFormulario.resx">
       <DependentUpon>TipoVacanteFormulario.cs</DependentUpon>
@@ -230,9 +239,9 @@
     <EmbeddedResource Include="UI\Registros\UsuarioFormulario.resx">
       <DependentUpon>UsuarioFormulario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Reportes\ContratosReporte.rpt">
+    <EmbeddedResource Include="UI\Reportes\ContratoReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ContratosReporte.cs</LastGenOutput>
+      <LastGenOutput>ContratoReporte.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\DepartamentoReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -242,19 +251,28 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EmpleadoReporte.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Reportes\ListaContrato.resx">
-      <DependentUpon>ListaContrato.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Reportes\ListaContratos.resx">
+      <DependentUpon>ListaContratos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\ListaDepartamentos.resx">
+      <DependentUpon>ListaDepartamentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\ListaEmpleados.resx">
       <DependentUpon>ListaEmpleados.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Reportes\TiposVacantesReportes.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>TiposVacantesReportes.cs</LastGenOutput>
+    <EmbeddedResource Include="UI\Reportes\ListaUsuarios.resx">
+      <DependentUpon>ListaUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Reportes\UsuarioReportes.rpt">
+    <EmbeddedResource Include="UI\Reportes\ListaVacantes.resx">
+      <DependentUpon>ListaVacantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\TipoVacanteReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>UsuarioReportes.cs</LastGenOutput>
+      <LastGenOutput>TipoVacanteReporte.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\UsuarioReporte.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>UsuarioReporte.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

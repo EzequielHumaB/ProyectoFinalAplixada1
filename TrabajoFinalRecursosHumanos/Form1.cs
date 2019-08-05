@@ -8,29 +8,37 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrabajoFinalRecursosHumanos.UI.Consultas;
+using RecursosHumanosBLL;
+using Entidades;
 using TrabajoFinalRecursosHumanos.UI.Registros;
 
 namespace TrabajoFinalRecursosHumanos
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        public int UsuarioIdentificacion;
+        public Form1(int UsuarioIdentificacion)
         {
             InitializeComponent();
+            this.UsuarioIdentificacion = UsuarioIdentificacion;
+            MostrarPermisoUsuarioValidacion(UsuarioIdentificacion);
+            ControlUsuario();
         }
 
-        private void EmpleadosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            EmpleadosFormulario empleadosFormulario = new EmpleadosFormulario();
-            empleadosFormulario.StartPosition = FormStartPosition.CenterScreen;
-            empleadosFormulario.Show();
-        }
+     
 
         private void EmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UsuarioFormulario usuarioFormulario = new UsuarioFormulario();
-            usuarioFormulario.StartPosition = FormStartPosition.CenterScreen;
-            usuarioFormulario.Show();
+            if(Permisolabel.Text == "Administrador" | Permisolabel.Text == "Solo Usuario")
+            {
+                UsuarioFormulario usuarioFormulario = new UsuarioFormulario();
+                usuarioFormulario.StartPosition = FormStartPosition.CenterScreen;
+                usuarioFormulario.Show();
+            }
+            else
+            {
+                MessageBox.Show("No tienes permiso para acceder");
+            }
         }
 
         private void EmpleadosToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -42,96 +50,162 @@ namespace TrabajoFinalRecursosHumanos
 
         private void ContratosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConsultaDeContratos consultaDeContratos = new ConsultaDeContratos();
-            consultaDeContratos.StartPosition = FormStartPosition.CenterParent;
-            consultaDeContratos.Show();
+            if(Permisolabel.Text == "Administrador")
+            {
+                ConsultaDeContratos consultaDeContratos = new ConsultaDeContratos();
+                consultaDeContratos.StartPosition = FormStartPosition.CenterParent;
+                consultaDeContratos.Show();
+            }
+            else
+            {
+                MessageBox.Show("No tienes permiso para entrar");
+            }
+           
         }
 
         private void HorarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EmpleadosFormulario empleadosFormulario = new EmpleadosFormulario();
-            empleadosFormulario.StartPosition = FormStartPosition.CenterScreen;
-            empleadosFormulario.Show();
-        }
-
-        private void IniciarSesionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ContratoFormulario contratoFormulario = new ContratoFormulario();
-            contratoFormulario.StartPosition = FormStartPosition.CenterScreen;
-            contratoFormulario.Show();
-        }
-
-        private void IniciarSesionToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            IniciarSesion();
-        }
-
-        private void IniciarSesion()
-        {
-            IniciarSesionFormulario iniciarSesionFormulario = new IniciarSesionFormulario();
-            iniciarSesionFormulario.StartPosition = FormStartPosition.CenterScreen;
-            iniciarSesionFormulario.ShowDialog();
-            validar();
-        }
-
-        private void validar()
-        {
-            IniciarSesionFormulario iniciarSesionFormulario = new IniciarSesionFormulario();
-            if(iniciarSesionFormulario.ValidarIniciarSesion() == 1)
+            if(Permisolabel.Text == "Administrador" | Permisolabel.Text == "Solo Usuario")
             {
-                ConsultaStrio.Enabled = true;
-                ContratosStrip.Enabled = true;
-                EmpleadosStrio.Enabled = true;
-                UsuarioStrip.Enabled = true;
-            }
-            else if(iniciarSesionFormulario.ValidarIniciarSesion()==2)
-            {
-                ConsultaStrio.Enabled = true;
+                EmpleadosFormulario empleadosFormulario = new EmpleadosFormulario();
+                empleadosFormulario.StartPosition = FormStartPosition.CenterScreen;
+                empleadosFormulario.Show();
             }
             else
             {
-                this.Close();
+                MessageBox.Show("No tienes permiso");
             }
         }
 
+
+      
+
+        private void MostrarPermisoUsuarioValidacion(int id)
+        {
+            if(id>0)
+            {
+                RepositorioBase<Usuarios> repositorioBase = new RepositorioBase<Usuarios>();
+                Usuarios usuarios = repositorioBase.Buscar(id);
+                Permisolabel.Text = usuarios.NivelUsuario.ToString();
+            }
+            else
+            {
+                Permisolabel.Text = ("Solo Usuario");
+            }
+        }
+
+        private void ControlUsuario()
+        {
+            if(Permisolabel.Text == "Solo Usuario")
+            {
+                ContratosStrip.Enabled = false;
+                EmpleadosStrio.Enabled = false;
+                ConsultaStrio.Enabled = false;
+                LogOutStrip.Enabled = false;
+            }
+            if(Permisolabel.Text == "Administrador")
+            {
+                ContratosStrip.Enabled = true;
+                EmpleadosStrio.Enabled = true;
+                ConsultaStrio.Enabled = true;
+                LogOutStrip.Enabled = true;
+            }
+
+        }
+            
+
         private void UsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UsuarioConsultas usuarioConsultas = new UsuarioConsultas();
-            usuarioConsultas.StartPosition = FormStartPosition.CenterScreen;
-            usuarioConsultas.Show();
+            if(Permisolabel.Text == "Administrador" | Permisolabel.Text == "Solo Usuario")
+            {
+                UsuarioConsultas usuarioConsultas = new UsuarioConsultas();
+                usuarioConsultas.StartPosition = FormStartPosition.CenterScreen;
+                usuarioConsultas.Show();
+            }
+             else
+            {
+                MessageBox.Show("No tienes permiso");
+            }
         }
 
         private void EToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConsultaEmpleadoFormulario consultaEmpleadoFormulario = new ConsultaEmpleadoFormulario();
-            consultaEmpleadoFormulario.StartPosition = FormStartPosition.CenterScreen;
-            consultaEmpleadoFormulario.Show();
+            if(Permisolabel.Text == "Administrador" | Permisolabel.Text == "Solo Usuario")
+            {
+                ConsultaEmpleadoFormulario consultaEmpleadoFormulario = new ConsultaEmpleadoFormulario();
+                consultaEmpleadoFormulario.StartPosition = FormStartPosition.CenterScreen;
+                consultaEmpleadoFormulario.Show();
+            }
+            else
+            {
+                MessageBox.Show("No tienes permiso");
+            }
+           
         }
 
         private void ContratosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            ConsultaDeContratos consultaDeContratos = new ConsultaDeContratos();
-            consultaDeContratos.StartPosition = FormStartPosition.CenterScreen;
-            consultaDeContratos.Show();
+            if(Permisolabel.Text == "Administrador" | Permisolabel.Text == "Solo Usuario")
+            {
+                ConsultaDeContratos consultaDeContratos = new ConsultaDeContratos();
+                consultaDeContratos.StartPosition = FormStartPosition.CenterScreen;
+                consultaDeContratos.Show();
+            }
+            else
+            {
+                MessageBox.Show("No tienes permiso");
+            }
+           
         }
 
         private void DepartamentosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DepartamentoConsultas departamentoConsultas = new DepartamentoConsultas();
-            departamentoConsultas.StartPosition = FormStartPosition.CenterScreen;
-            departamentoConsultas.Show();
+            if(Permisolabel.Text == "Administrador" | Permisolabel.Text == "Solo Usuario")
+            {
+                DepartamentosConsultas departamentoConsultas = new DepartamentosConsultas();
+                departamentoConsultas.StartPosition = FormStartPosition.CenterScreen;
+                departamentoConsultas.Show();
+            }
+            else
+            {
+                MessageBox.Show("No tienes permiso");
+            }
+         
         }
 
         private void TipoDeVacanteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TipoVacanteFormulario tipoVacanteFormulario = new TipoVacanteFormulario();
-            tipoVacanteFormulario.StartPosition = FormStartPosition.CenterScreen;
-            tipoVacanteFormulario.Show();
+            if(Permisolabel.Text == "Administradpr" | Permisolabel.Text == "Solo Usuario")
+            {
+                TipoVacanteFormulario tipoVacanteFormulario = new TipoVacanteFormulario();
+                tipoVacanteFormulario.StartPosition = FormStartPosition.CenterScreen;
+                tipoVacanteFormulario.Show();
+            }
+            else
+            {
+                MessageBox.Show("No tienes permiso");
+            }
+           
         }
 
-        private void MenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void LogOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            IniciarSesionFormulario iniciarSesionFormulario = new IniciarSesionFormulario();
+            Dispose();
+            iniciarSesionFormulario.ShowDialog();
 
         }
+
+        private void ContratosStrip_Click(object sender, EventArgs e)
+        {
+            if(Permisolabel.Text == "Administrador" | Permisolabel.Text == "Solo Usuario")
+            {
+                ContratoFormulario contratoFormulario = new ContratoFormulario();
+                contratoFormulario.StartPosition = FormStartPosition.CenterScreen;
+                contratoFormulario.Show();
+            }
+        }
+
+      
     }
 }

@@ -39,6 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.Imprimirbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ConsultadataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,6 @@
             this.ConsultadataGridView.Name = "ConsultadataGridView";
             this.ConsultadataGridView.Size = new System.Drawing.Size(697, 349);
             this.ConsultadataGridView.TabIndex = 43;
-            this.ConsultadataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ConsultadataGridView_CellContentClick);
             // 
             // CriteriotextBox
             // 
@@ -57,7 +57,6 @@
             this.CriteriotextBox.Name = "CriteriotextBox";
             this.CriteriotextBox.Size = new System.Drawing.Size(157, 20);
             this.CriteriotextBox.TabIndex = 42;
-            this.CriteriotextBox.TextChanged += new System.EventHandler(this.CriteriotextBox_TextChanged);
             // 
             // FiltrocomboBox
             // 
@@ -70,7 +69,6 @@
             this.FiltrocomboBox.Name = "FiltrocomboBox";
             this.FiltrocomboBox.Size = new System.Drawing.Size(121, 21);
             this.FiltrocomboBox.TabIndex = 41;
-            this.FiltrocomboBox.SelectedIndexChanged += new System.EventHandler(this.FiltrocomboBox_SelectedIndexChanged);
             // 
             // HastadateTimePicker
             // 
@@ -79,7 +77,6 @@
             this.HastadateTimePicker.Name = "HastadateTimePicker";
             this.HastadateTimePicker.Size = new System.Drawing.Size(66, 20);
             this.HastadateTimePicker.TabIndex = 40;
-            this.HastadateTimePicker.ValueChanged += new System.EventHandler(this.HastadateTimePicker_ValueChanged);
             // 
             // DesdedateTimePicker
             // 
@@ -88,7 +85,6 @@
             this.DesdedateTimePicker.Name = "DesdedateTimePicker";
             this.DesdedateTimePicker.Size = new System.Drawing.Size(85, 20);
             this.DesdedateTimePicker.TabIndex = 39;
-            this.DesdedateTimePicker.ValueChanged += new System.EventHandler(this.DesdedateTimePicker_ValueChanged);
             // 
             // Buscarbutton
             // 
@@ -108,7 +104,6 @@
             this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 37;
             this.label4.Text = "Criterio";
-            this.label4.Click += new System.EventHandler(this.Label4_Click);
             // 
             // FechacheckBox
             // 
@@ -119,7 +114,6 @@
             this.FechacheckBox.TabIndex = 36;
             this.FechacheckBox.Text = "Filtrar fecha";
             this.FechacheckBox.UseVisualStyleBackColor = true;
-            this.FechacheckBox.CheckedChanged += new System.EventHandler(this.FechacheckBox_CheckedChanged);
             // 
             // label3
             // 
@@ -129,7 +123,6 @@
             this.label3.Size = new System.Drawing.Size(29, 13);
             this.label3.TabIndex = 35;
             this.label3.Text = "Filtro";
-            this.label3.Click += new System.EventHandler(this.Label3_Click);
             // 
             // label2
             // 
@@ -139,7 +132,6 @@
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 34;
             this.label2.Text = "Hasta";
-            this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // label1
             // 
@@ -149,13 +141,23 @@
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 33;
             this.label1.Text = "Desde";
-            this.label1.Click += new System.EventHandler(this.Label1_Click);
+            // 
+            // Imprimirbutton
+            // 
+            this.Imprimirbutton.Location = new System.Drawing.Point(673, 445);
+            this.Imprimirbutton.Name = "Imprimirbutton";
+            this.Imprimirbutton.Size = new System.Drawing.Size(75, 23);
+            this.Imprimirbutton.TabIndex = 44;
+            this.Imprimirbutton.Text = "Imprimir";
+            this.Imprimirbutton.UseVisualStyleBackColor = true;
+            this.Imprimirbutton.Click += new System.EventHandler(this.Imprimirbutton_Click);
             // 
             // TipoVacanteFormulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 480);
+            this.Controls.Add(this.Imprimirbutton);
             this.Controls.Add(this.ConsultadataGridView);
             this.Controls.Add(this.CriteriotextBox);
             this.Controls.Add(this.FiltrocomboBox);
@@ -188,5 +190,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button Imprimirbutton;
     }
 }

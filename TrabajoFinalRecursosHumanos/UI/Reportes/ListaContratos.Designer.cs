@@ -1,6 +1,6 @@
 ﻿namespace TrabajoFinalRecursosHumanos.UI.Reportes
 {
-    partial class ListaContrato
+    partial class ListaContratos
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.contratosReporte = new TrabajoFinalRecursosHumanos.UI.Reportes.ContratosReporte();
+            this.contratoReporte1 = new TrabajoFinalRecursosHumanos.UI.Reportes.ContratoReporte();
             this.SuspendLayout();
             // 
             // crystalReportViewer1
@@ -40,18 +40,18 @@
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(677, 373);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(800, 450);
             this.crystalReportViewer1.TabIndex = 0;
-            this.crystalReportViewer1.Load += new System.EventHandler(this.CrystalReportViewer1_Load);
             // 
-            // ListaContrato
+            // ListaContratos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(677, 373);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.crystalReportViewer1);
-            this.Name = "ListaContrato";
-            this.Text = "Lista de contrato";
+            this.Name = "ListaContratos";
+            this.Text = "ListaContratos";
+            this.Load += new System.EventHandler(this.ListaContratos_Load);
             this.ResumeLayout(false);
 
         }
@@ -59,6 +59,6 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private ContratosReporte contratosReporte;
+        private ContratoReporte contratoReporte1;
     }
 }

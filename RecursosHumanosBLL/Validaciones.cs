@@ -35,7 +35,7 @@ namespace RecursosHumanosBLL
             Contexto contexto = new Contexto();
             try
             {
-                if (contexto.Usuarios.Any(p => p.ConfirmarClaveUsuario.Equals(contraseña)))
+                if (contexto.Usuarios.Any(p => p.ClaveUsuario.Equals(contraseña)))
                 {
                     paso = true;
                 }

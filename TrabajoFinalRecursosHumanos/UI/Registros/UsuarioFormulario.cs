@@ -15,50 +15,30 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
 {
     public partial class UsuarioFormulario : Form
     {
-        private static RSAParameters ClavePrivada;
-        private static RSAParameters ClavePublica;    
         public UsuarioFormulario()
         {
             InitializeComponent();
             LlenarCombox();
         }
 
-        static byte[] Encriptar(byte[] imput)
+        public string Encriptar(string cadenaEncriptada)
         {
-            byte[] encriptado;
-            using (var rsa = new RSACryptoServiceProvider(2048))
-            {
-                rsa.PersistKeyInCsp = false;
-                rsa.ImportParameters(ClavePublica);
-                encriptado = rsa.Encrypt(imput, true);
-            }
-            return encriptado;
-        }
-        static byte[] DesEncriptar(byte[] imput)
-        {
-            byte[] encriptado;
-            using (var rsa = new RSACryptoServiceProvider(2048))
-            {
-                rsa.PersistKeyInCsp = false;
-                rsa.ImportParameters(ClavePrivada);
-                encriptado = rsa.Decrypt(imput, true);
-            }
-            return encriptado;
+            string resultado = string.Empty;
+            byte[] encryted = System.Text.Encoding.Unicode.GetBytes(cadenaEncriptada);
+            resultado = Convert.ToBase64String(encryted);
+
+            return resultado;
         }
 
-
-        static void GenerarLlave()
+        public string DesEncriptar(string cadenaDesencriptada)
         {
-            using (var rsa = new RSACryptoServiceProvider(2048))
-            {
-                rsa.PersistKeyInCsp = false;
-                ClavePublica = rsa.ExportParameters(false);
-                ClavePrivada = rsa.ExportParameters(true);
-            }
+            string resultado = string.Empty;
+            byte[] decryted = Convert.FromBase64String(cadenaDesencriptada);
+            resultado = System.Text.Encoding.Unicode.GetString(decryted);
 
+            return resultado;
         }
 
-       
         private void Limpiar()
         {
             IdnumericUpDown.Value = 0;
@@ -76,13 +56,9 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         private Usuarios LlenarClase()
         {
             Usuarios usuarios = new Usuarios();
-            GenerarLlave();
-            byte[] encriptado = Encriptar(Encoding.UTF8.GetBytes(ContraseñatextBox.ToString()));
-            byte[] desencriptado = DesEncriptar(encriptado);
             usuarios.UsuarioId = (int)IdnumericUpDown.Value;
             usuarios.Usuario = NombretextBox.Text;
-            usuarios.ClaveUsuario = BitConverter.ToString(encriptado).Replace("-", " ");
-            usuarios.ConfirmarClaveUsuario = ConfirmarContraseñatextBox.Text;
+            usuarios.ClaveUsuario = Encriptar(ContraseñatextBox.Text.Trim());
             usuarios.NivelUsuario = NivelcUsuarioomboBox.Text;
             return usuarios;
         }
@@ -93,8 +69,8 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             IdnumericUpDown.Value = usuarios.UsuarioId;
             NombretextBox.Text = usuarios.Usuario;
             NivelcUsuarioomboBox.Text = usuarios.NivelUsuario;
-            ContraseñatextBox.Text = usuarios.ConfirmarClaveUsuario;
-            ConfirmarContraseñatextBox.Text = usuarios.ConfirmarClaveUsuario;
+            ContraseñatextBox.Text = DesEncriptar(usuarios.ClaveUsuario);
+            ConfirmarContraseñatextBox.Text = DesEncriptar(usuarios.ClaveUsuario);
         }
 
         //Validar
@@ -127,6 +103,12 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 NivelcUsuarioomboBox.Focus();
                 paso = false;
             }
+            if(NivelcUsuarioomboBox.Text != "Administrador" & NivelcUsuarioomboBox.Text != "Solo Usuario")
+            {
+                MyerrorProvider.SetError(NivelcUsuarioomboBox, "Tienes que elegir una de las opciones");
+                NivelcUsuarioomboBox.Focus();
+                paso = false;
+            }
 
             if (ContraseñatextBox.Text.Trim().Length <=7)
             {
@@ -137,7 +119,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
 
             if(ConfirmarContraseñatextBox.Text != ContraseñatextBox.Text)
             {
-                MyerrorProvider.SetError(ConfirmarContraseñatextBox,"Confirmacion incorrecta");
+                MyerrorProvider.SetError(ConfirmarContraseñatextBox,"la contraseña no es igual a la confirmacion de la contraseña");
                 ConfirmarContraseñatextBox.Focus();
                 paso = false;
             }
@@ -259,7 +241,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         private void LlenarCombox()
         {
             NivelcUsuarioomboBox.Items.Add("Administrador");
-            NivelcUsuarioomboBox.Items.Add("Secretario");
+            NivelcUsuarioomboBox.Items.Add("Solo Usuario");
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)

@@ -1,6 +1,6 @@
-﻿namespace TrabajoFinalRecursosHumanos.UI.Consultas
+﻿namespace TrabajoFinalRecursosHumanos.UI.Reportes
 {
-    partial class ListaContrato
+    partial class ListaUsuarios
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.contratosReporte1 = new TrabajoFinalRecursosHumanos.UI.Reportes.ContratosReporte();
+            this.usuarioReporte1 = new TrabajoFinalRecursosHumanos.UI.Reportes.UsuarioReporte();
             this.SuspendLayout();
             // 
             // crystalReportViewer1
@@ -40,17 +40,18 @@
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(638, 371);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(800, 450);
             this.crystalReportViewer1.TabIndex = 0;
             // 
-            // ListaContrato
+            // ListaUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 371);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.crystalReportViewer1);
-            this.Name = "ListaContrato";
-            this.Text = "Lista de conttratos";
+            this.Name = "ListaUsuarios";
+            this.Text = "ListaUsuarios";
+            this.Load += new System.EventHandler(this.ListaUsuarios_Load);
             this.ResumeLayout(false);
 
         }
@@ -58,6 +59,6 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private Reportes.ContratosReporte contratosReporte1;
+        private UsuarioReporte usuarioReporte1;
     }
 }

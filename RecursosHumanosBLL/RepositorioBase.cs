@@ -109,10 +109,7 @@ namespace RecursosHumanosBLL
             {
                 throw;
             }
-            finally
-            {
-                contexto.Dispose();
-            }
+         
             return lista;
         }
         public void Dispose()

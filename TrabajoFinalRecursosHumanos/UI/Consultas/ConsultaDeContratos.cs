@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
 using RecursosHumanosBLL;
+using TrabajoFinalRecursosHumanos.UI.Reportes;
 
 namespace TrabajoFinalRecursosHumanos.UI.Consultas
 {
@@ -22,8 +23,6 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
-
-            
             var listado = new List<Contratos>();
             if (FechacheckBox.Checked == true)
             {
@@ -111,8 +110,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
             }
             else
             {
-
-                ListaContrato listaContrato = new ListaContrato(contratos);
+                ListaContratos listaContrato = new ListaContratos(contratos);
                 listaContrato.Show();
             }
         }

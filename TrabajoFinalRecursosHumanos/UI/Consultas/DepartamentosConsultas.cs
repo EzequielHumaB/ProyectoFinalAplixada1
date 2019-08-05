@@ -9,19 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
 using RecursosHumanosBLL;
+using TrabajoFinalRecursosHumanos.UI.Reportes;
 
 namespace TrabajoFinalRecursosHumanos.UI.Consultas
 {
-    public partial class DepartamentoConsultas : Form
+    public partial class DepartamentosConsultas : Form
     {
-        public DepartamentoConsultas()
+        public List<Departamentos> departamentos;
+        public DepartamentosConsultas()
         {
             InitializeComponent();
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
-
             RepositorioBase<Departamentos> repositorioBase = new RepositorioBase<Departamentos>();
 
             var listado = new List<Departamentos>();
@@ -43,7 +44,6 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
                             case 2:
                                 listado = repositorioBase.GetList(p => p.FechaCreacion.ToString() == CriteriotextBox.Text);
                                 break;
-                        
                         }
                     }
                     catch (Exception)
@@ -56,8 +56,8 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
                     listado = repositorioBase.GetList(p => true);
 
 
-                ConsultadataGridView.DataSource = null;
-                ConsultadataGridView.DataSource = listado;
+                departamentos = listado;
+                ConsultadataGridView.DataSource = departamentos;
             }
 
             else
@@ -78,6 +78,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
                             case 2:
                                 listado = repositorioBase.GetList(p => p.FechaCreacion.ToString() == CriteriotextBox.Text);
                                 break;
+          
                         }
                     }
                     catch (Exception)
@@ -90,59 +91,24 @@ namespace TrabajoFinalRecursosHumanos.UI.Consultas
                     listado = repositorioBase.GetList(p => true);
 
 
-                ConsultadataGridView.DataSource = null;
-                ConsultadataGridView.DataSource = listado;
+                departamentos = listado;
+                ConsultadataGridView.DataSource = departamentos;
             }
         }
 
-        private void CriteriotextBox_TextChanged(object sender, EventArgs e)
+        private void Imprimirbutton_Click(object sender, EventArgs e)
         {
+            if (ConsultadataGridView.RowCount == 0)
+            {
+                MessageBox.Show("No hay Datos Para Imprimir");
+                return;
+            }
+            else
+            {
 
-        }
-
-        private void FiltrocomboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void HastadateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DesdedateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ConsultadataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void Label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FechacheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
+                ListaDepartamentos listaDepartamento = new ListaDepartamentos(departamentos);
+                listaDepartamento.Show();
+            }
         }
     }
 }

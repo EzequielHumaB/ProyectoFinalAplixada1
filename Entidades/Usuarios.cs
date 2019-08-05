@@ -17,7 +17,6 @@ namespace Entidades
         public string NivelUsuario { get; set; }
         public DateTime FechaCreacion { get; set; }
         public string ClaveUsuario { get; set; }
-        public string ConfirmarClaveUsuario { get; set; }
  
         public Usuarios()
         {
@@ -26,7 +25,6 @@ namespace Entidades
             NivelUsuario = string.Empty;
             FechaCreacion = DateTime.Now;;
             ClaveUsuario = string.Empty;
-            ConfirmarClaveUsuario = string.Empty;
         }
         
      

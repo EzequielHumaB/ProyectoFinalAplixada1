@@ -103,6 +103,14 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 paso = false;
             }
 
+            if(EstadoCivilcomboBox.Text !="Soltero" & EstadoCivilcomboBox.Text !="Casado" & EstadoCivilcomboBox.Text !="Divorciado" 
+                &EstadoCivilcomboBox.Text!= "Viudo")
+            {
+                MyerrorProvider.SetError(EstadoCivilcomboBox, "Tienes que elegir una de las opciones");
+                EstadoCivilcomboBox.Focus();
+                paso = false;
+            }
+           
             if (CedulatextBox.Text == string.Empty)
             {
                 MessageBox.Show("La cedula no puede estar vacia");
@@ -110,7 +118,7 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 paso = false;
             }
 
-            if(CedulatextBox.Text.Length <11)
+            if(CedulatextBox.Text.Length != 11)
             {
                 MyerrorProvider.SetError(CedulatextBox,"Cedula invalida");
                 CedulatextBox.Focus();
@@ -166,6 +174,8 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
                 SalarionumericUpDown.Focus();
                 paso = false;
             }
+
+
              
             return paso;
         }
@@ -269,7 +279,6 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
             RepositorioBase<Empleados> repositorio = new RepositorioBase<Empleados>();
             Empleados empleados = new Empleados();
             int.TryParse(IdnumericUpDown.Text, out id);
-            //id = (int)IDnumericUpDown.Value;
             Limpiar();
             try
             {
@@ -383,8 +392,14 @@ namespace TrabajoFinalRecursosHumanos.UI.Registros
         {
             EstadoCivilcomboBox.Items.Add("Soltero");
             EstadoCivilcomboBox.Items.Add("Casado");
-            EstadoCivilcomboBox.Items.Add("Soltero");
+            EstadoCivilcomboBox.Items.Add("Divorciado");
             EstadoCivilcomboBox.Items.Add("Viudo");
+        }
+
+        private void VacantecomboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+            
         }
     }
 }

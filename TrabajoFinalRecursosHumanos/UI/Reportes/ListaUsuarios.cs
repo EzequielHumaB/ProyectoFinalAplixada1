@@ -11,19 +11,20 @@ using Entidades;
 
 namespace TrabajoFinalRecursosHumanos.UI.Reportes
 {
-    public partial class ListaContrato : Form
+    public partial class ListaUsuarios : Form
     {
-        private List<Contratos> Lista;
-        public ListaContrato()
+        private List<Usuarios> lista;
+        public ListaUsuarios(List<Usuarios> usuarios)
         {
+            this.lista = usuarios;
             InitializeComponent();
         }
 
-        private void CrystalReportViewer1_Load(object sender, EventArgs e)
+        private void ListaUsuarios_Load(object sender, EventArgs e)
         {
-            ContratosReporte contratosreporte = new ContratosReporte();
-            contratosreporte.SetDataSource(Lista);
-            crystalReportViewer1.ReportSource = contratosreporte;
+            UsuarioReporte usuarioReporte = new UsuarioReporte();
+            usuarioReporte.SetDataSource(lista);
+            crystalReportViewer1.ReportSource = usuarioReporte;
             crystalReportViewer1.Refresh();
         }
     }
